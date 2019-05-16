@@ -1,0 +1,9 @@
+2017-01-13 12:06:06.403 INFO Refund: Refund is processing...
+2017-01-13 12:06:06.475 DEBUG WxPayApi: Refund request : <xml><appid><![CDATA[wx5adf8bdaa34b8707]]></appid><mch_id><![CDATA[1219910201]]></mch_id><nonce_str><![CDATA[7ae3cce3f0984b35a305d8d2abd3d67d]]></nonce_str><op_user_id><![CDATA[1219910201]]></op_user_id><out_refund_no><![CDATA[10620170113120605699]]></out_refund_no><refund_fee>150000</refund_fee><sign><![CDATA[83D2E594377DCFC906BBA975F9F28878]]></sign><total_fee>150000</total_fee><transaction_id><![CDATA[4002972001201701136140936442]]></transaction_id></xml>
+2017-01-13 12:06:06.873 ERROR HttpService: System.Security.Cryptography.CryptographicException: 系统找不到指定的路径。
+
+   在 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   在 System.Security.Cryptography.X509Certificates.X509Utils._QueryCertFileType(String fileName)
+   在 System.Security.Cryptography.X509Certificates.X509Certificate.LoadCertificateFromFile(String fileName, Object password, X509KeyStorageFlags keyStorageFlags)
+   在 System.Security.Cryptography.X509Certificates.X509Certificate2..ctor(String fileName, String password)
+   在 WxPayAPI.HttpService.Post(String xml, String url, Boolean isUseCert, Int32 timeout, WxPayConfig config) 位置 D:\site\b2betown\Com.Tenpay\WxpayApi\lib\HttpService.cs:行号 68

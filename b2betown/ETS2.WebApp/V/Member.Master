@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Member.master.cs" Inherits="ETS2.WebApp.V.Member" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>
+        <%=Scenic_name%></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <link href="/Styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+
+    <script src="/Scripts/common.js" type="text/javascript"></script>
+    <link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/Styles/pc/pc_man.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+ <%if (viewtop == 1)
+      { %>
+    <header class="ui-header">  
+    <div class="ui-header-inner clearfix">
+     
+        <div class="ui-header-logo">
+            <a href="javascript:;" class="js-hover logo" data-target="js-shop-info">
+        <%=Com_name%>              <span class="smaller-title hide"><%=Com_name%></span>
+      </a>
+        </div>
+        <nav class="ui-header-nav">
+            <ul class="clearfix">
+                             
+    <li><a href="/Ui/ShangJiaUI/ProductList.aspx">首页</a></li>
+	 <li class="divide">|</li>
+    <li><a href="/Ui/ShangJiaUI/PJList.aspx">全部产品</a></li>          
+    <li class="divide">|</li>
+    <li ><a href="/Ui/ShangJiaUI/Article.aspx">最新文章</a></li>          
+    
+     </ul>
+        </nav>
+    </div>
+</header>
+<%} %>
+    <form id="form1" runat="server">
+    <div>
+
+        <div id="site-nav">
+        </div>
+        
+        <div class="header" style=" padding-bottom:20px;">
+             <!--<div class="wrap header-top cl">
+               <div class="title fl">
+                    <%=Logourl%>
+                </div>
+                <ul class="num fr" style="display: block;">
+                                         <%=Com_name%> |
+                        <%=Service_Phone%>
+                </ul>
+            </div>-->
+        </div>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+        <%if (viewtop == 1)
+      { %>
+        <div class="copyright">
+            <div class="wrap copyright-top cl">
+                <div class="copyright-address">
+                <%=Copyright%>
+                </div>
+                
+            </div>
+        </div>
+        <%} %>
+    </div>
+    <input type="hidden" id="hid_comid" value="<%=comid %>" />
+    <input type="hidden" id="hid_Scenic_name" value="<%=Scenic_name%>" />
+    <input type="hidden" id="hid_Scenic_intro" value="<%=Scenic_intro%>" />
+    <input type="hidden" id="hid_proid" value="<%=proid %>" />
+    <input type="hidden" id="hid_ordertype" value="<%=ordertype %>" />
+    <input type="hidden" id="hid_proname" value="<%=proname %>" />
+    <input type="hidden" id="hid_fileUrl" value="<%=fileUrl %>" />
+    <input type="hidden" id="hid_userid" value="<%=AccountId %>" />
+    </form>
+</body>
+</html>

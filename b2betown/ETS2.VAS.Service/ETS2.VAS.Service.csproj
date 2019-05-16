@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8412CE36-6D89-4B0F-8499-5F79353CFAFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETS2.VAS.Service</RootNamespace>
+    <AssemblyName>ETS2.VAS.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ETS2.WebApp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VASService.Data\Agent_asyncsendlogData.cs" />
+    <Compile Include="VASService.Data\B2bFinanceData.cs" />
+    <Compile Include="VASService.Data\B2bPayData.cs" />
+    <Compile Include="VASService.Data\B2b_finance_paytypeData.cs" />
+    <Compile Include="VASService.Data\Common\HzinsInter.cs" />
+    <Compile Include="VASService.Data\Common\Hzins_AsyncOrderInfo.cs" />
+    <Compile Include="VASService.Data\Common\Hzins_InsureDetailResp.cs" />
+    <Compile Include="VASService.Data\Common\Hzins_OrderApplyResp.cs" />
+    <Compile Include="VASService.Data\Common\Hzins_OrderCancelResp.cs" />
+    <Compile Include="VASService.Data\Common\Hzins_SearchInsureResp.cs" />
+    <Compile Include="VASService.Data\Common\MjldInter.cs" />
+    <Compile Include="VASService.Data\Common\SunShineInter.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalAgent_asyncsendlog.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalB2BFinance.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalB2bPay.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalB2b_finance_paytype.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalMemberImprest.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalMemberIntegral.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalMember_channel_rebateApplyaccount.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalMember_channel_rebateApplylog.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalMember_channel_rebatelog.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalPayReturnSendEticket.cs" />
+    <Compile Include="VASService.Data\InternalData\InternalSendEticketData.cs" />
+    <Compile Include="VASService.Data\MemberImprestData.cs" />
+    <Compile Include="VASService.Data\MemberIntegralData.cs" />
+    <Compile Include="VASService.Data\Member_channel_rebateApplyaccountData.cs" />
+    <Compile Include="VASService.Data\Member_channel_rebateApplylogData.cs" />
+    <Compile Include="VASService.Data\Member_channel_rebatelogData.cs" />
+    <Compile Include="VASService.Data\PayReturnSendEticketData.cs" />
+    <Compile Include="VASService.Data\SendEticketData.cs" />
+    <Compile Include="VASService.Modle\Agent_asyncsendlog.cs" />
+    <Compile Include="VASService.Modle\B2b_Finance.cs" />
+    <Compile Include="VASService.Modle\B2b_finance_paytype.cs" />
+    <Compile Include="VASService.Modle\B2b_pay.cs" />
+    <Compile Include="VASService.Modle\Enum\AgentUpdateStatus.cs" />
+    <Compile Include="VASService.Modle\Enum\Product_V_State.cs" />
+    <Compile Include="VASService.Modle\Member_channel_rebateApplyaccount.cs" />
+    <Compile Include="VASService.Modle\Member_channel_rebateApplylog.cs" />
+    <Compile Include="VASService.Modle\Member_channel_rebatelog.cs" />
+    <Compile Include="VASService.Modle\Member_Imprest.cs" />
+    <Compile Include="VASService.Modle\Member_Integral.cs" />
+    <Compile Include="Web References\WebReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Com.Tenpay\Com.Tenpay.csproj">
+      <Project>{6F276911-E4A7-4C85-85D5-40EE5E85D664}</Project>
+      <Name>Com.Tenpay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Framework\ETS.Framework.csproj">
+      <Project>{CA291C1A-82F9-4514-A570-F1CA4A8C51F3}</Project>
+      <Name>ETS.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Common.Business\ETS2.Common.Business.csproj">
+      <Project>{29144B6A-687D-431C-AC22-83096799142F}</Project>
+      <Name>ETS2.Common.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.CRM.Service\ETS2.CRM.Service.csproj">
+      <Project>{960115BA-04F9-4E4C-B3DE-203F1B011093}</Project>
+      <Name>ETS2.CRM.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Member.Service\ETS2.Member.Service.csproj">
+      <Project>{2A10CD48-3364-4530-B5E9-A4C5D2687FCE}</Project>
+      <Name>ETS2.Member.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.PM.Service\ETS2.PM.Service.csproj">
+      <Project>{1AD898A7-9A31-44F2-ABA2-C82B11DE667D}</Project>
+      <Name>ETS2.PM.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.WeiXin.Service\ETS2.WeiXin.Service.csproj">
+      <Project>{D6767162-6530-4813-A682-56CEB9F0426D}</Project>
+      <Name>ETS2.WeiXin.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference1\httpService.wsdl" />
+    <None Include="Web References\WebReference1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference2\httpService.wsdl" />
+    <None Include="Web References\WebReference2\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://123.125.207.45:8080/httpService.ts%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference2\</RelPath>
+      <UpdateFromURL>http://123.125.207.45:8080/httpService.ts%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ETS2_VAS_Service_WebReference2_ITicketService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://180.184.100.186:3177/ticketservice/httpService.ts%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference1\</RelPath>
+      <UpdateFromURL>http://180.184.100.186:3177/ticketservice/httpService.ts%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ETS2_VAS_Service_WebReference1_ITicketService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

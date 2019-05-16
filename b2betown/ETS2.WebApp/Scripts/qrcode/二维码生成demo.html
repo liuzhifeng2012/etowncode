@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.xiaoleilu.com/js/jquery.qrcode.js"></script>
+<script type="text/javascript" src="http://www.xiaoleilu.com/js/qrcode.js"></script>
+</head>
+<body >
+   
+   生成二维码
+   <!-- 二维码绘制区域 -->
+<div id="qrcodeCanvas" align="center"></div>
+<script>
+    $('#qrcodeCanvas').qrcode({
+       text: 'http://www.cnwsjs.cn?p=104',//二维码代表的字符串（本页面的URL）
+       width: 167,//二维码宽度
+       height: 167//二维码高度
+    });
+</script>
+</body>
+</html>

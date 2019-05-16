@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1AD898A7-9A31-44F2-ABA2-C82B11DE667D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETS2.PM.Service</RootNamespace>
+    <AssemblyName>ETS2.PM.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ETS2.WebApp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LMM.Data\Internal\Internallvmama_reqlogData.cs" />
+    <Compile Include="LMM.Data\Internal\Internal_LVMAMA.cs" />
+    <Compile Include="LMM.Data\LVMAMA_Data.cs" />
+    <Compile Include="LMM.Data\lvmama_reqlogData.cs" />
+    <Compile Include="LMM.Model\apply_codemodel.cs" />
+    <Compile Include="LMM.Model\apply_codeRefund.cs" />
+    <Compile Include="LMM.Model\asynnoticecallback.cs" />
+    <Compile Include="LMM.Model\backRefund.cs" />
+    <Compile Include="LMM.Model\discardcodecallbackmodel.cs" />
+    <Compile Include="LMM.Model\discard_codemodel.cs" />
+    <Compile Include="LMM.Model\Lvmama_reqlog.cs" />
+    <Compile Include="LMM.Model\sms_resendmodel.cs" />
+    <Compile Include="LMM.Model\usedticketscallback.cs" />
+    <Compile Include="Meituan.Data\DealResponseData.cs" />
+    <Compile Include="Meituan.Data\Internal\InternalDealResponse.cs" />
+    <Compile Include="Meituan.Data\Internal\InternalMeituan_reqlog.cs" />
+    <Compile Include="Meituan.Data\Internal\InternalPoiResponse.cs" />
+    <Compile Include="Meituan.Data\Meituan_reqlogData.cs" />
+    <Compile Include="Meituan.Data\PoiResponseData.cs" />
+    <Compile Include="Meituan.Model\ApiRequest.cs" />
+    <Compile Include="Meituan.Model\MtpApiRequest.cs" />
+    <Compile Include="Meituan.Model\MtpApiResponse.cs" />
+    <Compile Include="Meituan.Model\MtpBalanceRequest.cs" />
+    <Compile Include="Meituan.Model\MtpBalanceResponse.cs" />
+    <Compile Include="Meituan.Model\MtpDealSendNoticeRequest.cs" />
+    <Compile Include="Meituan.Model\MtpOrderRefundedMessageRequest.cs" />
+    <Compile Include="Meituan.Model\OrderCancelRequest.cs" />
+    <Compile Include="Meituan.Model\OrderCancelResponse.cs" />
+    <Compile Include="Meituan.Model\OrderCreateResponse.cs" />
+    <Compile Include="Meituan.Model\OrderPayRequest.cs" />
+    <Compile Include="Meituan.Model\OrderPayResponse.cs" />
+    <Compile Include="Meituan.Model\OrderQueryRequest.cs" />
+    <Compile Include="Meituan.Model\OrderQueryResponse.cs" />
+    <Compile Include="Meituan.Model\OrderValidateResponse.cs" />
+    <Compile Include="Meituan.Model\PoiRequest.cs" />
+    <Compile Include="Meituan.Model\PoiResponse.cs" />
+    <Compile Include="Meituan.Model\PriceRequest.cs" />
+    <Compile Include="Meituan.Model\PriceResponse.cs" />
+    <Compile Include="Meituan.Model\PushResponseBody.cs" />
+    <Compile Include="Meituan.Model\OrderConsumeNotice.cs" />
+    <Compile Include="Meituan.Data\MeiTuanInter.cs" />
+    <Compile Include="Meituan.Model\DealRequest.cs" />
+    <Compile Include="Meituan.Model\DealResponse.cs" />
+    <Compile Include="Meituan.Model\Meituan_reqlog.cs" />
+    <Compile Include="Meituan.Model\OrderCreateRequest.cs" />
+    <Compile Include="Meituan.Model\OrderValidateRequest.cs" />
+    <Compile Include="Meituan.Model\DealChangeNotice.cs" />
+    <Compile Include="Meituan.Model\ReturnResult.cs" />
+    <Compile Include="Meituan.Model\VoucherRequest.cs" />
+    <Compile Include="Meituan.Model\VoucherResponse.cs" />
+    <Compile Include="PMService.Data\Agent_companyData.cs" />
+    <Compile Include="PMService.Data\Agent_requestlogData.cs" />
+    <Compile Include="PMService.Data\ApiAsynOrderData.cs" />
+    <Compile Include="PMService.Data\ApiLogData.cs" />
+    <Compile Include="PMService.Data\Api_hzins_OrderApplyReq_applicantInfoData.cs" />
+    <Compile Include="PMService.Data\Api_hzins_OrderApplyReq_ApplicationData.cs" />
+    <Compile Include="PMService.Data\Api_hzins_OrderApplyReq_insurantInfoData.cs" />
+    <Compile Include="PMService.Data\Api_hzins_OrderApplyResp_OrderExtData.cs" />
+    <Compile Include="PMService.Data\Api_hzins_OrderApplyResp_OrderInfoData.cs" />
+    <Compile Include="PMService.Data\Api_hzins_orderCancelData.cs" />
+    <Compile Include="PMService.Data\Api_mjld_AsyncBacknoticeData.cs" />
+    <Compile Include="PMService.Data\Api_mjld_AsyncUsenoticeData.cs" />
+    <Compile Include="PMService.Data\Api_mjld_RefundByOrderIDData.cs" />
+    <Compile Include="PMService.Data\Api_mjld_SubmitOrder_inputData.cs" />
+    <Compile Include="PMService.Data\Api_mjld_SubmitOrder_outputData.cs" />
+    <Compile Include="PMService.Data\Api_yg_addorder_inputData.cs" />
+    <Compile Include="PMService.Data\Api_yg_addorder_outputData.cs" />
+    <Compile Include="PMService.Data\Api_yg_cancelorderData.cs" />
+    <Compile Include="PMService.Data\Api_yg_SyncordernoticeData.cs" />
+    <Compile Include="PMService.Data\B2bComProData.cs" />
+    <Compile Include="PMService.Data\B2bComProLogData.cs" />
+    <Compile Include="PMService.Data\B2bEticketSendLogData.cs" />
+    <Compile Include="PMService.Data\B2bModelData.cs" />
+    <Compile Include="PMService.Data\B2bModelMenuData.cs" />
+    <Compile Include="PMService.Data\B2bOrderData.cs" />
+    <Compile Include="PMService.Data\B2bEticketData.cs" />
+    <Compile Include="PMService.Data\B2bEticketLogData.cs" />
+    <Compile Include="PMService.Data\B2b_com_blackoutdatesData.cs" />
+    <Compile Include="PMService.Data\B2b_com_housetypeData.cs" />
+    <Compile Include="PMService.Data\B2b_com_LineGroupDateData.cs" />
+    <Compile Include="PMService.Data\B2b_com_projectData.cs" />
+    <Compile Include="PMService.Data\B2b_com_protripData.cs" />
+    <Compile Include="PMService.Data\B2b_com_pro_groupbuystocklogData.cs" />
+    <Compile Include="PMService.Data\B2b_com_pro_kucunlogData.cs" />
+    <Compile Include="PMService.Data\B2b_com_pro_pricelogData.cs" />
+    <Compile Include="PMService.Data\B2b_com_pro_SpeciData.cs" />
+    <Compile Include="PMService.Data\B2b_com_pro_SpecitypeData.cs" />
+    <Compile Include="PMService.Data\B2b_com_pro_SpecitypevalueData.cs" />
+    <Compile Include="PMService.Data\B2b_com_roomtypeData.cs" />
+    <Compile Include="PMService.Data\B2b_com_roomtypedayData.cs" />
+    <Compile Include="PMService.Data\B2b_com_roomtypeimgData.cs" />
+    <Compile Include="PMService.Data\B2b_delivery_costData.cs" />
+    <Compile Include="PMService.Data\B2b_delivery_tmpData.cs" />
+    <Compile Include="PMService.Data\B2b_eticket_usesetData.cs" />
+    <Compile Include="PMService.Data\B2b_order_bespeakData.cs" />
+    <Compile Include="PMService.Data\B2b_order_busNamelistSendLogData.cs" />
+    <Compile Include="PMService.Data\B2b_order_busRemindSmsData.cs" />
+    <Compile Include="PMService.Data\B2b_order_busRemindSmsLogData.cs" />
+    <Compile Include="PMService.Data\B2b_order_hotelData.cs" />
+    <Compile Include="PMService.Data\B2b_Rentserver_RefundLogData.cs" />
+    <Compile Include="PMService.Data\Bus_FeeticketData.cs" />
+    <Compile Include="PMService.Data\DayJieSuanData.cs" />
+    <Compile Include="PMService.Data\B2bSmsMobileSendDate.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalAgentCompany.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalagent_requestlog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalApiAsynOrder.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalApiLog.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_hzins_OrderApplyReq_applicantInfo.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_hzins_OrderApplyReq_Application.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_hzins_OrderApplyReq_insurantInfo.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_hzins_OrderApplyResp_OrderExt.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_hzins_OrderApplyResp_OrderInfo.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_hzins_orderCancel.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_mjld_AsyncBacknotice.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_mjld_AsyncUsenotice.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_mjld_RefundByOrderID.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_mjld_SubmitOrder_input.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_mjld_SubmitOrder_output.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_yg_addorder_input.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_yg_addorder_output.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalapi_yg_cancelorder.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalApi_yg_Syncordernotice.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bComPro.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bComProLog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bEticket.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bEticketLog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bEticketSendLog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bModel.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bModelMenu.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2bOrder.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_com_blackoutdates.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_housetype.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_LineGroupDate.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_protrip.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_pro_groupbuystocklog.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_com_pro_kucunlog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_pro_pricelog.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_com_pro_Speci.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_com_pro_Specitype.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_com_pro_Specitypevalue.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_roomtype.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_roomtypeday.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_com_roomtypeimg.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_delivery_cost.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_delivery_tmp.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_eticket_useset.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_order_bespeak.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_order_busNamelistSendLog.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_order_busRemindSms.cs" />
+    <Compile Include="PMService.Data\InternalData\Internalb2b_order_busRemindSmsLog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_order_hotel.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalB2b_Rentserver_RefundLog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalBus_Feeticket.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalDayJieSuan.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalPosLog.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalRandomCode.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalApiService.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalRentserver.cs" />
+    <Compile Include="PMService.Data\InternalData\InternalSmsMobileSend.cs" />
+    <Compile Include="PMService.Data\InternalData\Internaltravelbusorder_operlog.cs" />
+    <Compile Include="PMService.Data\InternalData\Internaltravelbusorder_operlog_order.cs" />
+    <Compile Include="PMService.Data\InternalData\Internaltravelbusorder_sendbus.cs" />
+    <Compile Include="PMService.Data\InternalData\Internal_b2b_com_project.cs" />
+    <Compile Include="PMService.Data\PoslogData.cs" />
+    <Compile Include="PMService.Data\RentserverData.cs" />
+    <Compile Include="PMService.Modle\Api_hzins_OrderApplyReq_applicantInfo.cs" />
+    <Compile Include="PMService.Modle\Api_hzins_OrderApplyReq_Application.cs" />
+    <Compile Include="PMService.Modle\Api_hzins_OrderApplyReq_insurantInfo.cs" />
+    <Compile Include="PMService.Modle\Api_hzins_OrderApplyResp_OrderExt.cs" />
+    <Compile Include="PMService.Modle\Api_hzins_OrderApplyResp_OrderInfo.cs" />
+    <Compile Include="PMService.Modle\Api_hzins_orderCancel.cs" />
+    <Compile Include="PMService.Modle\Api_mjld_AsyncBacknotice.cs" />
+    <Compile Include="PMService.Modle\Api_mjld_AsyncUsenotice.cs" />
+    <Compile Include="PMService.Modle\Api_mjld_RefundByOrderID.cs" />
+    <Compile Include="PMService.Modle\Api_Mjld_SubmitOrder_input.cs" />
+    <Compile Include="PMService.Modle\Api_Mjld_SubmitOrder_output.cs" />
+    <Compile Include="PMService.Modle\Api_yg_addorder_input.cs" />
+    <Compile Include="PMService.Modle\Api_yg_addorder_output.cs" />
+    <Compile Include="PMService.Modle\Api_yg_cancelorder.cs" />
+    <Compile Include="PMService.Modle\Api_yg_Syncordernotice.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_bandingzhajipos.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_groupbuystocklog.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_kucunlog.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_Package.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_Speci.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_Specitype.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_Specitypevalue.cs" />
+    <Compile Include="PMService.Modle\b2b_com_pro_worktime.cs" />
+    <Compile Include="PMService.Modle\b2b_com_pro_worktime_calendar.cs" />
+    <Compile Include="PMService.Modle\b2b_eticket_Deposit.cs" />
+    <Compile Include="PMService.Modle\B2b_order_busNamelistSendLog.cs" />
+    <Compile Include="PMService.Modle\B2b_order_busRemindSms.cs" />
+    <Compile Include="PMService.Modle\B2b_order_busRemindSmsLog.cs" />
+    <Compile Include="PMService.Modle\B2b_order_evaluate.cs" />
+    <Compile Include="PMService.Modle\B2b_project_finance.cs" />
+    <Compile Include="PMService.Modle\B2b_pro_cost_rili.cs" />
+    <Compile Include="PMService.Modle\B2b_Rentserver.cs" />
+    <Compile Include="PMService.Modle\B2b_Rentserver_RefundLog.cs" />
+    <Compile Include="PMService.Modle\B2b_Rentserver_User.cs" />
+    <Compile Include="PMService.Modle\B2b_Rentserver_User_info.cs" />
+    <Compile Include="PMService.Modle\b2b_Rentserver_user_Timeoutmoney.cs" />
+    <Compile Include="PMService.Modle\Bus_Feeticket.cs" />
+    <Compile Include="PMService.Modle\Bus_Feeticket_pno.cs" />
+    <Compile Include="PMService.Modle\Bus_feeticket_Pro.cs" />
+    <Compile Include="PMService.Modle\Enum\GroupbuyStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\GroupbuyType.cs" />
+    <Compile Include="PMService.Modle\Enum\Hzins_cardType.cs" />
+    <Compile Include="PMService.Modle\Enum\Hzins_effectiveState.cs" />
+    <Compile Include="PMService.Modle\Enum\Hzins_issueState.cs" />
+    <Compile Include="PMService.Modle\Enum\Hzins_payState.cs" />
+    <Compile Include="PMService.Modle\Enum\Hzins_relationId.cs" />
+    <Compile Include="PMService.Modle\Enum\Hzins_tripPurposeId.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_CheckStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_code.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_credentialsType.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_msRatioCheckStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_OnlineStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_orderStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_ProStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\Meituan_voucherType.cs" />
+    <Compile Include="PMService.Modle\Rentserver_User_zhajilog.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalnoticeOrderAlreadyCashBack.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalQunar_noticeOrderConsumed.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_noticeOrderAlreadyCashBackData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_noticeOrderConsumedData.cs" />
+    <Compile Include="PMService.Data\RandomCodeData.cs" />
+    <Compile Include="PMService.Data\ApiServiceData.cs" />
+    <Compile Include="PMService.Data\Travelbusorder_operlogData.cs" />
+    <Compile Include="PMService.Data\Travelbusorder_operlog_orderData.cs" />
+    <Compile Include="PMService.Data\Travelbusorder_sendbusData.cs" />
+    <Compile Include="PMService.Modle\Agent_requestlog.cs" />
+    <Compile Include="PMService.Modle\ApiAsynOrder.cs" />
+    <Compile Include="PMService.Modle\ApiLog.cs" />
+    <Compile Include="PMService.Modle\B2b_address.cs" />
+    <Compile Include="PMService.Modle\B2b_com_blackoutdates.cs" />
+    <Compile Include="PMService.Modle\B2b_com_class.cs" />
+    <Compile Include="PMService.Modle\B2b_com_housetype.cs" />
+    <Compile Include="PMService.Modle\B2b_com_LineGroupDate.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro.cs" />
+    <Compile Include="PMService.Modle\B2b_com_project.cs" />
+    <Compile Include="PMService.Modle\B2b_com_protrip.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_log.cs" />
+    <Compile Include="PMService.Modle\B2b_com_pro_pricelog.cs" />
+    <Compile Include="PMService.Modle\B2b_com_roomtype.cs" />
+    <Compile Include="PMService.Modle\B2b_com_roomtypeday.cs" />
+    <Compile Include="PMService.Modle\B2b_com_roomtypeimg.cs" />
+    <Compile Include="PMService.Modle\B2b_dayjiesuan.cs" />
+    <Compile Include="PMService.Modle\B2b_delivery_cost.cs" />
+    <Compile Include="PMService.Modle\B2b_delivery_tmp.cs" />
+    <Compile Include="PMService.Modle\B2b_eticket_log.cs" />
+    <Compile Include="PMService.Modle\B2b_eticket.cs" />
+    <Compile Include="PMService.Modle\B2b_eticket_send_log.cs" />
+    <Compile Include="PMService.Modle\B2b_eticket_useset.cs" />
+    <Compile Include="PMService.Modle\B2b_model.cs" />
+    <Compile Include="PMService.Modle\B2b_modelmenu.cs" />
+    <Compile Include="PMService.Modle\B2b_order.cs" />
+    <Compile Include="PMService.Modle\B2b_order_bespeak.cs" />
+    <Compile Include="PMService.Modle\b2b_order_busNamelist.cs" />
+    <Compile Include="PMService.Modle\B2b_order_hotel.cs" />
+    <Compile Include="PMService.Modle\B2b_smsmobilesend.cs" />
+    <Compile Include="PMService.Modle\Enum\ECodeOper.cs" />
+    <Compile Include="PMService.Modle\Enum\ECodeOperStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\ECodeVerifyMode.cs" />
+    <Compile Include="PMService.Modle\Enum\EticketCodeSendStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\EticketCodeStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\EticketCodeType.cs" />
+    <Compile Include="PMService.Modle\Enum\Hotel_ReserveType.cs" />
+    <Compile Include="PMService.Modle\Enum\Iscanuseonsameday.cs" />
+    <Compile Include="PMService.Modle\Enum\OrderStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\PayStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\ProAppointdata.cs" />
+    <Compile Include="PMService.Modle\Enum\ProductPro_Type.cs" />
+    <Compile Include="PMService.Modle\Enum\ProductServer_Type.cs" />
+    <Compile Include="PMService.Modle\Enum\ProductSource_Type.cs" />
+    <Compile Include="PMService.Modle\Enum\ProductStatus.cs" />
+    <Compile Include="PMService.Modle\Enum\ProRealNameType.cs" />
+    <Compile Include="PMService.Modle\Enum\ProValidateMethod.cs" />
+    <Compile Include="PMService.Modle\Enum\ProViewMethod.cs" />
+    <Compile Include="PMService.Modle\Enum\QuitTicketMechanism.cs" />
+    <Compile Include="PMService.Modle\Enum\SendCodeStatus.cs" />
+    <Compile Include="PMService.Modle\H5_html.cs" />
+    <Compile Include="PMService.Modle\Pos_log.cs" />
+    <Compile Include="PMService.Modle\RandomCode.cs" />
+    <Compile Include="PMService.Modle\ApiService.cs" />
+    <Compile Include="PMService.Modle\Travelbusorder_operlog.cs" />
+    <Compile Include="PMService.Modle\Travelbusorder_operlog_order.cs" />
+    <Compile Include="PMService.Modle\Travelbusorder_sendbus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalnoticeOrderRefundedByQunar.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalpayOrderForBeforePaySync.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalpushOrderForBeforePaySync.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalpushOrderForBeforePaySyncvisitperson.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalQunar_CreateOrderForBeforePaySync.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalQunar_GetOrderByQunar.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalQunar_ms_requestlog.cs" />
+    <Compile Include="Qunar_Ms.Data\Internal\InternalQunar_CreateOrderForBeforePaySyncvisitperson.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_CreateOrderForBeforePaySyncData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_GetOrderByQunarData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_ms_requestlogData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_noticeOrderRefundedByQunarData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_payOrderForBeforePaySyncData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_CreateOrderForBeforePaySyncvisitpersonData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_pushOrderForBeforePaySyncData.cs" />
+    <Compile Include="Qunar_Ms.Data\Qunar_pushOrderForBeforePaySyncvisitpersonData.cs" />
+    <Compile Include="Qunar_Ms.Model\Qunar_ms_requestlog.cs" />
+    <Compile Include="Qunar_Ms.QMRequestDataSchema\ETS2.PM.Service.Qunar_Ms.QMRequestDataSchema.cs" />
+    <Compile Include="Qunar_Ms.QMResponseDataSchema\ETS2.PM.Service.Qunar_Ms.QMResponseDataSchema.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_cancel_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_consume_retlog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_modified_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_ms_requestlog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_order_modify_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_resend_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_resend_noticeretlog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_reverse_retlog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_send_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Data\Internal\InternalTaobao_send_noticeretlog.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_cancel_noticelogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_consume_retlogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_modified_noticelogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_ms_requestlogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_order_modify_noticelogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_resend_noticelogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_resend_noticeretlogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_reverse_retlogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_send_noticelogData.cs" />
+    <Compile Include="Taobao_Ms.Data\Taobao_send_noticeretlogData.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_cancel_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_consume_retlog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_modified_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_ms_requestlog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_order_modify_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_resend_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_resend_noticeretlog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_reverse_retlog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_send_noticelog.cs" />
+    <Compile Include="Taobao_Ms.Model\Taobao_send_noticeretlog.cs" />
+    <Compile Include="WL.Data\Internal\InternalWLDealResponse.cs" />
+    <Compile Include="WL.Data\Internal\InternalWlGetProInfoDealRequest.cs" />
+    <Compile Include="WL.Data\Internal\InternalWL_reqlog.cs" />
+    <Compile Include="WL.Data\WlDealResponseData.cs" />
+    <Compile Include="WL.Data\WlGetProInfoDealRequestData.cs" />
+    <Compile Include="WL.Data\WL_reqlogData.cs" />
+    <Compile Include="WL.Model\ReturnResult.cs" />
+    <Compile Include="WL.Model\wlApiResponse.cs" />
+    <Compile Include="WL.Model\WlDealResponse.cs" />
+    <Compile Include="WL.Model\WlGetProInfoDealRequest.cs" />
+    <Compile Include="WL.Model\wlhexiao.cs" />
+    <Compile Include="WL.Model\wlhexiaoreturn.cs" />
+    <Compile Include="WL.Model\wlOrderCloseNoticeRequest.cs" />
+    <Compile Include="WL.Model\wlOrderCreateRequest.cs" />
+    <Compile Include="WL.Model\wlOrderCreateResponse.cs" />
+    <Compile Include="WL.Model\wlOrderPayRequest.cs" />
+    <Compile Include="WL.Model\wlOrderPayResponse.cs" />
+    <Compile Include="WL.Model\wlOrderQueryRequest.cs" />
+    <Compile Include="WL.Model\wlOrderQueryResponse.cs" />
+    <Compile Include="WL.Model\wlOrderRefundRequest.cs" />
+    <Compile Include="WL.Model\wlOrderRefundResponse.cs" />
+    <Compile Include="WL.Model\wl_order_model.cs" />
+    <Compile Include="WL.Model\WL_reqlog.cs" />
+    <Compile Include="WL.Model\wl_use_log_model.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Framework\ETS.Framework.csproj">
+      <Project>{CA291C1A-82F9-4514-A570-F1CA4A8C51F3}</Project>
+      <Name>ETS.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Common.Business\ETS2.Common.Business.csproj">
+      <Project>{29144B6A-687D-431C-AC22-83096799142F}</Project>
+      <Name>ETS2.Common.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.CRM.Service\ETS2.CRM.Service.csproj">
+      <Project>{960115BA-04F9-4E4C-B3DE-203F1B011093}</Project>
+      <Name>ETS2.CRM.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

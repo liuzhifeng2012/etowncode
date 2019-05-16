@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="GBK" />
+	<title>登录中心 － 易城商户平台</title>
+	
+
+
+ 
+
+
+<meta name="ABTest" content="" />
+
+
+
+		
+<link charset="utf-8" rel="stylesheet" href="http://www.etown.cn/web-test/alipay-o2o/css/login-1.css" media="all" />
+
+	
+			<style>
+/*修复IE6下子元素没有触发hasLayout的问题*/
+fieldset{
+position:relative;
+zoom:1;
+}
+html{
+    background:transparent;
+}
+
+.edit-tips a.edit-tips-text,.edit-tips a.edit-tips-text:hover{
+    color:#666666;
+}
+
+/* 实时校验码Icon样式 */
+
+.sl-checkcodeIcon{
+    top: 10px;
+	left: 60px;
+}
+
+#J_safeSignCheck{
+    zoom: 1;
+}
+
+.ui-btn-cnt{
+    zoom: 1;
+}
+
+.sl-checkcode-content{
+    position: relative;
+    clear: both;
+}
+
+.error-box a, .error-box a:hover{
+	color:#08C;
+}
+
+</style>
+
+	</head>
+
+<body class="blank">
+	<div id="container">
+
+
+
+
+
+<div class="ui-login-aside">
+		<form name="loginForm" id="login"  action="#" class='ui-form  fn-hide ' method="post">
+		<div class="ui-form-title">
+			<h1>登录商家账户</h1>
+							
+		</div>
+
+
+
+    
+		<div class="login-form-cnt">
+
+			<fieldset>
+
+								<div class="fm-item ui-form-item sl-account">
+	<label class="fm-label ui-form-label" for="logonId">账户名：</label>
+	
+							<input id="logonId" name="logonId" value="" class="i-text ui-input" tabindex="1" type="text" autocomplete="off" maxlength="100" placeholder="邮箱地址或手机号码" />
+			
+    
+            
+</div>
+
+		<div class="fm-item ui-form-item sl-aliedit">
+		<label class="fm-label pwd-label ui-form-label" desc="登录密码">登录密码：</label>
+							<span class="fm-link">
+										<a id="forgetPsw" href="#" target="_blank"  seed="auth-findPWD">忘记登录密码？</a>
+				            </span>
+						
+	<input type="password" tabindex="2" id="password_input" name="password_input" class="i-text ui-input" oncontextmenu="return false" onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" />
+
+    </div>
+              		
+        		
+	<div class="fm-item ui-form-item sl-checkcode"  >
+		<label class="fm-label ui-form-label">验证码：</label>
+		<div >
+			<input type="text" class="i-text i-text-authcode ui-input sl-checkcode-input" id="authcode" autocomplete="off" name="checkCode" value="" maxLength="4"  tabindex="3" placeholder="验证码" data="" data-type="IMAGE"/>
+
+						<img id="checkCodeImg" class="checkcode-img J-checkCode sl-checkcode-img" src="#" title="点击图片刷新校验码" alt="点击图片刷新校验码" seed="auth-authcode" />
+						
+                      
+
+								
+
+            		</div>
+	</div>
+        
+		
+								<div class="fm-item ui-form-item ui-btn-cnt">
+					<input id="btn-submit" seed="B-login-button1" type="submit" class="btn-login" tabindex="4" value="登  录" />
+				</div>
+
+								<p class="login-help-cnt">
+										<a href="http://www.etown.cn/web-test/alipay-o2o/reg.html" class="ui-button-reg" seed="B-login-reg1" target="_blank">免费注册</a>
+										只需15分钟，开始网上营销
+
+				</p>
+			</fieldset>
+		</div>
+	</form>
+</div>
+
+<div id="userSSOLogined" class="fn-hide">
+    <div class="aliLogin-content">
+            <div class="aliLogin-title">
+                检测到您已经登录的账户：
+            </div>
+            <div class="fn-clear">
+                <span class="fn-left aliLogin-icon" id="userLoginedIcon">ICON</span>
+                <span class="fn-left aliLogin-account" title="" id="userLoginedName"></span>
+            </div>
+        <div class="ui-form-item aliLogin-button">
+            <span class="ui-button ui-button-ok" tabindex="4">
+                <a href="#" id="aliLogin_login" class="aliLogin_login ui-button-text">进入商家账户</a>
+            </span>
+            <span id="aliLogin_loading" class="fn-hide">正在提交信息...</span>
+            <a href="#" id="aliLogin_change">使用其他账户登录</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<style type="text/css">
+.umidWrapper{display:block; height:1px;}
+</style>
+
+
+
+
+	</div>
+	<div class="server">authcenter-70-19</div>
+	    <script type="text/javascript" charset="utf-8" src="http://www.etown.cn/web-test/alipay-o2o/login-1.js"></script>		
+        <script type="text/javascript" charset="utf-8" src="http://www.etown.cn/web-test/alipay-o2o/login-2.js"></script>
+    
+            
+
+<script type="text/javascript">
+    
+    logonId = $('logonId');
+
+    function showLogin(){
+    /* 调用父页面的方法将表单显示出来,因为新首页的登录框不需要调整高度，所以将方法抽出来 */
+    var timeId = null;
+    (function(){ 
+            var parent_ = self.parent;
+            if(parent_ && parent_.showLoginIframe){
+                parent_.showLoginIframe();
+                timeId && clearTimeout(timeId);
+            }else{
+                timeId = setTimeout(arguments.callee,500);
+            }        
+        })();
+    };
+            new system.auth.aliLogin({
+        havanaSsoUrl:"https://passport.alipay.com",
+        isHomePage: true,
+        onFormShow:function(){
+            
+        }
+    });
+    
+
+</script>
+
+
+    	
+	</body>
+</html>

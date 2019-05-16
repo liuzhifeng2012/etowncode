@@ -1,0 +1,8 @@
+D:\site\b2betown\ETS2.Common.Module\bin\Debug\ETS2.Common.Module.dll
+D:\site\b2betown\ETS2.Common.Module\bin\Debug\ETS2.Common.Module.pdb
+D:\site\b2betown\ETS2.Common.Module\obj\Debug\ETS2.Common.Module.dll
+D:\site\b2betown\ETS2.Common.Module\obj\Debug\ETS2.Common.Module.pdb
+E:\EtownCode\b2betown\ETS2.Common.Module\bin\Debug\ETS2.Common.Module.dll
+E:\EtownCode\b2betown\ETS2.Common.Module\bin\Debug\ETS2.Common.Module.pdb
+E:\EtownCode\b2betown\ETS2.Common.Module\obj\Debug\ETS2.Common.Module.dll
+E:\EtownCode\b2betown\ETS2.Common.Module\obj\Debug\ETS2.Common.Module.pdb

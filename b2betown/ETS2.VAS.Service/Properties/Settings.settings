@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ETS2.VAS.Service.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ETS2_VAS_Service_WebReference1_ITicketService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://180.184.100.186:3177/ticketservice/httpService.ts</Value>
+    </Setting>
+    <Setting Name="ETS2_VAS_Service_WebReference2_ITicketService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://123.125.207.45:8080/httpService.ts</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

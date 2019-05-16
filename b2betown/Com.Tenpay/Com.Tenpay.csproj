@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F276911-E4A7-4C85-85D5-40EE5E85D664}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.Tenpay</RootNamespace>
+    <AssemblyName>Com.Tenpay</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>..\ETS2.WebApp\wxpaydll\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickMark">
+      <HintPath>..\ETS2.WebApp\wxpaydll\QuickMark.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\ETS2.WebApp\wxpaydll\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\ETS2.WebApp\wxpaydll\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Demo\CommonUtil.cs" />
+    <Compile Include="Demo\Example.cs" />
+    <Compile Include="Demo\MD5SignUtil.cs" />
+    <Compile Include="Demo\MD5Util.cs" />
+    <Compile Include="Demo\SDKRuntimeException.cs" />
+    <Compile Include="Demo\SHA1Util.cs" />
+    <Compile Include="Demo\WxPayHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TenpayAppV3\HttpUtil.cs" />
+    <Compile Include="TenpayAppV3\MD5Util.cs" />
+    <Compile Include="TenpayAppV3\RequestHandler.cs" />
+    <Compile Include="TenpayAppV3\ResponseHandler.cs" />
+    <Compile Include="TenpayAppV3\SHA1Util.cs" />
+    <Compile Include="TenpayAppV3\TenpayUtil.cs" />
+    <Compile Include="TenpayApp\MD5Util.cs" />
+    <Compile Include="TenpayApp\RequestHandler.cs" />
+    <Compile Include="TenpayApp\ResponseHandler.cs" />
+    <Compile Include="TenpayApp\SHA1Util.cs" />
+    <Compile Include="TenpayApp\TenpayUtil.cs" />
+    <Compile Include="Tenpay\ClientResponseHandler.cs" />
+    <Compile Include="Tenpay\MD5Util.cs" />
+    <Compile Include="Tenpay\RequestHandler.cs" />
+    <Compile Include="Tenpay\ResponseHandler.cs" />
+    <Compile Include="Tenpay\TenpayHttpClient.cs" />
+    <Compile Include="Tenpay\TenpayUtil.cs" />
+    <Compile Include="WxpayApi\business\DownloadBill.cs" />
+    <Compile Include="WxpayApi\business\JsApiPay.cs" />
+    <Compile Include="WxpayApi\business\MicroPay.cs" />
+    <Compile Include="WxpayApi\business\NativeNotify.cs" />
+    <Compile Include="WxpayApi\business\NativePay.cs" />
+    <Compile Include="WxpayApi\business\OrderQuery.cs" />
+    <Compile Include="WxpayApi\business\Refund.cs" />
+    <Compile Include="WxpayApi\business\RefundQuery.cs" />
+    <Compile Include="WxpayApi\business\ResultNotify.cs" />
+    <Compile Include="WxpayApi\lib\Config.cs" />
+    <Compile Include="WxpayApi\lib\Data.cs" />
+    <Compile Include="WxpayApi\lib\Exception.cs" />
+    <Compile Include="WxpayApi\lib\HttpService.cs" />
+    <Compile Include="WxpayApi\lib\Log.cs" />
+    <Compile Include="WxpayApi\lib\Notify.cs" />
+    <Compile Include="WxpayApi\lib\WxPayApi.cs" />
+    <Compile Include="WxpayApi\sysprogram\data\B2b_pay_wxrefundlogData.cs" />
+    <Compile Include="WxpayApi\sysprogram\data\internaldata\Internalb2b_pay_wxrefundlog.cs" />
+    <Compile Include="WxpayApi\sysprogram\model\B2b_pay_wxrefundlog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Demo\readme.txt" />
+    <Content Include="TenpayAppV3\readme.txt" />
+    <Content Include="TenpayApp\readme.txt" />
+    <Content Include="Tenpay\readme.txt" />
+    <Content Include="WxpayApi\readme.txt" />
+    <Content Include="WxpayApi\sysprogram\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

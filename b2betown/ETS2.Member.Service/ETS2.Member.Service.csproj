@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A10CD48-3364-4530-B5E9-A4C5D2687FCE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETS2.Member.Service</RootNamespace>
+    <AssemblyName>ETS2.Member.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ETS2.WebApp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MemberService.Data\ChannelRebateLogData.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalChannelRebateLog.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberActivity.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberCard.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberCardActivity.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberChannel.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberChannelcompany.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberERNIED.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberForwarding.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberIssue.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalMemberIssueActivity.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalWxSubscribeDetail.cs" />
+    <Compile Include="MemberService.Data\InternalData\InternalWxSubscribeSource.cs" />
+    <Compile Include="MemberService.Data\MemberActivityData.cs" />
+    <Compile Include="MemberService.Data\MemberCardActivityData.cs" />
+    <Compile Include="MemberService.Data\MemberCardData.cs" />
+    <Compile Include="MemberService.Data\MemberChannelcompanyData.cs" />
+    <Compile Include="MemberService.Data\MemberChannelData.cs" />
+    <Compile Include="MemberService.Data\MemberERNIEData.cs" />
+    <Compile Include="MemberService.Data\MemberForwardingData.cs" />
+    <Compile Include="MemberService.Data\MemberIssueActivityData.cs" />
+    <Compile Include="MemberService.Data\MemberIssueData.cs" />
+    <Compile Include="MemberService.Data\WxSubscribeDetailData.cs" />
+    <Compile Include="MemberService.Data\WxSubscribeSourceData.cs" />
+    <Compile Include="MemberService.Model\ChannelRebateLog.cs" />
+    <Compile Include="MemberService.Model\Enum\ChannelRebateType.cs" />
+    <Compile Include="MemberService.Model\Enum\MemberCardUserState.cs" />
+    <Compile Include="MemberService.Model\ERNIE_Awardcode.cs" />
+    <Compile Include="MemberService.Model\ERNIE_Record.cs" />
+    <Compile Include="MemberService.Model\Member_Activity.cs" />
+    <Compile Include="MemberService.Model\Member_Activity_Log.cs" />
+    <Compile Include="MemberService.Model\Member_Card.cs" />
+    <Compile Include="MemberService.Model\Member_Card_Activity.cs" />
+    <Compile Include="MemberService.Model\Member_Channel.cs" />
+    <Compile Include="MemberService.Model\Member_Channel_company.cs" />
+    <Compile Include="MemberService.Model\Member_ERNIE.cs" />
+    <Compile Include="MemberService.Model\Member_ERNIE_Award.cs" />
+    <Compile Include="MemberService.Model\Member_Forwarding.cs" />
+    <Compile Include="MemberService.Model\Member_Issue.cs" />
+    <Compile Include="MemberService.Model\Member_Issue_Activity.cs" />
+    <Compile Include="MemberService.Model\Member_sms.cs" />
+    <Compile Include="MemberService.Model\WxSubscribeDetail.cs" />
+    <Compile Include="MemberService.Model\WxSubscribeSource.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Framework\ETS.Framework.csproj">
+      <Project>{CA291C1A-82F9-4514-A570-F1CA4A8C51F3}</Project>
+      <Name>ETS.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

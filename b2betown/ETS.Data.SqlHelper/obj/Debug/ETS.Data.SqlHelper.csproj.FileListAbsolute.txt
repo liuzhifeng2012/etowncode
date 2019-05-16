@@ -1,0 +1,10 @@
+D:\site\b2betown\ETS.Data.SqlHelper\bin\Debug\ETS.Data.SqlHelper.dll
+D:\site\b2betown\ETS.Data.SqlHelper\bin\Debug\ETS.Data.SqlHelper.pdb
+D:\site\b2betown\ETS.Data.SqlHelper\bin\Debug\Newtonsoft.Json.dll
+D:\site\b2betown\ETS.Data.SqlHelper\obj\Debug\ETS.Data.SqlHelper.dll
+D:\site\b2betown\ETS.Data.SqlHelper\obj\Debug\ETS.Data.SqlHelper.pdb
+E:\EtownCode\b2betown\ETS.Data.SqlHelper\bin\Debug\ETS.Data.SqlHelper.dll
+E:\EtownCode\b2betown\ETS.Data.SqlHelper\bin\Debug\ETS.Data.SqlHelper.pdb
+E:\EtownCode\b2betown\ETS.Data.SqlHelper\bin\Debug\Newtonsoft.Json.dll
+E:\EtownCode\b2betown\ETS.Data.SqlHelper\obj\Debug\ETS.Data.SqlHelper.dll
+E:\EtownCode\b2betown\ETS.Data.SqlHelper\obj\Debug\ETS.Data.SqlHelper.pdb

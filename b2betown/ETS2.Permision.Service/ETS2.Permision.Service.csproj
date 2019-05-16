@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4AB50D57-BB39-4BE4-B319-D3AE43B8746E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETS2.Permision.Service</RootNamespace>
+    <AssemblyName>ETS2.Permision.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_Action.cs" />
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_ActionColumn.cs" />
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_ActionGroup.cs" />
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_Group.cs" />
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_groupactionsubnav.cs" />
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_MasterGroup.cs" />
+    <Compile Include="PermisionService.Data\InternalData\InternalSys_subnav.cs" />
+    <Compile Include="PermisionService.Data\Sys_ActionColumnData.cs" />
+    <Compile Include="PermisionService.Data\Sys_ActionData.cs" />
+    <Compile Include="PermisionService.Data\Sys_ActionGroupData.cs" />
+    <Compile Include="PermisionService.Data\Sys_groupactionsubnavData.cs" />
+    <Compile Include="PermisionService.Data\Sys_GroupData.cs" />
+    <Compile Include="PermisionService.Data\Sys_MasterGroupData.cs" />
+    <Compile Include="PermisionService.Data\Sys_subnavData.cs" />
+    <Compile Include="PermisionService.Model\Sys_Action.cs" />
+    <Compile Include="PermisionService.Model\Sys_ActionColumn.cs" />
+    <Compile Include="PermisionService.Model\Sys_ActionGroup.cs" />
+    <Compile Include="PermisionService.Model\Sys_Group.cs" />
+    <Compile Include="PermisionService.Model\Sys_groupactionsubnav.cs" />
+    <Compile Include="PermisionService.Model\Sys_MasterGroup.cs" />
+    <Compile Include="PermisionService.Model\Sys_subnav.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Framework\ETS.Framework.csproj">
+      <Project>{CA291C1A-82F9-4514-A570-F1CA4A8C51F3}</Project>
+      <Name>ETS.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.CRM.Service\ETS2.CRM.Service.csproj">
+      <Project>{960115BA-04F9-4E4C-B3DE-203F1B011093}</Project>
+      <Name>ETS2.CRM.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

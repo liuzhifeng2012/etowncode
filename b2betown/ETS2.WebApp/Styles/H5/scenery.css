@@ -1,0 +1,51 @@
+﻿@charset "utf-8";
+body{background-color:#f2f2f2}
+.fn-hide{display:none}
+.clear{clear:both;font-size:0}
+.content-wrap{overflow:hidden;margin:10px 2px 10px 2px;background-color:#fff;font-size:12px;}
+.font-orange{color:#ff6500}
+.font-green{color:#a6c559}
+.url-ico{display:inline-block;width:5px;height:10px;background:url(../../Images/icon_bluearrow_com.png) no-repeat center;background-size:5px 10px;margin-left:5px;position:relative;top:1px}
+.gray-ico{margin-left:5px;display:inline-block;width:9px;height:13px;background:url(../../Images/icon_you_com.png) 50% 50% no-repeat;background-size:9px 13px}
+.pointdown{-moz-transform:rotate(90deg);-webkit-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
+.scenerys .pic{display:block;width:100px;height:75px;margin:10px 5px 10px -3px;padding:2px;background-color:white;float:left;position:relative}
+.scenerys .pic img{padding:1px 0px 1px 1px;background:#fff;
+                   width:97px;height:75px;
+                   }
+.scenerys .pic .info-bg{position:absolute;right:2px;bottom:2px;width:32px;height:16px;filter:alpha(opacity:50);opacity:.5;background-color:Black}
+.scenerys .pic .pic-info{position:absolute;right:2px;bottom:2px;width:32px;height:16px;line-height:16px;font-size:9px;text-align:center;color:White;z-index:999}
+.scenerys .body{border-bottom:1px dashed #fff;margin:0 10px}
+.scenerys .scenerys-cont{padding-left:10px;position:relative;overflow:hidden}
+.scenerys .scenerys-cont h3{margin-top:11px;font-size:15px;color:#1a9ed9;background:url(../../Images/) no-repeat center right;background-size:8px 12px;;padding-right:0px;}
+.scenerys .scenerys-cont .scenerys-level{margin-top:7px;line-height:18px}
+.scenerys .scenerys-cont .scenery-conment{margin-top:7px;line-height:18px}
+.scenerys .scenerys-cont .scenery-conment a{padding-left:0px;}
+.scenerys .scenerys-cont .scenery-conment .ico-like{display:inline-block;width:12.5px;height:11.5px;background:url(../../Images/icon_like_com.png) no-repeat;background-size:12.5px 11.5px;margin-right:4px}
+.scenerys .scenerys-cont .scenery-conment .comment-url{margin-left:80px;color:#1a9ed9;float:right}
+.scenerys .bottomBox{padding:10px 10px 10px;clear:both;font-size:14px;line-height:18px;border-top:1px solid white;position:relative}
+.scenerys .bottomBox a{color:#865641;display:inline;width:90%;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scenerys .bottomBox a em{position:absolute;right:10px;top:13px}
+.scenerys .bottomBox .map{width:17px;height:17px;display:inline-block;vertical-align:middle;margin-top:-2px;line-height:17px;text-indent:-999em;background:url(../../Images/hotelDetailIcon_com.png) -18.5px -144.5px;background-size:53.5px 163px}
+.noticeTip{background-color:#e9eff5;border-bottom:1px solid #c7d2dc;padding:10px;color:#434d59;border-radius:4px 4px 0 0}
+.noticeTip .notice-url{color:#1a9ed9;float:right}
+.tickets .ticket{position:relative;margin:10px;margin-top:-1px;border-top:1px dashed #ccc;font-size:14px;padding-top:10px}
+.noresult{text-align:center;height:89px;line-height:89px;background-color:White}
+.tickets .ticket .left{width:35%;display:inline-block}
+.tickets .ticket .w-auto{width:auto}
+.tickets .ticket h4{color:#434d59;font-size:15px;width:70%}
+.tickets .ticket .price{color:#9da5ab;text-decoration:line-through}
+.tickets .ticket .tc-price{color:#ff6500}
+.tickets .ticket .tc-price em{font-size:16px}
+.tickets .ticket .pay-scenery{color:#7db1cb}
+.tickets .ticket .pay-online{color:#db915f}
+.tickets .ticket .save-flag{background-color:#ff9500;-webkit-border-radius:12px;-moz-border-radius:12px;font-size:11px;margin-right:3px;color:white;width:15px;height:15px;display:inline-block;text-align:center;padding:1px;position:relative;top:-1px}
+.tickets .ticket .rebate-flag{background-color:#a6c559;-webkit-border-radius:12px;-moz-border-radius:12px;font-size:11px;margin-right:3px;color:white;width:15px;height:15px;display:inline-block;text-align:center;padding:1px;position:relative;top:-1px}
+.tickets .ticket .btn{border-radius:5px;color:#fff;display:block;width:67px;height:32px;font-size:15px;line-height:32px;text-align:center;position:absolute;right:5px;bottom:34px;background:#ff8533;box-shadow:0 1px 1px #cbcdcd}
+.tickets .more{border-top:0;color:#434d59;font-size:15px;height:44px;line-height:44px;text-align:center;background-color:#fff;box-shadow:0 1px 1px #cbcdcd;border-radius:0 0 4px 4px;border-top:1px solid #c7d2dc}
+.tickets .more em{position:relative;top:1px;-moz-transition:-moz-transform .1s ease-in;-webkit-transition:-webkit-transform .1s ease-in;-o-transition:-o-transform .1s ease-in;transition:transform .1s ease-in}
+.tickets .more .slideUp{-moz-transform:rotate(270deg);-moz-transform-origin:50% 50%;-webkit-transform:rotate(270deg);-webkit-transform-origin:50% 50%;-o-transform:rotate(270deg);-o-transform-origin:50% 50%;transform:rotate(270deg);transform-origin:50% 50%}
+.scenery-neary{height:44px;line-height:44px;text-indent:10px;font-size:15px;position:relative}
+.scenery-neary a{color:#865641}
+.scenery-neary em{position:absolute;right:10px;top:14px}
+
+

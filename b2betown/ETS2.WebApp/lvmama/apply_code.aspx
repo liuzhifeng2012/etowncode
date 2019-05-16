@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="apply_code.aspx.cs" Inherits="ETS2.WebApp.lvmama.apply_code" %>

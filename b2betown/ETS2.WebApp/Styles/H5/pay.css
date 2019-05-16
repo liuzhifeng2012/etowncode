@@ -1,0 +1,55 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body{background-color:#f2f2f2}
+.font-orange{color:#ff6500}
+.font-gray{color:#434d59}
+.body{margin:10px 10px 50px}
+.body .body-content{position:relative;margin-bottom:10px;padding:0 10px;background-color:#fff;font-size:15px;color:#434d59;min-height:44px;line-height:44px;box-shadow:0 1px 1px #c8c9ca;border-radius:4px;padding-bottom:10px}
+.body-content dt{float:left;line-height:30px}
+.body-content dd{padding-left:74px;line-height:30px}
+.body-content h3{font-size:15px;line-height:30px}
+.body-content p{font-size:12px;color:#9da5ab;line-height:18px}
+.body-content .ico-right{margin-left:5px;display:inline-block;width:9px;height:13px;background:url(../../Images/icon_you_com.png) no-repeat;background-size:9px 13px;position:absolute;right:10px;top:19px}
+.marginTop{margin-top:-15px;border-top:1px dashed #ccc;padding-top:10px}
+
+
+.btn.btn-block {
+    text-align: center;
+    width: 100%;
+    padding: 11px 16px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top:10px;
+}
+.btn.btn-green {
+    color: #FFF;
+    background-color: #06BF04;
+    border-color: #03B401;
+}
+.btn {
+    display: inline-block;
+    background-color: #FFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 2px;
+    padding: 4px;
+    text-align: center;
+    margin: 0px;
+    color: #999;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 18px;
+    
+}
+
+.btn.btn-block {
+    text-align: center;
+    width: 100%;
+    padding: 11px 16px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

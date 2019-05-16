@@ -1,0 +1,143 @@
+﻿
+.nav-menu-1, .nav-menu-2, .nav-menu-3 {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    background: none repeat scroll 0% 0% #EAEAEA;
+    color: #EEE;
+    text-align: center;
+}
+
+.shop-nav {
+    position: fixed;
+    z-index: 99;
+}
+.nav-menu {
+    border: 0px none;
+    cursor: default;
+    font-size: 0px;
+    line-height: 0;
+}
+
+
+.nav-menu-1.has-menu-3 .nav-item {
+    width: 42%;
+}
+.nav-menu-1.has-menu-3 .nav-special-item {
+    width: 16%;
+}
+.nav-menu-1 .nav-item {
+    float: left;
+    display: block;
+    height: 45px;
+}
+.nav-menu .nav-item {
+    box-sizing: border-box;
+}
+
+.nav-menu-1 .nav-special-item a {
+    background-size: 25px 25px;
+    margin: 0px auto;
+}
+.nav-menu-1 a {
+    display: block;
+    color: #333;
+    text-shadow: 0px 0px 2px #F5F5F5;
+}
+.nav-menu a {
+    display: block;
+    height: 100%;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.home {
+    display: inline-block;
+    width: 45px;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    background: url("/images/ico_home@2x.png") no-repeat scroll center center / 24px 24px transparent;
+    text-indent: -10000px;
+    height: 40px;
+    vertical-align: top;
+}
+
+.mainmenu-txt {
+    font-size: 14px;
+    line-height: 45px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.nav-menu-1 {
+    border-right: 0px none;
+    border-width: 2px 0px 0px;
+    border-style: solid none none;
+    border-color: #E5E5E5 -moz-use-text-color -moz-use-text-color;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: url("/images/nav_border.png") 2 2 2 2;
+    background: none no-repeat scroll 0% 0% / 100% 100px #FAFAFA;
+    height: 45px;
+}
+
+.nav-item {
+    border-image: url("/images/nav_border.png") 2 2 2 2;
+    border-left: 2px solid #E5E5E5;
+}
+
+
+
+
+.nav-menu-11, .nav-menu-2, .nav-menu-3 {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    background: none repeat scroll 0% 0% #EAEAEA;
+    color: #EEE;
+    text-align: center;
+}
+
+
+
+.nav-menu-11.has-menu-3 .nav-item {
+    width: 42%;
+}
+.nav-menu-11.has-menu-3 .nav-special-item {
+    width: 16%;
+}
+.nav-menu-11 .nav-item {
+    float: left;
+    display: block;
+    height: 45px;
+}
+
+
+.nav-menu-11 .nav-special-item a {
+    background-size: 25px 25px;
+    margin: 0px auto;
+}
+.nav-menu-11 a {
+    display: block;
+    color: #333;
+    text-shadow: 0px 0px 2px #F5F5F5;
+}
+
+.nav-menu-11 {
+    border-right: 0px none;
+
+    border-style: solid none none;
+    border-color: #E5E5E5 -moz-use-text-color -moz-use-text-color;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: url("/images/nav_border.png") 2 2 2 2;
+    background: none no-repeat scroll 0% 0% / 100% 100px #FAFAFA;
+    height: 45px;
+}
+

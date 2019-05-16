@@ -1,0 +1,95 @@
+﻿ 
+/* CSS Document */
+
+body {
+color: #666;
+margin: auto;
+text-align: left;
+width: 100%;
+background-color: #fff;
+background-repeat: repeat-x;
+font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+}
+
+body, button, input, select, textarea {
+font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+}
+
+#header {
+width: 960px;
+height: 78px;
+margin: 0 auto;
+padding-top: 12px;
+position: relative;
+z-index: 201;
+}
+
+.logo1 {
+float: left;
+width: 780px;
+margin-left: 10px;
+}
+
+.login_box {
+width: 930px;
+padding-bottom: 30px;
+margin: 0 auto;
+margin-top: 40px;
+position: relative;
+}
+
+.login_inputs {
+width: 322px;
+background: url(http://p.qbski.com/images/bg_login_M2.png) no-repeat;
+position: absolute;
+left: 31px;
+top: -20px;
+}
+
+.login_inputs_right {
+left: 500px;
+}
+
+.login_pic_regi {
+width: 1000px;
+height: 400px;
+background: url(http://p.qbski.com/image/login_pic-4.jpg) no-repeat;
+}
+
+.line {
+height: 5px;
+background: #ff6600;
+border-bottom: 1px solid #fff;
+position: relative;
+top: 10px;
+line-height: 0;
+}
+
+.clear:after, .q_links .dui_cart .in li p:after {
+content: '\20';
+display: block;
+height: 0;
+clear: both;
+}
+
+.btn_login {
+background: url(http://p.qbski.com/images/bgImg.png) no-repeat;
+width: 87px;
+height: 27px;
+border: 0;
+cursor: pointer;
+background-position: 0 -116px;
+margin: 0 9px 0 0;
+}
+
+.btn_login:hover {
+background-position: 0 -170px;
+}
+
+
+.c33, a.c33 {
+color: #F60;
+text-align: center;
+font-size: 16px;
+padding-top: 10px;
+}

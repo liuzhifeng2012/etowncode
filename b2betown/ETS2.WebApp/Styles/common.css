@@ -1,0 +1,79 @@
+﻿
+/*日历用到的样式*/
+ .ui-widget-content
+{
+   background:white;
+}
+/*分页样式*/
+   div
+    {
+        display: block;
+    }
+    .pages
+    {
+        margin: 10px 0px 0px  0px;
+    }
+    .fr
+    {
+        float: right;
+    }
+    ul, ol, li
+    {
+        list-style: none;
+    }
+    .pages li
+    {
+        float: left;
+        margin-left: 5px;
+        display: inline;
+        height: 25px;
+        line-height: 25px;
+    }
+    .pages li a.pre
+    {
+        width: 50px;
+        height: 23px;
+        text-align: right;
+        padding-right: 3px;
+        background: url(/images/icon.png) no-repeat 5px -378px;
+    }
+    .pages li a.next
+    {
+        text-align: left;
+        width: 50px;
+        height: 23px;
+        padding-left: 3px;
+        background: url(/images/icon.png) no-repeat 46px -400px;
+    }
+    .pages li a
+    {
+        height: 23px;
+        width: 23px;
+        border: 1px solid lightGrey;
+        display: inline-block;
+        overflow: hidden;
+        margin-left: 5px;
+        background-color: white;
+        line-height: 23px;
+        text-align: center;
+        color: #333;
+    }
+    a:link, a:visited
+    {
+        color: #666;
+        text-decoration: none;
+    }
+    .pages .btn
+    {
+        width: 40px;
+        height: 23px;
+        border: 1px solid lightGrey;
+        text-align: center;
+        line-height: 21px;
+        background-color: #F3F3F3;
+        display: inline-block;
+    }
+    .pages li a.current {
+    border: 1px solid #FE400D;
+    color: #FE400D;
+    }

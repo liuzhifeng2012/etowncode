@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MemberH5.master.cs" Inherits="ETS2.WebApp.M.MemberH5" %>
+
+<!DOCTYPE html>
+<html><head>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/Styles/css4.css"/>
+    <script type="text/javascript" src="/Scripts/js4.js"></script>
+    <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+    <script src="/Scripts/common.js" type="text/javascript"></script>
+    <link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.pager.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function goBack(){
+		window.location.href = 'Default.aspx';
+     }
+          
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
+    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head> 
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+<input type="hidden" id="hid_comid" value="<%=comid %>" />
+<input type="hidden" id="hid_comname" value="<%=comname %>" />
+<input type="hidden" id="hid_comlogo" value="<%=comlogo %>" />
+</body>
+</html>

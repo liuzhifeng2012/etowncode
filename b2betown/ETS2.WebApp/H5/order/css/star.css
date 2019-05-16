@@ -1,0 +1,47 @@
+﻿.commstar a:hover {
+    background: transparent url("/images/commstar.jpg") repeat-x scroll left top;
+}
+.active {
+    background: transparent url("/images/commstar.jpg") repeat-x scroll left top;
+}
+.commstar {
+    width: 105px;
+    height: 20px;
+    background: transparent url("/images/commstar.jpg") repeat-x scroll 0px -21px;
+    position: relative;
+    margin-top: 5px;
+    display: inline-block;
+    overflow: hidden;
+}
+.commstar .star1 {
+    width: 20%;
+    z-index: 9;
+}
+.commstar .star2 {
+    width: 40%;
+    z-index: 8;
+}
+ .commstar .star3 {
+    width: 60%;
+    z-index: 7;
+}
+ .commstar .star4 {
+    width: 80%;
+    z-index: 6;
+}
+.commstar .star5 {
+    width: 100%;
+    z-index: 5;
+}
+ .commstar a {
+    width: 20%;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    height: 20px;
+}
+.area01 {
+    color: #CCC;
+}

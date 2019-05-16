@@ -1,0 +1,398 @@
+@charset "utf-8";
+/* CSS Document */
+ul, li {
+list-style: none;
+}
+.base_main {
+width: 980px;
+margin:0 auto;
+padding:0 auto;
+}
+.h2_tabtit {
+line-height: 26px;
+font-size: 16px;
+}
+
+.h2_tabtit span {
+position: relative;
+bottom: -3px;
+float: left;
+height: 36px;
+padding: 0 15px;
+margin-right: 10px;
+color: #333;
+cursor: pointer;
+}
+
+.h2_tabtit {
+height: 36px;
+border-bottom: 3px solid #3983e5;
+line-height: 26px;
+font-size: 16px;
+}
+
+.tabcn {
+margin-bottom: 15px;
+background: #f7f7f7;
+}
+
+.h2_tit {
+padding-left: 15px;
+line-height: 34px;
+color: #444;
+font-size: 18px;
+}
+.entity_card .card_cn {
+background: url("proxy.jpg") 30px 20px no-repeat;
+}
+.card_cn {
+padding-left: 440px;
+overflow: hidden;
+}
+.card_category {
+position: absolute;
+margin-top: -20px;
+margin-left: -15px;
+font-size: 14px;
+}
+.card_category .base_label {
+margin-left: 15px;
+}
+.base_label {
+border-bottom: 1px solid transparent;
+_border-bottom: none;
+_font-family: Simsun;
+_padding-bottom: 1px;
+cursor: pointer;
+}
+label {
+cursor: pointer;
+}
+.base_label input {
+margin: -4px 3px 0 0;
+width: 12px;
+height: 12px;
+overflow: hidden;
+font-family: Arial;
+vertical-align: middle;
+}
+input, textarea {
+font-size: 12px;
+}
+.card_category .base_label {
+margin-left: 15px;
+}
+.base_label {
+border-bottom: 1px solid transparent;
+_border-bottom: none;
+_font-family: Simsun;
+_padding-bottom: 1px;
+cursor: pointer;
+}
+.card_list {
+padding-right: 50px;
+overflow: hidden;
+}
+ul {
+list-style: none;
+}
+.card_list li {
+float: left;
+width: 366px;
+padding: 7px 2px;
+margin-bottom: -1px;
+border-bottom: 1px dotted #ccc;
+}
+.clearfix, .flow_list, .price_total, .card_list li {
+}
+ul, li {
+list-style: none;
+}
+.list_lt {
+float: left;
+}
+.card_list .list_rt {
+margin-top: 2px;
+}
+.list_rt {
+float: right;
+}
+.c_price, .c_price_big {
+color: #f60;
+font: 16px/1.5 arial;
+}
+Pseudo ::before element
+.c_price:before, .c_price_big:before {
+content: "\00A5";
+color: #4d4d4d;
+font: 12px/1.5 Arial;
+vertical-align: 0.1em;
+margin-right: 2px;
+}
+.card_list .custom_price {
+position: relative;
+z-index: 1;
+}
+.card_list li {
+float: left;
+width: 366px;
+padding: 7px 2px;
+margin-bottom: -1px;
+border-bottom: 1px dotted #ccc;
+}
+.card_list .add_item {
+padding-bottom: 0;
+border: 0 none;
+}
+.card_list .custom_price .list_lt {
+position: relative;
+}
+.list_lt {
+float: left;
+}
+.c_price, .c_price_big {
+color: #f60;
+font: 16px/1.5 arial;
+}
+.card_list .custom_price .c_input {
+vertical-align: middle;
+}
+.input_s {
+width: 93px;
+}
+.c_input, .c_text {
+height: 16px;
+padding: 3px;
+line-height: 16px;
+border: 1px solid #bbb;
+font-size: 12px;
+}
+.card_list .custom_price .fc01 {
+display: inline-block;
+vertical-align: middle;
+}
+.fc01 {
+color: #999;
+}
+.jmp_info {
+position: absolute;
+width: auto;
+zoom: 1;
+margin-left: -5px;
+background-color: #fffcd8;
+border: 1px solid #dca;
+white-space: nowrap;
+}
+.jmp_info b {
+position: absolute;
+left: -5px;
+top: 50%;
+margin-top: -3px;
+width: 5px;
+height: 7px;
+background-position: -70px -24px;
+}
+.jmp_info i {
+position: absolute;
+top: 5px;
+left: 4px;
+width: 12px;
+height: 12px;
+background-position: -50px -60px;
+}
+.jmp_cn {
+padding: 3px 3px 3px 20px;
+height: 16px;
+line-height: 16px;
+color: #333;
+}
+
+.card_list .list_rt {
+margin-top: 2px;
+}
+.list_rt {
+float: right;
+}
+.card_list .delete_box {
+display: none;
+position: absolute;
+right: -40px;
+top: 0;
+padding: 10px;
+height: 20px;
+}
+a {
+color: #0053AA;
+text-decoration: none;
+}
+
+.card_tab {
+height: 37px;
+border-bottom: 2px solid #ccc;
+}
+.card_tab li {
+float: left;
+height: 37px;
+line-height: 36px;
+}
+.card_tab a.current {
+background-position: 50% -152px;
+border-color: #06c;
+color: #0066cc;
+font-weight: bold;
+}
+.card_tab li {
+line-height: 36px;
+}
+.card_tab li {
+float: left;
+height: 37px;
+line-height: 36px;
+}
+.card_tab_box {
+margin-bottom: 20px;
+padding: 10px 20px;
+}
+.p_text {
+line-height: 26px;
+font-size: 14px;
+}
+.btn01:hover, .btn02:hover {
+background: #F79700;
+border-color: #DE7800;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+.btn01, .btn01_disable {
+height: 28px;
+line-height: 28px;
+background-color: #FFB000;
+border: 1px solid #E77C00;
+box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);
+text-shadow: 1px 1px 0 #CF7000;
+color: #fff;
+font-weight: bold;
+}
+.btn01, .btn02, .btn01_disable {
+display: inline-block;
+padding: 0 20px;
+border-radius: 3px;
+font-size: 14px;
+cursor: pointer;
+}
+a {
+color: #0053AA;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+.ico_add {
+display: inline-block;
+padding-left: 20px;
+margin-left: 10px;
+background-position: -50px -100px;
+line-height: 16px;
+line-height: 18px;
+}
+
+.c_price_big {
+font-size: 30px;
+vertical-align: -3px;
+}
+.c_price {
+color: #f60;
+font: 16px/1.5 arial;
+}
+.total {
+font-size: 14px;
+font-family: "Simsun";
+color: #333;
+}
+strong, b {
+font-weight: bold;
+}
+.btn01, .btn01_disable {
+height: 28px;
+line-height: 28px;
+background-color: #FFB000;
+border: 1px solid #E77C00;
+box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);
+text-shadow: 1px 1px 0 #CF7000;
+color: #fff;
+font-weight: bold;
+}
+.card_tab a {
+position: relative;
+display: inline-block;
+height: 37px;
+padding: 0 20px;
+border-bottom: 2px solid #ccc;
+font-size: 14px;
+color: #333;
+text-align: center;
+_bottom: -2px;
+}
+.flow_box {
+width: 820px;
+position: relative;
+margin-bottom: 25px;
+overflow: hidden;
+zoom: 1;
+}
+.flow_list {
+margin: 18px 0 0 -30px;
+}
+.flow_list li {
+position: relative;
+float: left;
+display: inline;
+padding-left: 30px;
+background-position: -79px -36px;
+color: #333;
+font-size: 14px;
+text-align: center;
+overflow: hidden;
+zoom: 1;
+}
+.flow_list li .no {
+position: absolute;
+top: -6px;
+left: 32px;
+height: 76px;
+overflow: hidden;
+font-family: "Tahoma";
+color: #fff;
+font-size: 100px;
+text-align: left;
+line-height: 100px;
+}
+.flow_list li .flow_txt {
+padding: 0 18px;
+width: 70px;
+height: 69px;
+background: #eff4fa;
+border: 1px solid #d6e3f3;
+border-radius: 5px;
+}
+.flow_list li .flow_txt span {
+position: relative;
+}
+.flow_list li .flow_txt span, .flow_list li i {
+display: inline-block;
+zoom: 1;
+vertical-align: middle;
+}
+
+.flow_list li i {
+display: inline-block;
+zoom: 1;
+vertical-align: middle;
+}
+user agent stylesheeti, cite, em, var, address, dfn {
+font-style: italic;
+}
+

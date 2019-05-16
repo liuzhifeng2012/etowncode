@@ -1,0 +1,460 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manage.master.cs" Inherits="ETS2.WebApp.Agent.Manage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <head>
+        <title>分销</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="/Styles/base2.css" />
+        <link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+        <script src="/Scripts/common.js" type="text/javascript"></script>
+        <link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+        <link charset="utf-8" rel="stylesheet" href="/Styles/reg.css" />
+        <link  rel="stylesheet" type="text/css" href="/Styles/Agent.css" />
+
+        <script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+         <script type="text/javascript" src="/Scripts/jquery.cookie.2.2.0.min.js"></script>
+          <style type="text/css">
+            .seled
+            {
+                width: 181px;
+                position: relative;
+                height: 24px;
+                line-height: 24px;
+                display: block;
+                background-color: #E0ECF9;
+            }
+            .seled a
+            {
+                color: #FFFFFF !important;
+            }
+            .notseled
+            {
+                width: 181px;
+                position: relative;
+                height: 24px;
+                line-height: 24px;
+                display: block;
+            }
+        </style>
+        <script type="text/javascript">
+
+            $(function () {
+                //左侧栏选中
+                if ($.cookie($("#hid_agentid").val() + "_agent_navigationid")) {
+
+                    var seledid = $.cookie($("#hid_agentid").val() + "_agent_navigationid");
+                    
+                    $("#dh_" + seledid).css("background-color", "#E0ECF9");
+                }
+
+                var hid_comlogo = $("#hid_comlogo").val();
+             
+                if (hid_comlogo == "") {
+                    $("#comlogo").hide();
+                } else {
+                    $("#comlogo").attr("src", hid_comlogo);
+                }
+
+                var Agentsort = $("#Agentsort").val();
+                if (Agentsort==2) {
+                    $("#taobaoset").hide();
+                }
+
+                var messagenew = $("#hid_messagenew").trimVal();
+                if (messagenew != 0) {
+                    $("#messagenew").html(" <a href=\"javascript:;\" onclick=\"MessageList(1,'<%=comid_temp %>','<%=company %>')\"><span style=\"color:#ff0000\">商户通知 " + messagenew + " 条</span></a></p>");
+
+                }
+
+                $("#closegonggao").click(function () {
+                    $("#gonggao").hide();
+                    $("#comcompany").html("");
+                    $("#message").html("");
+                })
+
+                //查询购物车数量
+                $.post("/JsonFactory/OrderHandler.ashx?oper=agentsearchcart", { agentid: $("#hid_agentid").trimVal(), comid: $("#hid_comid_temp").trimVal() }, function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.type == 1) {
+                    }
+                    if (data.type == 100) {
+                        $("#shopcart").html("去购物车结算(" + data.msg + ")");
+                        $("#shopcart").addClass("shopcart_have");
+                        $("#cart").show();
+                    }
+                })
+
+
+                $("#shopcart").click(function () {
+                    location.href = "ShopCart.aspx?comid=" + $("#hid_comid_temp").trimVal();
+                })
+
+
+                $("#closeviewphone").click(function () {
+
+                    $("#viewphone").hide();
+                    $("#shopcart").addClass("hide");
+
+                })
+
+            })
+            function SetMessageCookie(comid) {
+                $.ajax({
+                    type: "post",
+                    url: "/JsonFactory/AgentHandler.ashx?oper=messagecookie",
+                    data: { comid: comid },
+                    async: false,
+                    success: function (data) {
+                        data = eval("(" + data + ")");
+
+                        if (data.type == 1) {
+                            //$.prompt("查询列表错误");
+                            //return;
+                        }
+                        if (data.type == 100) {
+
+                            $("#gonggao").hide();
+                        }
+                    }
+                })
+
+
+            }
+
+
+
+            //装载公告
+            function MessageList(pageindex, comid, comcompany) {
+
+
+                $("#hid_comidtemp").val(comid);
+                $("#comcompany").html(comcompany);
+
+                if (pageindex == '') {
+                    $.prompt("请选择跳到的页数");
+                    return;
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/JsonFactory/AgentHandler.ashx?oper=messagelist",
+                    data: { pageindex: pageindex, pagesize: 10, agentid: $("#hid_agentid").trimVal(), comid: comid },
+                    async: false,
+                    success: function (data) {
+                        data = eval("(" + data + ")");
+
+                        if (data.type == 1) {
+                            //$.prompt("查询列表错误");
+                            //return;
+                        }
+                        if (data.type == 100) {
+
+                            if (data.totalCount == 0) {
+                                alert("商家没有最新通知");
+                                return;
+                            }
+
+
+                            var html_temp = "";
+                            for (var i = 0; i < data.msg.length; i++) {
+                                html_temp += "<div style=\" padding:15px 10px 20px ;border-bottom: 2px solid #cccccc;\">";
+                                html_temp += "<label for=\"payPwdConfirm\">";
+                                html_temp += "<strong>" + data.msg[i].Title + "通知</strong>";
+                                html_temp += "<span> (" + jsonDateFormatKaler(data.msg[i].Subtime) + ") </span>";
+                                html_temp += "<br>" + replacebr(data.msg[i].Message);
+                                html_temp += "</label> </div>";
+                            }
+                            //setpage1(data.totalCount, pageSize, pageindex, comid, comcompany);
+                            $("#message").html(html_temp);
+                            $("#gonggao").show();
+
+                        }
+                    }
+                })
+            }
+            //分页 
+            function setpage1(newcount, newpagesize, curpage, opval, comid, comcompany) {
+                $("#messagepage").paginate({
+                    count: Math.ceil(newcount / newpagesize),
+                    start: curpage,
+                    display: 5,
+                    border: false,
+                    text_color: '#888',
+                    background_color: '#EEE',
+                    text_hover_color: 'black',
+                    images: false,
+                    rotate: false,
+                    mouse: 'press',
+                    onChange: function (page) {
+
+                        MessageList(page, comid, comcompany)
+
+                        return false;
+                    }
+                });
+            }
+
+            function searchcart() {
+                $.post("/JsonFactory/OrderHandler.ashx?oper=agentsearchcart", { agentid: $("#hid_agentid").trimVal(), comid: $("#hid_comid_temp").trimVal() }, function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.type == 1) {
+                    }
+                    if (data.type == 100) {
+                        $("#shopcart").html("去购物车结算(" + data.msg + ")");
+                        $("#shopcart").addClass("shopcart_have");
+                        $("#cart").show();
+                    }
+                })
+            }
+
+            function viewphone() {
+                $("#viewphone").show();
+                $("#shopcart").removeClass("hide");
+            }
+
+            //左侧栏点击事件
+            function dhclick(dhid) {
+                $.cookie($("#hid_agentid").val() + "_agent_navigationid", dhid, { path: '/' });
+            }
+
+        </script>
+        <style type="text/css">
+            .modal
+            {
+                position: fixed;
+                top: 10%;
+                left: 50%;
+                z-index: 1050;
+                width: 560px;
+                margin-left: -280px;
+                background-color: white;
+                border: 1px solid #999;
+                -webkit-border-radius: 6px;
+                -moz-border-radius: 6px;
+                border-radius: 6px;
+                -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+                -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+                -webkit-background-clip: padding-box;
+                -moz-background-clip: padding-box;
+                background-clip: padding-box;
+                outline: none;
+            }
+            .modal-header
+            {
+                padding: 5px 15px;
+            }
+            button.close
+            {
+                padding: 0;
+                cursor: pointer;
+                background: transparent;
+                border: 0;
+                -webkit-appearance: none;
+                float: right;
+            }
+            .modal-header h3
+            {
+                margin: 0;
+                line-height: 30px;
+            }
+            #shopcart
+            {
+                cursor: pointer;
+                width: 74px;
+                height: 30px;
+                padding: 3px 20px 3px 20px;
+                background-color: #F7F7F7;
+            }
+            .shopcart_have
+            {
+                border: 1px solid #FE400D;
+            }
+        </style>
+    </head>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="sky">
+    <form id="form1" runat="server">
+    <div id="mail-home" class="main">
+        <div style="width: 1024px; height: 1px; overflow: hidden; display: none; _display: block;
+            display: none;">
+            min-width</div>
+        <div class="home-hd" style="z-index: 1; display: block;">
+            <div class="home-hd-top">
+                <div class="home-hd-lf-bg">
+                    
+                    <div class="lgoo">
+                   <!-- <img src="http://image.etown.cn/UploadFile/2015050016461250609.png" class="mp-image" width="42" height="42"> --> <%=AgentCompany%>
+                       
+                    </div>
+                    <div id="min_nav">
+                        平台技术支持电话：010-59059052  | <a href="/Agent/out.aspx" target="_self" style="color: Black;
+                            font-weight: bold;" onfocus="this.blur()">退 出</a><br>
+                        <div class="shortcut">
+                            建议使用chrome浏览器访问本系统
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mail-nav" class="">
+            <!--<div id="mail_write_button">
+                <ul>
+                    <li class="mail_write"><span class="nav_btn_text">
+                        <%if (Agentsort == 0)
+                          { %>
+                        分销商后台
+                        <%}
+                          else if (Agentsort == 2)
+                          { 
+                        %>
+                        商户后台
+                        <%
+                            }
+                          else
+                          { %>
+                        开通商户管理
+                        <%} %></span> </li>
+                    <li class="empty-line" style="height: 0px;"></li>
+                </ul>
+            </div>-->
+            <div id="all_folder_list">
+                <div id="system_folder_list" class="folderlist_content">
+                    <ul id="left_folder_list" class="folderlist_list qm_list">
+
+                        <li class="folderlist_contacts qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="Default.aspx" target="_self" onclick="dhclick('1')" id="dh_1"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">
+                            <%if (Agentsort == 0)
+                              { %>
+                            供应商
+                            <%}
+                              else if (Agentsort == 2)
+                              { 
+                            %>
+                            项目列表
+                            <%
+                                }
+                              else
+                              { %>
+                            开通商户
+                            <%} %>
+                            
+                            </span></span></a>
+                        </li>
+                         <%if (Agentsort == 0)
+                          {%>
+                        <li class="folderlist_folder qm_list_item qm_list_item_Accessory" style=" display:none;">
+                            <a class="qm_list_item_content" accesskey="o" href="all_prolist.aspx" target="_self"  onclick="dhclick('2')" id="dh_2"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">商品管理</span></span></a>
+                        </li>
+                        <li class="folderlist_note qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="all_orderlist.aspx" target="_self"  onclick="dhclick('3')" id="dh_3"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">我的订单</span></span></a>
+                        </li>
+                        <li class="folderlist_openrss qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="Agent_clientlist.aspx" target="_self"  onclick="dhclick('4')" id="dh_4"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">我的客户</span></span></a>
+                        </li>
+                        <!--<li class="folderlist_attach qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="#" target="_self"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">财务管理</span></span></a>
+                        </li>-->
+                        <li class="folderlist_reader qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="SetBusiness.aspx" target="_self"  onclick="dhclick('5')" id="dh_5"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">我的微店</span></span></a>
+                        </li>
+                         <%} %>
+                        <li class="folderlist_setting qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="AgentStaff.aspx" target="_self"  onclick="dhclick('6')" id="dh_6"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">账户管理</span></span></a>
+                        </li>
+                        <%if (Agentsort == 0)
+                          {%>
+                        <li class="folderlist_inbox qm_list_item qm_list_item_Accessory">
+                            <a class="qm_list_item_content" accesskey="o" href="javascript:;"  onclick="viewphone();"  onclick="dhclick('7')" id="dh_7"><span class="qm_list_item_icon"></span><span class="qm_list_item_textWrapper"><span class="qm_list_item_title">手机登陆</span></span></a>
+                        </li>
+                        <%} %>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="mail-main" class="mail-main ">
+            <div class="frame">
+                <div class="othmailouter" style="display: none">
+                    <div id="othermailpop">
+                    </div>
+                </div>
+                <div id="apps-view">
+                    <div>
+                        <asp:ContentPlaceHolder ID="body" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="copyLine"></div>-->
+        </div>
+        <div id="mail-msg-fixed" style="z-index: 2;">
+            <div id="mail-msg-outer">
+                <div id="mail-msg-inner">
+                </div>
+            </div>
+        </div>
+        <div id="mail-msg">
+            <div id="gmsg">
+            </div>
+            <div id="progress" style="visibility: hidden;">
+                数据加载中...</div>
+            <div id="dialog">
+            </div>
+        </div>
+    </div>
+    <div id="divBackToTop" style="display: none">
+    </div>
+    <div id="gonggao" class="modal hide  in" style="position: absolute; height: 560px;
+        width: 782px; left: 45%; border-radius: 12px; z-index: 1999; display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closegonggao"
+                style="font-size: 18px;">
+                ×</button>
+        </div>
+        <div class="grid-780 fn-clear" style="height: 450px; padding-top: 20px; overflow: auto; scrollbar-face-color: #FFFFFF; scrollbar-shadow-color: #D2E5F4; scrollbar-highlight-color: #D2E5F4; scrollbar-3dlight-color: #FFFFFF; scrollbar-darkshadow-color: #FFFFFF; scrollbar-track-color: #FFFFFF; scrollbar-arrow-color: #D2E5F4">
+            <h3 class="ui-form-title" style="padding-left: 430px;">
+                <strong id="comcompany">通知</strong></h3>
+            <div style="text-align: center;">
+                <input type="button" value="我已经知道" id="woyizhidao" onclick='SetMessageCookie($("#hid_comidtemp").val())' />(隐藏通知,有新的消息再显示)</div>
+            <div class="ui-form-group" id="message">
+            </div>
+            <div id="messagepage">
+            </div>
+        </div>
+    </div>
+
+    <div id="viewphone" class="modal hide  in" style="position: absolute; height: 350px;
+        width: 600px; left: 45%; border-radius: 12px; z-index: 1999; display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeviewphone"
+                style="font-size: 18px;">
+                ×</button>
+        </div>
+        <div class=" fn-clear" style="height: 300px; padding-top: 45px; overflow: auto; scrollbar-face-color: #FFFFFF; scrollbar-shadow-color: #D2E5F4; scrollbar-highlight-color: #D2E5F4; scrollbar-3dlight-color: #FFFFFF; scrollbar-darkshadow-color: #FFFFFF; scrollbar-track-color: #FFFFFF; scrollbar-arrow-color: #D2E5F4">
+            <h3 class="ui-form-title" style="padding-left: 310px;">
+                <strong id="Strong1">扫描二维码手机登陆分销系统</strong></h3>
+            <div style="text-align: center;">
+              <image id="img_phoneagent" src="/agent/images/phone_agent.png" style="width: 160px;
+                                height: 160px;"></image></div>
+           
+        </div>
+    </div>
+
+    <div class="sessionToken">
+    </div>
+    <input type="hidden" id="hid_messagenew" value="<%=messagenew %>" />
+    <input type="hidden" id="hid_comidtemp" value="" />
+    <input type="hidden" id="hid_accountid" value="<%=accountid %>" />
+    <input type="hidden" id="hid_accountlevel" value="<%=AccountLevel %>" />
+    <input type="hidden" id="hid_comlogo" value="<%=comlogo %>" />
+    <input type="hidden" id="Agentsort" value="<%=Agentsort %>" />
+
+    
+    </form>
+</body>
+</html>

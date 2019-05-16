@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D6767162-6530-4813-A682-56CEB9F0426D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETS2.WeiXin.Service</RootNamespace>
+    <AssemblyName>ETS2.WeiXin.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ETS2.WebApp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalMemberShipCardMaterial.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWeixin_template.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWeixin_templatemsg_sendlog.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWXAccessToken.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWeiXinBasic.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxAd.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxAdImages.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxdelivernotify.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxkf.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxMaterial.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxmedia_updownlog.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxMemberBasic.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxMenu.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxMessageLog.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxOperationType.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxqunfa_callback.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxqunfa_log.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\Internalwxqunfa_news.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\Internalwxqunfa_news_addrecord.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxRequestXml.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxSalePromoteType.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxqunfa_wxno.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWxwarning.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWx_kfinsert_record.cs" />
+    <Compile Include="WeiXinService.Data\InternalData\InternalWx_onlinekf_huoqurecord.cs" />
+    <Compile Include="WeiXinService.Data\MemberShipCardMaterialData.cs" />
+    <Compile Include="WeiXinService.Data\WeiXinBasicData.cs" />
+    <Compile Include="WeiXinService.Data\Weixin_templateData.cs" />
+    <Compile Include="WeiXinService.Data\Weixin_templatemsg_sendlogData.cs" />
+    <Compile Include="WeiXinService.Data\WXAccessTokenData.cs" />
+    <Compile Include="WeiXinService.Data\WxAdData.cs" />
+    <Compile Include="WeiXinService.Data\WxAdImagesData.cs" />
+    <Compile Include="WeiXinService.Data\WxdelivernotifyData.cs" />
+    <Compile Include="WeiXinService.Data\WxkfData.cs" />
+    <Compile Include="WeiXinService.Data\WxMaterialData.cs" />
+    <Compile Include="WeiXinService.Data\Wxmedia_updownlogData.cs" />
+    <Compile Include="WeiXinService.Data\WxMemberBasicData.cs" />
+    <Compile Include="WeiXinService.Data\WxMenuData.cs" />
+    <Compile Include="WeiXinService.Data\WxMessageLogData.cs" />
+    <Compile Include="WeiXinService.Data\WxOperationTypeData.cs" />
+    <Compile Include="WeiXinService.Data\Wxqunfa_callbackData.cs" />
+    <Compile Include="WeiXinService.Data\Wxqunfa_logData.cs" />
+    <Compile Include="WeiXinService.Data\Wxqunfa_newsData.cs" />
+    <Compile Include="WeiXinService.Data\Wxqunfa_news_addrecordData.cs" />
+    <Compile Include="WeiXinService.Data\Wxqunfa_wxnoData.cs" />
+    <Compile Include="WeiXinService.Data\WxRequestXmlData.cs" />
+    <Compile Include="WeiXinService.Data\WxSalePromoteTypeData.cs" />
+    <Compile Include="WeiXinService.Data\WxwarningData.cs" />
+    <Compile Include="WeiXinService.Data\Wx_kfinsert_recordData.cs" />
+    <Compile Include="WeiXinService.Data\Wx_onlinekf_huoqurecordData.cs" />
+    <Compile Include="WeiXinService.Model\Enum\Clientuptypemark.cs" />
+    <Compile Include="WeiXinService.Model\Enum\WxTmplType.cs" />
+    <Compile Include="WeiXinService.Model\MemberShipCardMaterial.cs" />
+    <Compile Include="WeiXinService.Model\periodical.cs" />
+    <Compile Include="WeiXinService.Model\RequestXML.cs" />
+    <Compile Include="WeiXinService.Model\Reservation.cs" />
+    <Compile Include="WeiXinService.Model\WeiXinBasic.cs" />
+    <Compile Include="WeiXinService.Model\Weixin_template.cs" />
+    <Compile Include="WeiXinService.Model\Weixin_templatemsg_sendlog.cs" />
+    <Compile Include="WeiXinService.Model\WXAccessToken.cs" />
+    <Compile Include="WeiXinService.Model\Wxad.cs" />
+    <Compile Include="WeiXinService.Model\WxAdImages.cs" />
+    <Compile Include="WeiXinService.Model\Wxdelivernotify.cs" />
+    <Compile Include="WeiXinService.Model\Wxkf.cs" />
+    <Compile Include="WeiXinService.Model\WxMaterial.cs" />
+    <Compile Include="WeiXinService.Model\Wxmedia_updownlog.cs" />
+    <Compile Include="WeiXinService.Model\WxMemberBasic.cs" />
+    <Compile Include="WeiXinService.Model\WxMenu.cs" />
+    <Compile Include="WeiXinService.Model\WxMessageLog.cs" />
+    <Compile Include="WeiXinService.Model\WxOperationType.cs" />
+    <Compile Include="WeiXinService.Model\Wxqunfa_callback.cs" />
+    <Compile Include="WeiXinService.Model\Wxqunfa_log.cs" />
+    <Compile Include="WeiXinService.Model\Wxqunfa_news.cs" />
+    <Compile Include="WeiXinService.Model\Wxqunfa_news_addrecord.cs" />
+    <Compile Include="WeiXinService.Model\Wxqunfa_wxno.cs" />
+    <Compile Include="WeiXinService.Model\WxSalePromoteType.cs" />
+    <Compile Include="WeiXinService.Model\Wxwarning.cs" />
+    <Compile Include="WeiXinService.Model\Wx_kfinsert_record.cs" />
+    <Compile Include="WeiXinService.Model\Wx_onlinekf_huoqurecord.cs" />
+    <Compile Include="WinXinService.BLL\CustomerMsg_Send.cs" />
+    <Compile Include="WinXinService.BLL\WeiXinBack.cs" />
+    <Compile Include="WinXinService.BLL\WeiXinManage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WinXinService.BLL\WeiXinUploadDown\AmrConvertToMP3.cs" />
+    <Compile Include="WinXinService.BLL\WeiXinUploadDown\Wxarticle.cs" />
+    <Compile Include="WinXinService.BLL\WeiXinUploadDown\WxUploadDownManage.cs" />
+    <Compile Include="WinXinService.BLL\WeiXinUploadDown\Wxmessage.cs" />
+    <Compile Include="WinXinService.BLL\WeixinVoiceUtil.cs" />
+    <Compile Include="WinXinService.BLL\Weixin_tmplmsgManage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.Tenpay\Com.Tenpay.csproj">
+      <Project>{6F276911-E4A7-4C85-85D5-40EE5E85D664}</Project>
+      <Name>Com.Tenpay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Framework\ETS.Framework.csproj">
+      <Project>{CA291C1A-82F9-4514-A570-F1CA4A8C51F3}</Project>
+      <Name>ETS.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Common.Business\ETS2.Common.Business.csproj">
+      <Project>{29144B6A-687D-431C-AC22-83096799142F}</Project>
+      <Name>ETS2.Common.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.CRM.Service\ETS2.CRM.Service.csproj">
+      <Project>{960115BA-04F9-4E4C-B3DE-203F1B011093}</Project>
+      <Name>ETS2.CRM.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Member.Service\ETS2.Member.Service.csproj">
+      <Project>{2A10CD48-3364-4530-B5E9-A4C5D2687FCE}</Project>
+      <Name>ETS2.Member.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.PM.Service\ETS2.PM.Service.csproj">
+      <Project>{1AD898A7-9A31-44F2-ABA2-C82B11DE667D}</Project>
+      <Name>ETS2.PM.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileUpload\ETS2.FileUpload.Service.csproj">
+      <Project>{F627DC83-0DCA-4164-B9C1-0B1384A7FE77}</Project>
+      <Name>ETS2.FileUpload.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

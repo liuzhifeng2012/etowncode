@@ -1,0 +1,287 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Etown.master.cs" Inherits="ETS2.WebApp.UI.Etown" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <head>
+        <title>电子凭证平台</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="/Styles/fontcss/font-awesome.min.css">
+        <!--[if IE 7]>
+		          <link rel="stylesheet" href="/Styles/fontcss/font-awesome-ie7.min.css" />
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="/Styles/base2.css" />
+        <link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+        <script src="/Scripts/common.js" type="text/javascript"></script>
+        <link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+        <script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/Scripts/jquery.cookie.2.2.0.min.js"></script>
+        <style type="text/css">
+            .seled
+            {
+                width: 181px;
+                position: relative;
+                height: 24px;
+                line-height: 24px;
+                display: block;
+                background-color: #528BCB;
+            }
+            .seled a
+            {
+                color: #FFFFFF !important;
+            }
+            .notseled
+            {
+                width: 181px;
+                position: relative;
+                height: 24px;
+                line-height: 24px;
+                display: block;
+            }
+        </style>
+        <script type="text/javascript">
+            $(function () {
+
+                $("#dh_4").hide();
+                $("#dh_21").hide();
+                $("#dh_15").hide();
+                $("#dh_6").addClass("bold");
+                $("#dh_5").addClass("bold");
+                $("#dh_10").addClass("bold")
+
+                //左侧栏选中
+                if ($.cookie($("#hid_comid").val() + "_navigationid")) {
+
+                    var seledid = $.cookie($("#hid_comid").val() + "_navigationid");
+
+                    $("#dh_" + seledid).addClass("seled");
+                }
+                if ($("#secondary-tabs").length == 0) {
+                    //判断虚拟路径是否在子导航列表中，没有的话则 赋值虚拟路径为 cookie中保存的虚拟路径
+                    var vurl = $("#hid_dVirtualUrl").trimVal();
+                    var parastr = $("#hid_parastr").trimVal();
+                    //alert("1-" + vurl + "--" + parastr);
+                    $.post("/JsonFactory/PermissionHandler.ashx?oper=getsys_subnav", { vurl: vurl, parastr: parastr }, function (data1) {
+                        data1 = eval("(" + data1 + ")");
+                        if (data1.type == 1) {
+                            //alert("2-" + $.cookie($("#hid_comid").val() + "_vurl"));
+                            if ($.cookie($("#hid_comid").val() + "_vurl")) {
+                                var fullurl = $.cookie($("#hid_comid").val() + "_vurl");
+                                //                                alert("88-" + fullurl);
+                                if (fullurl != "") {
+                                    if (fullurl.toLowerCase() != "/manage.aspx" && fullurl.toLowerCase() != "/default.aspx") {
+                                        var vvurl = ""; //虚拟路径（不包含参数）
+                                        var vparastr = ""; //虚拟参数字符串
+                                        if (fullurl.indexOf('?') > -1) {
+                                            vvurl = fullurl.substr(0, fullurl.indexOf('?'));
+                                            vparastr = fullurl.substr(fullurl.indexOf('?') + 1);
+                                        } else {
+                                            vvurl = fullurl;
+                                            vparastr = "";
+                                        }
+
+                                        //                                        alert("554-" + vvurl + "---" + vparastr);
+                                        $("#hid_dVirtualUrl").val(vvurl);
+                                        $("#hid_parastr").val(vparastr);
+
+                                        viewrightsubnav();
+                                    } else {//如果是首页或者默认页，则跳过权限
+
+                                        return;
+                                    }
+                                } else {
+
+                                    return;
+                                }
+                            } else {
+                                return;
+                            }
+                        }
+                        if (data1.type == 100) {
+                            viewrightsubnav();
+                        }
+                    })
+
+
+                }
+
+                //前台订单提交 需要打开新页面
+                $("a[dataname='前台订单提交']").attr("target","_blank");
+            })
+            function viewrightsubnav() {
+//                alert($("#hid_dVirtualUrl").trimVal() + "--" + $("#hid_parastr").trimVal());
+                //根据虚拟路径得到需要展示的右侧子导航
+                $.post("/JsonFactory/PermissionHandler.ashx?oper=getsys_subnavlistbyvirtualurl", { virtualurl: $("#hid_dVirtualUrl").trimVal(), viewcode: 1, groupid: $("#hid_dgroupid").trimVal(), parastr: $("#hid_parastr").trimVal() }, function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.type == 1) {
+                        alert("你暂时没有权限访问");
+                        history.go(-1);
+                        return;
+                    }
+                    if (data.type == 100) {
+                        var subnav = "<div id=\"secondary-tabs\" class=\"navsetting\"><ul>";
+                        for (var i = 0; i < data.msg.length; i++) {
+                            var subnav_url = data.msg[i].subnav_url;
+                            //                                if (subnav_url.indexOf('?') > -1) {
+                            //                                    subnav_url = subnav_url.substr(0, subnav_url.indexOf('?'));
+                            //                                }
+                            var subnav_name = data.msg[i].subnav_name;
+
+
+                            if (subnav_url == $("#hid_dVirtualUrl").trimVal() + $("#hid_parastr").trimVal()) {//设置class="on"
+                                subnav += '<li class="on" ><a href="javascript:void(0)" onfocus="this.blur()" target="" onclick="dbsavevurl(\'' + subnav_url + '\')"><span>' + subnav_name + '</span></a></li>';
+                            } else {
+                                subnav += '<li  ><a href="javascript:void(0)" onfocus="this.blur()" target="" onclick="dbsavevurl(\'' + subnav_url + '\')"><span>' + subnav_name + '</span></a></li>';
+                            }
+                        }
+                        subnav += "</ul> </div>";
+                        $("#apps-view").prepend(subnav);
+                    }
+                })
+            
+            }
+
+            //左侧栏点击事件
+            function dhclick(dhid,vurl) { 
+                $.cookie($("#hid_comid").val() + "_navigationid", dhid, { path: '/' });
+                //保存导航路径
+                $.cookie($("#hid_comid").val() + "_vurl", vurl.toLowerCase(), { path: '/' });
+            }
+            //右侧子导航点击事件
+            function dbsavevurl(vurl) {
+              
+                //保存导航路径
+                $.cookie($("#hid_comid").val() + "_vurl", vurl.toLowerCase(), { path: '/' });
+                //                alert(vurl.toLowerCase());
+                location.href = vurl;
+            }
+
+            //退出系统
+            function logout() {
+                $.cookie($("#hid_comid").val() + "_navigationid", 0, { path: '/' });
+                $.cookie($("#hid_comid").val() + "_vurl", "", { path: '/' });
+                location.href = "/Logout.aspx";
+            }
+        </script>
+    </head>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="sky">
+    <form id="form1" runat="server" onsubmit="return true;">
+    <div id="mainhome" class="main">
+        <div style="width: 1024px; height: 1px; overflow: hidden; display: none; _display: block;
+            display: none;">
+            min-width</div>
+        <div class="home-hd" style="z-index: 1; display: block;">
+            <div class="home-hd-top">
+                <div class="home-hd-lf-bg">
+                    <div>
+                        <img src="<%=comlogo %>" alt="" width="190px" height="68px" /></div>
+                    <div id="account">
+                        您好，
+                        <%=comname%>&gt;<%=groupname%>&gt;<%=username %>
+                        <div class="shortcut">
+                            <a href="/manage.aspx" class="ui-exec exec-mail-homeload" onfocus="this.blur()">首页</a>
+                            | <a href="/Account/AccountManager.aspx" onfocus="this.blur()" onclick="dhclick('0')">
+                                账户管理</a> | 账户充值 | <a href="/ui/userui/bangdingprint.aspx" onfocus="this.blur()" onclick="dhclick('0')">
+                                    打印设置</a>| <a href="http://shop<%=comid %>.etown.cn/ui/shangjiaui/ProductList.aspx" onfocus="this.blur()" >
+                                    网站预览</a>
+                                    | <a href="http://shop<%=comid %>.etown.cn/ui/pmui/eticket/showtcode.aspx?pno=http://shop<%=comid %>.etown.cn/pay/&big=8" target="_blank" onfocus="this.blur()" >
+                                    线下支付二维码</a>
+
+                        </div>
+                    </div>
+                    <div id="min_nav">
+                        平台技术支持电话：13511097178 | <a href="javascript:void(0)" target="_self" style="color: Black;
+                            font-weight: bold;" onfocus="this.blur()" onclick="logout()">退 出</a><br>
+                        <div class="shortcut">
+                            建议使用chrome浏览器访问本系统
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mail-nav" class="">
+            <%if (iscanverify == 1)
+              { %>
+            <div id="mail_write_button">
+                <ul>
+                    <li class="mail_write"><a href="/ui/pmui/eticket/eticketindex.aspx" onfocus="this.blur()"
+                        class="ui-act act-getMailTop"><span class="nav_btn_text">验电子码</span></a> <a href="/V/VerCard.aspx"
+                            onfocus="this.blur()" class="ui-exec exec-mail-compose"><span class="nav_btn_text">验会员卡</span></a>
+                    </li>
+                    <li class="empty-line" style="height: 0px;"></li>
+                </ul>
+            </div>
+            <%} %>
+            <div id="all_folder_list">
+                <div id="system_folder_list">
+                    <ul id="left_folder_list">
+                        <asp:Repeater ID="rptTopMenuList" runat="server">
+                            <ItemTemplate>
+                                <!--<h2 data="<%#Eval("Actioncolumnid") %>">
+                                    <%#Eval("Actioncolumnname")%></h2>-->
+                                <ul data="<%#Eval("Actioncolumnid") %>">
+                                    <asp:HiddenField ID="HideFuncId" runat="server" Value='<%#Eval("Actioncolumnid") %>' />
+                                    <asp:Repeater ID="rptMenuList" runat="server">
+                                        <ItemTemplate>
+                                            <li id="dh_<%#Eval("Actionid") %>" class="app-<%#Eval("Actionid") %>"><a href="<%#Eval("Actionurl") %>"
+                                                onfocus="this.blur()" onclick="dhclick('<%#Eval("Actionid") %>','<%#Eval("Actionurl") %>')" dataname="<%#Eval("Actionname")%>">
+                                                <%#Eval("Actionname")%></a> </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <li class="cut-line"></li>
+                                </ul>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <%--   <li class="" id="folder-1"><a href="/ui/pmui/eticket/eticketindex.aspx" title=""
+                            onfocus="this.blur()" class="ui-exec exec-mail-maillist item folder_inbox" target="">
+                            <span class="folder_icon"></span><span class="folderName">电脑验码</span></a></li>--%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="mail-main" class="mail-main ">
+            <div class="frame">
+                <div class="othmailouter" style="display: none">
+                    <div id="othermailpop">
+                    </div>
+                </div>
+                <div id="apps-view"> 
+                        <asp:ContentPlaceHolder ID="body" runat="server">
+                        </asp:ContentPlaceHolder> 
+                </div>
+            </div>
+            <!--<div class="copyLine"></div>-->
+        </div>
+        <div id="mail-msg-fixed" style="z-index: 2;">
+            <div id="mail-msg-outer">
+                <div id="mail-msg-inner">
+                </div>
+            </div>
+        </div>
+        <div id="mail-msg">
+            <div id="gmsg">
+            </div>
+            <div id="progress" style="visibility: hidden;">
+                数据加载中...</div>
+            <div id="dialog">
+            </div>
+        </div>
+    </div>
+    <div id="divBackToTop" style="display: none">
+    </div>
+    <div class="sessionToken">
+    </div>
+    <input type="hidden" id="hid_comid" value="<%=comid %>" />
+    <input type="hidden" id="hid_comname" value="<%=comname %>" />
+    <input type="hidden" id="hid_userid" value="<%=userid %>" />
+    <input type="hidden" id="hid_comlogo" value="<%=comlogo %>" />
+    <input type="hidden" id="hid_dgroupid" value="<%=groupid %>" />
+    <input type="hidden" id="hid_dVirtualUrl" value="<%=VirtualUrl %>" />
+    <input type="hidden" id="hid_parastr" value="<%=parastr %>" />
+    </form>
+</body>
+</html>

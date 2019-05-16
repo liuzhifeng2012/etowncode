@@ -1,0 +1,8 @@
+D:\site\b2betown\WebAlipay\bin\Debug\WebAlipay.dll
+D:\site\b2betown\WebAlipay\bin\Debug\WebAlipay.pdb
+D:\site\b2betown\WebAlipay\obj\Debug\WebAlipay.dll
+D:\site\b2betown\WebAlipay\obj\Debug\WebAlipay.pdb
+E:\EtownCode\b2betown\WebAlipay\bin\Debug\WebAlipay.dll
+E:\EtownCode\b2betown\WebAlipay\bin\Debug\WebAlipay.pdb
+E:\EtownCode\b2betown\WebAlipay\obj\Debug\WebAlipay.dll
+E:\EtownCode\b2betown\WebAlipay\obj\Debug\WebAlipay.pdb

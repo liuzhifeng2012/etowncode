@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<url>http://shop.etown.cn/jsonfactory/TwoCode.ashx</url>
+	<terminal_id>10000021</terminal_id>
+	<terminal_name>终端21</terminal_name>
+	<merchant_id>10086</merchant_id>
+	<key>4Mds1hSvWkfTmNrWMv1KTIPj</key>
+    <NetType>gprs</NetType>
+    <useraccount>01</useraccount>
+    <userpwd>0000</userpwd>
+	<downloadcode>1</downloadcode>
+	<exeurl></exeurl>
+	<xmlurl></xmlurl>
+	<tempVersion>1.1</tempVersion>
+	<VersionCode>1.1</VersionCode>
+</config>

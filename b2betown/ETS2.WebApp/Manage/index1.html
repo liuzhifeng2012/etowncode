@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>微旅行 无V不至 贴身旅游管家！</title>
+    <meta name="keywords" content="微旅行">
+    <meta name="description" content="">
+
+    <link charset="utf-8" rel="stylesheet" href="/Styles/business.css">
+
+<!--[if IE]>
+    <style type="text/css">
+      .pic, .txt, .bg {
+        opacity: 1;
+      }
+      #banner .txt {
+        top: 50px;
+        left: 0;
+      }
+    </style>
+    <![endif]-->
+
+<style type="text/css">
+
+</style>
+<script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+<script src="/Scripts/common.js" type="text/javascript"></script>
+<link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+
+<script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        //取消修改密码
+        $("#t1").click(function () {
+            $("#con2").hide();
+            $("#con3").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor1");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+
+        })
+        $("#t2").click(function () {
+            $("#con3").hide();
+            $("#con2").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor1");
+        })
+
+        $("#t1").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t1").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+        $("#t2").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t2").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+
+        $("#headkaihu").click(function () {
+            $("html,body").animate({ scrollTop: $("#t2").offset().top }, 500)
+            $("#con3").hide();
+            $("#con2").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor1");
+        });
+
+
+
+        //确认发送
+        $("#SubSend").click(function () {
+            var Mobile = $("#Mobile").val();
+            var Name = $("#Name").val();
+            var Company = $("#Company").val();
+            var Address = $("#Address").val();
+
+            if (Name == '' || Name == '姓名') {
+                $.prompt('请填写联系人姓名！');
+                return;
+            }
+            if (Mobile == '' || Mobile == '手机') {
+                $.prompt('请填写联系电话');
+                return;
+            }
+
+
+            if (Company == '' || Company == '公司名称') {
+                $.prompt('请填写公司名称！');
+                return;
+            }
+
+            $.ajax({
+                type: "Get",
+                data: { Mobile: Mobile, Name: Name, Company: Company, Address: Address },
+                url: "/JsonFactory/BusinessCustomersHandler.ashx?oper=contentsend",
+                success: function (data) {
+                    $.prompt("提交成功", {
+                        buttons: [
+                                 { title: '确定', value: true }
+                                ],
+                        opacity: 0.1,
+                        focus: 0,
+                        show: 'slideDown',
+                        submit: function (e, v, m, f) {
+                            if (v == true) {
+                                $("#Mobile").val("");
+                                $("#Name").val("");
+                                $("#Company").val("");
+                                $("#Address").val("");
+
+                                window.location.reload();
+                            }
+                        }
+
+                    });
+                }
+            });
+
+        })
+
+    })
+
+    function skipregi() {
+        window.open("/account/Register.aspx", target = "_blank");
+    }
+		
+</script>
+</head>
+   
+
+
+
+<body role="document" >    
+  <align="center">
+
+     <div class="header" coor="header">
+<div class="grid-990 header-wrap fn-clear">
+            <div id="et-img-logo" class="fn-left">
+               <img src="images/v-logo-1.jpg" alt="" height="70" id="imglogo">
+			</div>
+      
+  <div id="nav"> 
+  <span class="item1"><a href="/account/Register.aspx">我要注册</a></span>
+  <span class="item1" id="headkaihu"><a href="javascript:;">开户帮助</a></span>
+  <span class="tel">商家合作热线：<img src="images/tel.jpg"/></span>        </div> 
+</div>
+      <div id="banner" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+        <div id="glume" >
+          <ul class="Limg">
+            <div id="banner2" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+              <div class="login-box">
+                <iframe class="fn-hide" allowtransparency="true" src="/account/Login.aspx" width="286" height="367" id="loginIframe" frameborder="0" scrolling="no" coor="aside-login" style="display: block;"></iframe>
+                <div id="loginLoading" style="display: none;"><img width="50" height="50" alt="加载中" src="#" seed="loginLoading-iE2012062qz2UvlUVF" smartracker="on" /></div>
+              </div>
+              <div id="glume2" >
+                <ul class="Limg">
+                  <li class="bg_1" onClick="javascript:window.open('/account/Register.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_2" onClick="javascript:window.open('/account/Register.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_3" onClick="javascript:window.open('/account/Register.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_4" onClick="javascript:window.open('/account/Register.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                </ul>
+				    <cite class="Nubbt"> 
+		<span class="on" >1</span> 
+		<span >2</span> 
+		<span >3</span> 
+		<span >4</span> 
+
+    </cite> 
+              </div>
+              <script language=javascript type="text/javascript">
+                  (function () {
+                      if (!Function.prototype.bind) {
+                          Function.prototype.bind = function (obj) {
+                              var owner = this, args = Array.prototype.slice.call(arguments), callobj = Array.prototype.shift.call(args);
+                              return function (e) { e = e || top.window.event || window.event; owner.apply(callobj, args.concat([e])); };
+                          };
+                      }
+                  })();
+                  var glume = function (id) {
+                      this.ctn = document.getElementById(id);
+                      this.adLis = null;
+                      this.btns = null;
+                      this.animStep = 0.1; //动画速度0.1～0.9
+                      this.switchSpeed = 5; //自动播放间隔(s)
+                      this.defOpacity = 1;
+                      this.tmpOpacity = 1;
+                      this.crtIndex = 0;
+                      this.crtLi = null;
+                      this.adLength = 0;
+                      this.timerAnim = null;
+                      this.timerSwitch = null;
+                      this.init();
+                  };
+                  glume.prototype = {
+                      fnAnim: function (toIndex) {
+                          if (this.timerAnim) { window.clearTimeout(this.timerAnim); }
+                          if (this.tmpOpacity <= 0) {
+                              this.crtLi.style.opacity = this.tmpOpacity = this.defOpacity;
+                              this.crtLi.style.filter = 'Alpha(Opacity=' + this.defOpacity * 100 + ')';
+                              this.crtLi.style.zIndex = 0;
+                              this.crtIndex = toIndex;
+                              return;
+                          }
+                          this.crtLi.style.opacity = this.tmpOpacity = this.tmpOpacity - this.animStep;
+                          this.crtLi.style.filter = 'Alpha(Opacity=' + this.tmpOpacity * 100 + ')';
+                          this.timerAnim = window.setTimeout(this.fnAnim.bind(this, toIndex), 50);
+                      },
+                      fnNextIndex: function () {
+                          return (this.crtIndex >= this.adLength - 1) ? 0 : this.crtIndex + 1;
+                      },
+                      fnSwitch: function (toIndex) {
+                          if (this.crtIndex == toIndex) { return; }
+                          this.crtLi = this.adLis[this.crtIndex];
+                          for (var i = 0; i < this.adLength; i++) {
+                              this.adLis[i].style.zIndex = 0;
+                          }
+                          this.crtLi.style.zIndex = 2;
+                          this.adLis[toIndex].style.zIndex = 1;
+                          for (var i = 0; i < this.adLength; i++) {
+                              this.btns[i].className = '';
+                          }
+                          this.btns[toIndex].className = 'on'
+                          this.fnAnim(toIndex);
+                      },
+                      fnAutoPlay: function () {
+                          this.fnSwitch(this.fnNextIndex());
+                      },
+                      fnPlay: function () {
+                          this.timerSwitch = window.setInterval(this.fnAutoPlay.bind(this), this.switchSpeed * 1000);
+                      },
+                      fnStopPlay: function () {
+                          window.clearTimeout(this.timerSwitch);
+                      },
+                      init: function () {
+                          this.adLis = this.ctn.getElementsByTagName('li');
+                          this.btns = this.ctn.getElementsByTagName('cite')[0].getElementsByTagName('span');
+                          this.adLength = this.adLis.length;
+                          for (var i = 0, l = this.btns.length; i < l; i++) {
+                              with ({ i: i }) {
+                                  this.btns[i].index = i;
+                                  this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                                  this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                              }
+                          }
+                          this.adLis[this.crtIndex].style.zIndex = 2;
+                          this.fnPlay();
+
+                      }
+                  };
+                  var player1 = new glume('glume');
+            </script>
+            </div>
+          </ul>
+        </div>
+</div>
+<div id="apDiv1"><img style="width:100%;"  src="images/homeline.png"/></div>
+<div class="main" role="main">
+  <div class="con3">
+<div class="nav1 navcolor1" id="t1"> 服务介绍</div>
+           <div class="nav2 navcolor2" id="t2"> 开户帮助</div> 
+           <div class="clear"></div></div>
+  <div id="con3">
+             <div class="con">
+           <div class="left1"><img src="images/title1.jpg"/>
+              <div class="title">
+                <p style=" padding-top:10px;">结合微信会员卡的智能电子凭证系统</p>
+                <p>在线售票与验证</p>
+                <p>每卖出一张门票就能发展一个微信会员</p>
+                <p>团购分销 电子门票POS验证与统计 <p>闸机安装 自助取票机开发</p></p>
+              </div>
+           </div>
+           <div class="right1"><img src="images/zu1.jpg"/></div>
+           <div class="clear"></div>
+         </div>
+
+     <img style=" width:100%;"  src="images/lingmiddle.png"/>
+     <div class="con">
+            <div class="left2">
+            <img src="images/zu2.jpg"/>
+              
+           </div>
+           <div class="right2"><img src="images/title2.jpg"/>
+           <div class="title">
+                <p style=" padding-top:10px;">帮助酒店度假村客栈等</p>
+                <p>快速上线微官网和微信订房</p>
+                <p>发布优惠券 / 积分 提升会员服务体验</p>
+             </div></div>
+           <div class="clear"></div>
+  </div>
+
+         <img style=" width:100%;"  src="images/lingmiddle.png"/>
+     <div class="con">
+	 
+            <div class="left3"><img src="images/title3.jpg"/>
+              <div class="title">
+                <p style=" padding-top:10px;">旅行社门市微信扫码关注</p>
+                <p>发放旅游优惠券 推送特价线路</p>
+                <p>微信关键词或语音客服 </p><p>出游咨询更轻松</p>
+              </div>
+           </div>
+           <div class="right3"><img src="images/zu3.jpg"/></div>
+           <div class="clear"></div>
+  </div>
+         <img style=" width:100%;" src="images/lingmiddle.png"/>
+         <div class="con">
+            <div class="left4">
+            <img src="images/zu4.jpg"/>
+              
+           </div>
+           <div class="right4"><img src="images/title4.jpg"/>
+           <div class="title">
+                <p style=" padding-top:10px;">商户微网站 微订单 微支付 微验证</p>
+                <p>免费开户 快速上线 </p>
+                <p>让你看得见效果的移动营销服务平台</p>
+             </div></div>
+           <div class="clear"></div>
+         </div>
+    </div>
+
+         <div class="con2" id="con2" style=" display:none;">
+			<div class="">
+                   <p class="title2">1.微旅行O2O服务平台是做什么的？</p>
+              <div class="text">
+                   <p class="title3">微旅行创业团队来自在线旅游行业，专注提供景区、酒店、旅行社的电子预订与验证系统及微信会员营销服务。我们为企业实现：</p>
+                    <p>（1）快速开展官网和微信直销</p>
+                    <p>（2）电商渠道整合与分销管理</p>
+                    <p>（3）在线支付与电子凭证验证闭环服务</p>
+                    <p>（4）微信会员营销
+                  </p>
+              </div>
+            </div>
+             <div class="">
+                   <p class="title2">2.哪些企业才能注册使用微旅行O2O平台？</p>
+              <div class="text">
+                    <p class="title3">（1）景区电子门票预订及分销管理</p>
+                    <p>旅游景区景点、旅游演出及娱乐场所、度假村酒店与客栈、滑雪场、温泉会所、游    乐园、采摘垂钓烧烤园等……</p>
+                     <p class="title3">（2）微信电子会员卡</p>
+                    <p>适用单位：所有服务行业单位</p>
+                     <p class="title3">（3）微旅行</p>
+                    <p>短途旅游地接社、旅游租车、旅游购物店、旅游包机、签证服务、旅行社门市等</p>
+              </div>
+              <div class="">
+                   <p class="title2">3.如何注册？
+</p>
+              <div class="text">
+                   <p class="title3">提交开户注册申请只需3分钟！</p>
+                   <p class="title3">注册网址：shop.etown.cn
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">4.可以通过微信在线预订和付款吗？</p>
+              <div class="text">
+                   <p>可以。入驻微旅行商户系统后即可进行微信接口设置及产品发布，快速实现官网及微信公众帐号上的产品提单、支付、发码、验证确认、商户后台订单管理与提现对账等。</p>
+        
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">5.电子门票如何网上购票？如何验证？</p>
+              <div class="text">
+                   <p>微旅行O2O平台可帮助景区官网和官方微信公号上快速搭建在线购票、电子票发码与验证等。无需二次开发、快速上线、电脑和pos终端验证统计及时准确。具体请咨询我们 010-59022350
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">6.二维码如何使用？</p>
+              <div class="text">
+                   <p class="title3">微旅行上出现的二维码有两种：
+</p>
+                    <p><strong>（1）用于微信营销的带参数二维码。</strong>用户扫描后即可关注或进入您的微信公号，后台可统计二维码扫描来路，方便商家统计各类推广效果。该类二维码可在微旅行商户后台自助设置获取并查看效果统计数据。</p>
+                     <p> <strong>（2）电子凭证二维码。</strong>通过微旅行O2O平台商家后台发布的订票订房度假产品及优惠券都可以产生一个加密二维码。用户在线预订后可到微信上查看和使用该二维码到商家验证消费。微旅行电子凭证（二维码）还具有查看使用状态、商家地址与服务信息等智能服务，对比短信数字码和彩信二维码方式，微旅行二维码的应用进一步优化了用户在线体验和满足会员互动需求。
+                   
+                </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">7.如何通过微信发放会员卡与优惠券？</p>
+              <div class="text">
+                   <p>微旅行商户系统提供了商家会员服务功能。用户关注商家微信公号后自动获得电子会员卡、会员特权、会员积分查询、优惠券查看与使用。商家可在微旅行商户后台设置会员优惠活动并发放电子优惠券。
+</p>
+                    
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">8.我可以为会员设置积分和抽奖互动活动吗？</p>
+              <div class="text">
+                   <p>可以，微旅行商家后台可为每个会员设置积分、预付款充值和扣减操作。商家还可以在发布产品时设置每个产品购买后客人能够获得的积分数，当客人完成在线购买后系统自动充值积分到该会员账户。
+</p>
+                   <p>为增强会员与商家互动，商家在后台为会员设置抽奖活动，只需设置奖品等级数量及抽奖基数等几项即可发布微信大转盘抽奖活动。
+
+                    
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">9.度假村如何实现微信订房？</p>
+              <div class="text">
+                   <p>周边度假村客人主要来自周末自驾人群。在商家后台上发布房型和预订价格后用户即可在该商家微信公号上进行预订。微信客服及定位功能更可方便的为预订客人提供房态查询、预付房款及确认、地图导航等服务。
+</p>
+                    
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">10.微旅行O2O平台对入住商户收费吗？</p>
+              <div class="text">
+                   <p>为降低商家入驻门槛和快速见效，当前微旅行O2O服务平台对商家开户、微信会员营销、在线产品发布都实施免费政策，只在产生的线上交易金额后收取一定比例交易佣金。特别是景区、度假村、旅行社门市及地接社等合作商家我们免费提供前期营销规划、免费上线培训和更低交易佣金的扶持政策。 
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">11.如何通过微旅行O2O服务平台开展微信营销？这项工作一般需要几个人？</p>
+              <div class="text">
+                   
+                    <p>（1）首先要向腾讯申请注册贵企业的微信公众账号。在线申请很方便：mp.weixin.qq.com ，这个申请过程一般需要2-7天。（申请服务号并认证后可获得带参数二维码、微信客服等高级接口功能，如申请订阅号需经认证才能开通微信菜单功能。）</p>
+                   <p>（2）申请开通微旅行商户系统。申请地址：shop.etown.cn  申请通过后可接收到邮件通知，获得账户使用权限。登录系统》微信管理》微信菜单管理》微信接口设置 。将该页面提供的两段<p>链接复制到微信公号后台的"成为开发者页面"。这个过程可向微旅行客服咨询帮助。</p>
+                    <p>（3）登录微旅行商户系统后台》填写商家信息/产品发布；在微信菜单页面设置微信菜单及子菜单，并设置相应回复方式或页面链接；微信文章管理页面 发布商家服务介绍、服务帮助和促销信息等；通过手机打开您的企业微信公号，查看微信发布情况；再登录微旅行商家系统后台查看会员注册情况和进一步设置会员优惠券、抽奖、积分等互动活动。</p>
+                   <p>（4）微信营销工作初期设置1-2人即可，而后期可根据发展情况与企业市场部、电商部做整合。
+                  </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">12.什么是电子验证与分销管理系统，如何使用？</p>
+              <div class="text">
+                   
+                    <p>自2014年3月开始，我们已经将《电子预订与分销管理系统》整合到新的微旅行O2O服务平台。使团购渠道分销与商家直销电子凭证分发、验证、统计和退票管理一体化。该系统在新平台也会免费开放给需要的景区、周边度假村、游乐场所、地接社等商家，并只按实际验证和收款金额收取佣金费用。</p>
+                    <p>更多请咨询我们010-59022350 （13511097178李先生）
+</p>
+
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">13.必须安装使用pos验证设备吗？使用pos机如何费用？
+</p>
+              <div class="text">
+                   
+<p>根据商家实际情况选择是否安装验证终端设备（pos机等）。对客流量大并分销渠道多的商家，采用pos验证终端可以保证前台验证工作简便有效。微旅行pos验证终端月租费只需150元每台（部分行业商家可根据情况免费提供）。对于客流量不高的商家也可以采用电脑验证，而不具备条件的商家可采用更简便的手机页面/客户端验证方式。</p><p>
+针对智能景区建设需要，我公司还可提供景区门票自动取票机及二维码/磁卡验证闸机安装服务。
+
+                  </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">14.微旅行商户系统能发送短信吗？如何收费？</p>
+              <div class="text">
+                   
+                    <p>微旅行商户后台已经提供了短信发送功能，一般在登录验证、积分充值、购买支付确认时系统自动发放通知短信。如果商家客人使用非智能手机而看不到二维码电子凭证时会同时通过短信发送数字码。 另外，商家工作人员还可以使用后台在线客服功能时通过短信将商家官方微信号、网址及地址电话等信息发放到会员手机上。</p><p>
+
+通过微旅行O2O服务平台商家后台发送短信按每条0.06元收费，发送电子凭证短信按0.1元每条（一般包含两条短信）。
+
+                  </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">15.网上有很多提供微网站、微酒店、微订单、微店等微营销工具服务，微旅行O2O服务平台与这些有什么区别？</p>
+              <div class="text">
+                   <p class="title3">我们与其他微网站（微店、微信营销等）服务商的区别在于：
+</p>
+                    <p>（1）微旅行O2O服务平台旨在帮助商家快速实现移动营销和商务电子化。我们不提供在线预订之外的网站设计开发和手机网站定制服务。这些需求商家可以找上述微网站建设公司来实现，并很方便与微旅行商户系统对接应用。</p>
+                    <p>（2）微旅行团队具有多年旅游相关经验与经历，我们提供旅游行业的深层应用方案，重点提供电子凭证发码与验证闭环体系、电商平台与分销渠道接口整合、深度会员营销等系统服务。而其他微网站服务商一般是提供企业形象与通用产品的手机展示和轻电商应用。</p><p>
+（3）微旅行平台开户与使用免费（按实际产生的线上交易收取佣金）。微旅行平台商户没有使用年费，并免费提供后续的系统运营支持与升级。微旅行O2O平台是商家自己的微营销平台，无入住费用、更无需担保押金。更多服务只有你用了才知道！
+
+              </div>
+            </div>
+            
+            </div>
+          
+          
+         </div>
+		 
+         <img style=" width:100%;"  src="images/mailine.jpg"/>
+         <div class="con1">
+         <p>请留下你的联系方式，我们将尽快与您沟通！</p>
+         <input name="Name" id="Name"  type="text"  onfocus="if (value =='姓名'){value =''}" onblur="if (value ==''){value='姓名'}" value="姓名"  placeholder="姓名" style=" padding:5px; margin:5px 10px 10px 5px;  width:200px; height: 30px;color:#666666;"/>
+         <input name="Mobile" id="Mobile" type="text"  onfocus="if (value =='手机'){value =''}" onblur="if (value ==''){value='手机'}" value="手机"   placeholder="手机" style=" padding:5px; margin:5px 10px 10px 5px; width:200px; height: 30px;color:#666666;" /><br />
+
+         <input name="Company" id="Company" type="text"  onfocus="if (value =='公司名称'){value =''}" onblur="if (value ==''){value='公司名称'}" value="公司名称"  placeholder="公司名称" style=" padding:5px; margin:5px 10px 10px 5px;  width:200px; height: 30px;color:#666666;" />
+         <input name="Address" id="Address" type="text"  onfocus="if (value =='地址'){value =''}" onblur="if (value ==''){value='地址'}" value="地址" placeholder="地址"  style=" padding:5px; margin:5px 10px 10px 5px; width:200px; height: 30px; color:#666666;"/><br />
+         <div id="SubSend" style=" cursor:pointer"><img src="images/button.png" style=" width:50%;" /></div>
+         </div>
+		 
+ 
+    
+</div>
+	
+    <div class="footer" coor="footer">
+         <div class="sitelink">
+           <div id="apdiv1"><img src="images/quote1.png"/>
+             <div id="apdiv2"><img src="images/quote2.png"/></div>
+           </div>
+           <p>我们专注为中国旅游同业提供电子化营销整合方案。<br />
+           包括景区、酒店、旅行社的电子预订与验证、微信营销、分销渠道管理。 </p>
+           <div id="apdiv3"><img src="images/map.png"/></div>
+           <div id="apdiv4"><img src="images/tel.png"/></div>
+           <p>北京市朝阳区劲松华腾大厦4层401   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4006361919 010-59022350</p>
+           <div id="apdiv5"><img src="images/erweima.png" width="121" height="142"/></div>
+           <p class="p1"><span class="p2">Copyright Vctrip@2014. All Right Reserved</span>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;北京微旅程科技有限公司</p>
+         </div>
+    </div>
+	
+
+
+	
+
+</align>
+</body>
+
+</html>

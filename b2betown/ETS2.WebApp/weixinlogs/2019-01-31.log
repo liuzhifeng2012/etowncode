@@ -1,0 +1,36 @@
+2019-01-31 23:11:39.870 INFO WxPayAPI.NativePay: Native pay mode 1 url is producing...
+2019-01-31 23:11:39.952 INFO WxPayAPI.NativePay: Get native pay mode 1 url : weixin://wxpay/bizpayurl?appid=wx5adf8bdaa34b8707&mch_id=1219910201&nonce_str=9cc2f62901744546968900c5965e98ee&product_id=oid337334&sign=A63B86E3DDBB2A3EAA9F76A23FE50CD3&time_stamp=1548947500
+2019-01-31 23:11:39.952 DEBUG WxPayApi: ShortUrl request : <xml><appid><![CDATA[wx5adf8bdaa34b8707]]></appid><long_url><![CDATA[weixin://wxpay/bizpayurl?appid=wx5adf8bdaa34b8707&mch_id=1219910201&nonce_str=9cc2f62901744546968900c5965e98ee&product_id=oid337334&sign=A63B86E3DDBB2A3EAA9F76A23FE50CD3&time_stamp=1548947500]]></long_url><mch_id><![CDATA[1219910201]]></mch_id><nonce_str><![CDATA[4f8fcf3ff3f14d99bbbeb297a1e6f5a5]]></nonce_str><sign><![CDATA[52D4D2F21802CA7AF22FB244B3AA4F4E]]></sign></xml>
+2019-01-31 23:11:40.514 DEBUG WxPayApi: ShortUrl response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<mch_id><![CDATA[1219910201]]></mch_id>
+<appid><![CDATA[wx5adf8bdaa34b8707]]></appid>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<short_url><![CDATA[weixin://wxpay/bizpayurl?pr=dEqMLiy]]></short_url>
+<nonce_str><![CDATA[sW90Sm9WFLswFW1K]]></nonce_str>
+<sign><![CDATA[564B8C07CA24669326F31D5E235076EE]]></sign>
+</xml>
+2019-01-31 23:19:56.876 INFO WxPayAPI.NativePay: Native pay mode 1 url is producing...
+2019-01-31 23:19:56.876 INFO WxPayAPI.NativePay: Get native pay mode 1 url : weixin://wxpay/bizpayurl?appid=wx5adf8bdaa34b8707&mch_id=1219910201&nonce_str=15996a77bc25471b83d7544ea0af5a0c&product_id=oid337337&sign=ABD2AC00963178922FA2700344C27D38&time_stamp=1548947997
+2019-01-31 23:19:56.876 DEBUG WxPayApi: ShortUrl request : <xml><appid><![CDATA[wx5adf8bdaa34b8707]]></appid><long_url><![CDATA[weixin://wxpay/bizpayurl?appid=wx5adf8bdaa34b8707&mch_id=1219910201&nonce_str=15996a77bc25471b83d7544ea0af5a0c&product_id=oid337337&sign=ABD2AC00963178922FA2700344C27D38&time_stamp=1548947997]]></long_url><mch_id><![CDATA[1219910201]]></mch_id><nonce_str><![CDATA[6af291faa38c4142bf0cb8950cc1d66c]]></nonce_str><sign><![CDATA[1A8419DA5E19136B9B23EAD718A170A7]]></sign></xml>
+2019-01-31 23:19:58.553 DEBUG WxPayApi: ShortUrl response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<mch_id><![CDATA[1219910201]]></mch_id>
+<appid><![CDATA[wx5adf8bdaa34b8707]]></appid>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<short_url><![CDATA[weixin://wxpay/bizpayurl?pr=hMXYmY1]]></short_url>
+<nonce_str><![CDATA[0GmWKn0S1tEjjh7q]]></nonce_str>
+<sign><![CDATA[EE09C79593132767C4EE65CD2B20E026]]></sign>
+</xml>
+2019-01-31 23:44:00.334 INFO WxPayAPI.NativePay: Native pay mode 1 url is producing...
+2019-01-31 23:44:00.337 INFO WxPayAPI.NativePay: Get native pay mode 1 url : weixin://wxpay/bizpayurl?appid=wx5adf8bdaa34b8707&mch_id=1219910201&nonce_str=00af6819432e48458718d725daff66de&product_id=oid337347&sign=8BE6FA9AFBA55F1EDBC7150095D36963&time_stamp=1548949440
+2019-01-31 23:44:00.340 DEBUG WxPayApi: ShortUrl request : <xml><appid><![CDATA[wx5adf8bdaa34b8707]]></appid><long_url><![CDATA[weixin://wxpay/bizpayurl?appid=wx5adf8bdaa34b8707&mch_id=1219910201&nonce_str=00af6819432e48458718d725daff66de&product_id=oid337347&sign=8BE6FA9AFBA55F1EDBC7150095D36963&time_stamp=1548949440]]></long_url><mch_id><![CDATA[1219910201]]></mch_id><nonce_str><![CDATA[6d797884c970477ba604f9f733a5adc3]]></nonce_str><sign><![CDATA[5833994884C26933D9B483C8D1056202]]></sign></xml>
+2019-01-31 23:44:00.641 DEBUG WxPayApi: ShortUrl response : <xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<mch_id><![CDATA[1219910201]]></mch_id>
+<appid><![CDATA[wx5adf8bdaa34b8707]]></appid>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<short_url><![CDATA[weixin://wxpay/bizpayurl?pr=L2CgUrx]]></short_url>
+<nonce_str><![CDATA[vTHw3G4IO65luaOH]]></nonce_str>
+<sign><![CDATA[47A20C382CC97389D55727AD420220C7]]></sign>
+</xml>

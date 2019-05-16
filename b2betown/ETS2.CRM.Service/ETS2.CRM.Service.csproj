@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{960115BA-04F9-4E4C-B3DE-203F1B011093}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETS2.CRM.Service</RootNamespace>
+    <AssemblyName>ETS2.CRM.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ETS2.WebApp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CRMService.Data\AgentCompanyData.cs" />
+    <Compile Include="CRMService.Data\Agent_RechargeRemindSmsData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanyData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanyImageData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanyInfoData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanyManagerUserData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanyMenuData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanyPosData.cs" />
+    <Compile Include="CRMService.Data\B2bCompanySaleSetData.cs" />
+    <Compile Include="CRMService.Data\B2bCrmData.cs" />
+    <Compile Include="CRMService.Data\B2bcrmlevelsData.cs" />
+    <Compile Include="CRMService.Data\B2bcrmlevels_adjustlogData.cs" />
+    <Compile Include="CRMService.Data\B2bcrm_dengjifenlogData.cs" />
+    <Compile Include="CRMService.Data\B2bcrm_levelchangelogData.cs" />
+    <Compile Include="CRMService.Data\B2b_comagentmessageData.cs" />
+    <Compile Include="CRMService.Data\B2b_companyindustryData.cs" />
+    <Compile Include="CRMService.Data\B2b_crm_interesttagData.cs" />
+    <Compile Include="CRMService.Data\B2b_groupData.cs" />
+    <Compile Include="CRMService.Data\B2b_interesttagData.cs" />
+    <Compile Include="CRMService.Data\B2b_interesttagtypeData.cs" />
+    <Compile Include="CRMService.Data\B2b_invitecodesendlogData.cs" />
+    <Compile Include="CRMService.Data\ExcelImportLogData.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalAgentCompany.cs" />
+    <Compile Include="CRMService.Data\InternalData\Internalagent_RechargeRemindSms.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bcomagentmessage.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompany.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompanyImage.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompanyInfo.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompanyManageUser.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompanyMenu.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompanyPos.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCompanySaleSet.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bCrm.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bcrmlevels.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bcrmlevels_adjustlog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bcrm_dengjifenlog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2bcrm_levelchangelog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2b_companyindustry.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2b_crm_interesttag.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2b_group.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2b_interesttag.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2b_interesttagtype.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalB2b_invitecodesendlog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalExcelImportLog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalObtainGzListLog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalObtainGzListSplit.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalPosversionmodifylog.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalPosversionrenewlog.cs" />
+    <Compile Include="CRMService.Data\InternalData\Internaltaobao_agent_relation.cs" />
+    <Compile Include="CRMService.Data\InternalData\InternalValidCode_SendLog.cs" />
+    <Compile Include="CRMService.Data\ObtainGzListLogData.cs" />
+    <Compile Include="CRMService.Data\ObtainGzListSplitData.cs" />
+    <Compile Include="CRMService.Data\Phone_code.cs" />
+    <Compile Include="CRMService.Data\PosversionmodifylogData.cs" />
+    <Compile Include="CRMService.Data\PosversionrenewlogData.cs" />
+    <Compile Include="CRMService.Data\Taobao_agent_relationData.cs" />
+    <Compile Include="CRMService.Data\ValidCode_SendLogData.cs" />
+    <Compile Include="CRMService.Modle\Agent_company.cs" />
+    <Compile Include="CRMService.Modle\Agent_Financial.cs" />
+    <Compile Include="CRMService.Modle\Agent_RechargeRemindSms.cs" />
+    <Compile Include="CRMService.Modle\Agent_regiinfo.cs" />
+    <Compile Include="CRMService.Modle\Agent_warrant.cs" />
+    <Compile Include="CRMService.Modle\B2bcrmlevels.cs" />
+    <Compile Include="CRMService.Modle\B2bcrmlevels_adjustlog.cs" />
+    <Compile Include="CRMService.Modle\B2bcrm_dengjifenlog.cs" />
+    <Compile Include="CRMService.Modle\B2bcrm_levelchangelog.cs" />
+    <Compile Include="CRMService.Modle\B2b_company.cs" />
+    <Compile Include="CRMService.Modle\B2b_companyindustry.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_Button.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_image.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_info.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_manageuser.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_manageuser_useworktime.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_menu.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_nowdayrandom.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_pos.cs" />
+    <Compile Include="CRMService.Modle\B2b_company_saleset.cs" />
+    <Compile Include="CRMService.Modle\B2b_com_agent_message.cs" />
+    <Compile Include="CRMService.Modle\B2b_crm.cs" />
+    <Compile Include="CRMService.Modle\B2b_crm_interesttag.cs" />
+    <Compile Include="CRMService.Modle\B2b_crm_location.cs" />
+    <Compile Include="CRMService.Modle\B2b_group.cs" />
+    <Compile Include="CRMService.Modle\b2b_image_library.cs" />
+    <Compile Include="CRMService.Modle\B2b_interesttag.cs" />
+    <Compile Include="CRMService.Modle\B2b_interesttagtype.cs" />
+    <Compile Include="CRMService.Modle\B2b_invitecodesendlog.cs" />
+    <Compile Include="CRMService.Modle\Enum\AgentCompanyType.cs" />
+    <Compile Include="CRMService.Modle\Enum\Agentsort.cs" />
+    <Compile Include="CRMService.Modle\Enum\Agentsourcesort.cs" />
+    <Compile Include="CRMService.Modle\Enum\CompanyClass.cs" />
+    <Compile Include="CRMService.Modle\Enum\CompanyStatus.cs" />
+    <Compile Include="CRMService.Modle\Enum\CompanyType.cs" />
+    <Compile Include="CRMService.Modle\Enum\CrmInterestType.cs" />
+    <Compile Include="CRMService.Modle\Enum\CrmLevels.cs" />
+    <Compile Include="CRMService.Modle\Enum\EmployeeStatus.cs" />
+    <Compile Include="CRMService.Modle\Enum\ManageUserPower.cs" />
+    <Compile Include="CRMService.Modle\Enum\ModelStyle.cs" />
+    <Compile Include="CRMService.Modle\Enum\PosVersionType.cs" />
+    <Compile Include="CRMService.Modle\ExcelImportLog.cs" />
+    <Compile Include="CRMService.Modle\ObtainGzListLog.cs" />
+    <Compile Include="CRMService.Modle\ObtainGzListSplit.cs" />
+    <Compile Include="CRMService.Modle\Phone_codemodel.cs" />
+    <Compile Include="CRMService.Modle\Posversionmodifylog.cs" />
+    <Compile Include="CRMService.Modle\Posversionrenewlog.cs" />
+    <Compile Include="CRMService.Modle\Taobao_agent_relation.cs" />
+    <Compile Include="CRMService.Modle\ValidCode_SendLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ETS.Data.SqlHelper\ETS.Data.SqlHelper.csproj">
+      <Project>{DBF9B5F8-9A93-4452-9187-F1D667DC0C73}</Project>
+      <Name>ETS.Data.SqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS.Framework\ETS.Framework.csproj">
+      <Project>{CA291C1A-82F9-4514-A570-F1CA4A8C51F3}</Project>
+      <Name>ETS.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Common.Module\ETS2.Common.Module.csproj">
+      <Project>{F481D751-7178-46C6-A59A-70E458F75ABB}</Project>
+      <Name>ETS2.Common.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETS2.Member.Service\ETS2.Member.Service.csproj">
+      <Project>{2A10CD48-3364-4530-B5E9-A4C5D2687FCE}</Project>
+      <Name>ETS2.Member.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

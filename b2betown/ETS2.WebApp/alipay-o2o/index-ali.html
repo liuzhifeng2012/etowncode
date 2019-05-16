@@ -1,0 +1,369 @@
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>支付宝 知托付！</title>
+    <meta name="keywords" content="o2o-etown">
+    <meta name="description" content="">
+ 
+    <script>
+    window.monitor||(function(){var M=window.monitor={};M._rate=0.005;M._errors=[];M._now=function(){return ("function"==typeof Date.now)?Date.now():new Date().valueOf();};M._startTime=window.performance&&performance.timing?performance.timing.navigationStart:M._now();var _TIMER={};M.time=function(name){_TIMER[name]=M._now();};M.timeEnd=function(name){var s=_TIMER[name];if(!s){return NaN;}var e=M._now(),t=e-s;M._errors.push({"time":t});if("function"==typeof M.timedSend){M.timedSend();}return t;};M.log=function(g,p,c){M._errors.push({constom:{type:"log",productLine:g,product:p,errorCode:c,counts:1}});if("function"==typeof M.timedSend){M.timedSend();}};M.error=function(e){if(!(msg instanceof Error)){return;}M._errors.push({constom:{msg:e.message,file:e.fileName||"",ln:e.lineNumber||e.line||0}});if("function"==typeof M.timedSend){M.timedSend();}};window.onerror=function(m,f,l){M._errors.push({jsError:{msg:m,file:f,ln:l}});if("function"==typeof M.timedSend){M.timedSend();}return false;}})();
+    window._to = { start: new Date() };
+    </script>
+    <script charset="utf-8" src="https://a.alipayobjects.com/ar/??alipay.light.base-1.1.js,alipay.tracker-1.9.js,alipay.fmsmng.monitor-1.0.js"></script>
+    <!-- 全站页面效率统计结束:alipay/tracker/tracker_time.vm -->
+    <link charset="utf-8" rel="stylesheet" href="https://a.alipayobjects.com/al/alice.common.homeindexSimple-2.3.css">
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+      // html5shiv MIT @rem remysharp.com/html5-enabling-script
+      // iepp v1.6.2 MIT @jon_neal iecss.com/print-protector
+    /*@cc_on(function(a,b){function r(a){var b=-1;while(++b<f)a.createElement(e[b])}if(!(!window.attachEvent||!b.createStyleSheet||!function(){var a=document.createElement("div");a.innerHTML="<elem></elem>";return a.childNodes.length!==1}())){a.iepp=a.iepp||{};var c=a.iepp,d=c.html5elements||"abbr|article|aside|audio|canvas|datalist|details|figcaption|figure|footer|header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",e=d.split("|"),f=e.length,g=new RegExp("(^|\\s)("+d+")","gi"),h=new RegExp("<(/*)("+d+")","gi"),i=/^\s*[\{\}]\s*$/,j=new RegExp("(^|[^\\n]*?\\s)("+d+")([^\\n]*)({[\\n\\w\\W]*?})","gi"),k=b.createDocumentFragment(),l=b.documentElement,m=l.firstChild,n=b.createElement("body"),o=b.createElement("style"),p=/print|all/,q;c.getCSS=function(a,b){if(a+""===undefined)return"";var d=-1,e=a.length,f,g=[];while(++d<e){f=a[d];if(f.disabled)continue;b=f.media||b,p.test(b)&&g.push(c.getCSS(f.imports,b),f.cssText),b="all"}return g.join("")},c.parseCSS=function(a){var b=[],c;while((c=j.exec(a))!=null)b.push(((i.exec(c[1])?"\n":c[1])+c[2]+c[3]).replace(g,"$1.iepp_$2")+c[4]);return b.join("\n")},c.writeHTML=function(){var a=-1;q=q||b.body;while(++a<f){var c=b.getElementsByTagName(e[a]),d=c.length,g=-1;while(++g<d)c[g].className.indexOf("iepp_")<0&&(c[g].className+=" iepp_"+e[a])}k.appendChild(q),l.appendChild(n),n.className=q.className,n.id=q.id,n.innerHTML=q.innerHTML.replace(h,"<$1font")},c._beforePrint=function(){o.styleSheet.cssText=c.parseCSS(c.getCSS(b.styleSheets,"all")),c.writeHTML()},c.restoreHTML=function(){n.innerHTML="",l.removeChild(n),l.appendChild(q)},c._afterPrint=function(){c.restoreHTML(),o.styleSheet.cssText=""},r(b),r(k);if(c.disablePP)return;m.insertBefore(o,m.firstChild),o.media="print",o.className="iepp-printshim",a.attachEvent("onbeforeprint",c._beforePrint),a.attachEvent("onafterprint",c._afterPrint)}})(this,document)@*/
+    </script>
+    <![endif]-->
+    <!--[if IE]>
+    <style type="text/css">
+      .pic, .txt, .bg {
+        opacity: 1;
+      }
+      #banner .txt {
+        top: 50px;
+        left: 0;
+      }
+    </style>
+    <![endif]-->
+	
+    <style type="text/css">
+      .header { height:80px; }
+        .txt-1 {
+              height: 129px;
+              -webkit-transition: none;
+              -moz-transition: none;
+              -ms-transition: none;
+              -o-transition: none;
+              transition: none;
+        }
+      .slide-number { margin-left: -45px; }
+      .about-item .ui-link-item a { color: #666; }
+    </style>
+	
+    <script type="text/javascript" charset="utf-8">
+      try{
+        var oldDomain=document.domain;
+        var num=oldDomain.indexOf('alipay');
+        var newDomain=oldDomain.substring(num,oldDomain.length)
+        document.domain=newDomain;
+      } catch(msg) {
+        document.domain = 'alipay.com';  
+      }
+    </script>
+   <script charset="UTF-8" src="https://a.alipayobjects.com/ar/??/arale.class-1.0.js,arale.tmpl-1.0.js,arale.aspect-1.0.js,aralex.base-1.1.js,aralex.utils.IframeShim-1.2.js,arale.fx-1.1.js,aralex.switchable-1.1.js,aralex.slider.ScrollSlider-1.5.js,aralex.slider.FadeSlider-1.2.js,alipay.alipayIndexSimple.main-1.4.js"></script>
+  </head>
+   
+   
+  <body role="document">
+    
+    <div class="topbar">
+      <div class="grid-990 topbar-wrap fn-clear">
+        <p class="toplink">
+        <a href="http://mobile.alipay.com/index.htm" class="mobile" target="_blank" seed="toplink-mobile" smartracker="on"><i class="icon-mobile"></i>手机支付宝</a>
+        </p>
+        <ul class="topmenu">
+          <li class="topmenu-item topmenu-item-first"><a href="https://auth.alipay.com/login/index.htm" target="_blank" title="登录" seed="topmenuItem-link" smartracker="on">登录</a><b class="split">-</b><a href="https://memberprod.alipay.com/account/reg/index.htm" target="_blank" title="注册" seed="topmenuItem-linkT1" smartracker="on">注册</a></li>
+          <li class="topmenu-item topmenu-item-dropdown" id="J-topmenu-dropdown">
+          <a href="https://lab.alipay.com/user/i.htm" target="_blank" seed="JTopmenuDropdown-link" smartracker="on">我的支付宝<i class="icon-dropdown"></i></a>
+          <ul class="ui-list">
+            <li class="ui-list-item"><a href="https://lab.alipay.com/user/depositDelegateController.htm" target="_blank" seed="JTopmenuDropdown-linkT1" smartracker="on">充值</a></li>
+            <li class="ui-list-item"><a href="https://lab.alipay.com/consume/record/index.htm" target="_blank" seed="JTopmenuDropdown-linkT2" smartracker="on">交易记录</a></li>
+            <li class="ui-list-item"><a href="https://shenghuo.alipay.com/transfer/index.htm" target="_blank" seed="JTopmenuDropdown-linkT3" smartracker="on">转账</a></li>
+          </ul>
+          </li>
+          <li class="topmenu-item topmenu-item-last"><a href="http://help.alipay.com/lab/index.htm" target="_blank" title="帮助中心" seed="topmenuItem-linkT2" smartracker="on">帮助中心</a></li>
+        </ul>
+      </div>
+    </div>
+        <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->   
+    <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->    
+	
+        <header class="header" coor="header">
+      <div class="grid-990 header-wrap fn-clear">
+                <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->        <figure id="alipay-img-logo" class="fn-left">
+          <a href="https://www.alipay.com/index.html" seed="logo" class="ui-logo-alipay">支付宝</a>
+        </figure>
+                <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->        <nav id="J-nav" role="navigation">
+          <ul class="nav" coor="nav">
+            <li class="nav-item" id="home">
+              <a href="https://www.alipay.com/index.html" class="nav-item-link" seed="home-navItemLink" smartracker="on">首页</a>
+            </li>
+            <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->            <li class="nav-item " id="personal">
+            <a href="#" seed="Nav-personal" class="nav-item-link ">个人服务</a>
+
+            <div class="angle sl-angle" style="display: none;"></div>
+            </li>
+            <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->            <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->            <li class="nav-item" id="payment">
+            <a href="http://home.alipay.com/bank/paymentKJ.htm" class="nav-item-link" seed="Nav-bank">付款方式</a>
+
+          
+            </li>
+            <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->            <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->           
+			 <li class="nav-item" id="security">
+            <a href="https://securitycenter.alipay.com/sc/index.htm" seed="Nav-safe" class="nav-item-link">安全中心</a>
+
+
+            </li>
+            <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->            <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->           
+			 <li class="nav-item" id="business">
+            <i class="icon-nav-split"></i>
+            <a href="https://b.alipay.com/newIndex.htm" seed="Nav-bussiness" class="nav-item-link">商家服务</a>
+
+            </li>
+            <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->          </ul>
+        </nav>
+      </div>
+    </header>
+	
+<!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->    <div id="banner" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+<!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->      <div class="login-box">
+        
+		
+		<iframe class="fn-hide" allowtransparency="true" src="https://auth.alipay.com/login/homeB.htm?redirectType=parent" width="286" height="387" id="loginIframe" frameborder="0" scrolling="no" coor="aside-login" style="display: block;"></iframe>
+		
+		
+        <div id="loginLoading" style="display: none;"><img width="50" height="50" alt="加载中" src="https://i.alipayobjects.com/e/201206/2qz2UvlUVF.gif" seed="loginLoading-iE2012062qz2UvlUVF" smartracker="on"></div>
+      </div>
+      <ul id="J-slide" style="position: relative;">
+        <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->        <li class="slide current" data-bg="" data-pic="" data-txt="" data-load="false" data-iebg="https://i.alipayobjects.com/e/201307/giwCOMS9f_src.jpg" style="z-index: 0; position: absolute; left: 0px; top: 0px; opacity: 0;">
+            <div class="bg bg-1" data-load="false" style="background-image: url(https://i.alipayobjects.com/e/201307/giwCOMS9f_src.jpg);"></div>
+            <div class="pic pic-1 anim-left" data-load="false" data-anim="left" style="height:358px"></div>
+            <div class="txt-wrap">
+                <div class="txt txt-1 anim-up" data-load="false" data-anim="up" style="top: 50px;">
+                    <h3>爱自在 更爱自由</h3>
+                    <p>随时随地购物缴费还款</p>
+                    <a href="http://mobile.alipay.com/index.htm" target="_blank" title="立即体验" hidefocus="true" seed="txt-link" smartracker="on">立即体验</a>
+                </div>
+            </div>
+        </li>
+        <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->
+        <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->        <li class="slide" data-bg="" data-pic="" data-txt="" data-load="false" data-iebg="https://i.alipayobjects.com/e/201307/giwBgXzV1_src.jpg" style="z-index: 1; position: absolute; left: 0px; top: 0px; opacity: 1;">
+            <div class="bg bg-2" data-load="false" style="background-image: url(https://i.alipayobjects.com/e/201307/giwBgXzV1_src.jpg); opacity: 1;"></div>
+            <div class="pic pic-2 anim-left" data-load="false" data-anim="left" style="height:302px"></div>
+            <div class="txt-wrap">
+                <div class="txt txt-2 anim-down" data-load="false" data-anim="down" style="opacity: 1; left: 0px; top: 50px;">
+                    <h3>和春天 有个约会</h3>
+                    <p>用支付宝 轻松买到一切所需</p>
+                    <a href="http://abc.alipay.com/cool/payment.htm" target="_blank" title="了解详情" hidefocus="true" seed="txt-linkT1" smartracker="on">了解详情</a>
+                </div>
+            </div>
+        </li>
+        <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->
+        <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->        <li class="slide" data-bg="" data-pic="" data-txt="" data-load="false" data-iebg="https://i.alipayobjects.com/e/201307/giwCOJmhb_src.jpg" style="z-index: 0; position: absolute; left: 0px; top: 0px; opacity: 0;">
+            <div class="bg bg-3" data-load="false" style="background-image: url(https://i.alipayobjects.com/e/201307/giwCOJmhb_src.jpg); opacity: 1;"></div>
+            <div class="pic pic-3 anim-left" data-load="false" data-anim="left" style="height:302px"></div>
+            <div class="txt-wrap">
+                <div class="txt txt-3 anim-down" data-load="false" data-anim="down" style="opacity: 1; left: 0px; top: 50px;">
+                    <h3>停下来 感受美好</h3>
+                    <p>在家缴水电煤 省时间过慢生活</p>
+                    <a href="https://app.alipay.com/container/web/index.htm" target="_blank" title="立即体验" hidefocus="true" seed="txt-linkT2" smartracker="on">立即体验</a>
+                </div>
+            </div>
+        </li>
+        <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->
+        <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->        <li class="slide" data-bg="" data-pic="" data-txt="" data-load="false" data-iebg="https://i.alipayobjects.com/e/201307/giwC9uSe7_src.jpg" style="z-index: 0; position: absolute; left: 0px; top: 0px; opacity: 0;">
+            <div class="bg bg-4" data-load="false" style="background-image: url(https://i.alipayobjects.com/e/201307/giwC9uSe7_src.jpg); opacity: 1;"></div>
+            <div class="pic pic-4 anim-left" data-load="false" data-anim="left" style="height:337px"></div>
+            <div class="txt-wrap">
+                <div class="txt txt-4 anim-right" data-load="false" data-anim="right" style="opacity: 1; left: 0px; top: 50px;">
+                    <h3>风雨 有我遮挡</h3>
+                    <p>会员保障 让你安心支付</p>
+<a href="https://my.alipay.com/portal/account/safeguard.htm" target="_blank" title="了解详情" hidefocus="true" seed="txt-linkT3" smartracker="on">了解详情</a>
+                </div>
+            </div>
+        </li>
+        <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->
+        
+
+    </ul>
+      <div class="slide-number-box">
+      <div id="J-slide-number" class="slide-number" style="-webkit-transform: translateZ(0);">
+        <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->        <a href="#" class="" hidefocus="true" seed="JSlideNumber-slideNumberActive" smartracker="on">1</a>
+<a href="#" hidefocus="true" seed="JSlideNumber-link" smartracker="on" class="slide-number-active">2</a>
+<a href="#" hidefocus="true" seed="JSlideNumber-linkT1" smartracker="on" class="">3</a>
+<a href="#" hidefocus="true" seed="JSlideNumber-linkT2" smartracker="on" class="">4</a>        <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->      </div>
+      </div>
+      <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->      <div id="server-link">
+        <ul class="ui-link">
+          <li class="ui-link-item"><a href="http://help.alipay.com/lab/help_detail.htm?help_id=212412" target="_blank" seed="Banner-charging-rules">支付宝服务收费规则</a></li>
+          <li class="ui-link-item ui-link-item-last"><a href="http://help.alipay.com/lab/help_detail.htm?help_id=211403" target="_blank" seed="Banner-payment-agreement">支付宝服务协议</a></li>
+        </ul>
+      </div>
+      <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->    </div>
+
+    <section class="main" role="main">
+      <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->      <div class="grid-990 product fn-clear" coor="product">
+        
+        <article class="product-item" id="pay-quickly">
+          <h2 class="title">
+                        <a href="http://home.alipay.com/bank/paymentKJ.htm" class="title-link" target="_blank" seed="title-titleLink" smartracker="on">付款 是件容易的事</a>
+                      </h2>
+          <ul class="ui-link fn-clear">
+            <li class="ui-link-item ui-link-item-first"><a href="http://abc.alipay.com/cool/payment.htm" target="_blank" seed="Product-quickpay-kuaijie">付款方式</a></li>
+            <li class="ui-link-item"><a href="http://g.alipay.com/home/index.htm" target="_blank" seed="Product-quickpay-fenqi">如何海外购物</a></li>
+            <li class="ui-link-item"><a href="http://vip.etao.com/kuai.htm?t" target="_blank" seed="Product-quickpay-business">快捷支付特惠</a></li>
+            <li class="ui-link-item ui-link-item-last"><a href="https://kuai.alipay.com/express/index.htm" target="_blank" seed="Product-quickpay-more">更多</a></li>
+          </ul>
+          <p class="link"><i class="icon-youhui"></i><a href="http://kj.alipay.com/citic" target="_blank" seed="Product-quickpay-link">中信快捷支付，满50减5元！</a></p>
+          
+        </article>
+
+        <article class="product-item" id="pay-life">
+          <h2 class="title">
+                        <a href="https://app.alipay.com/container/web/index.htm" target="_blank" class="title-link" seed="title-titleLinkT1" smartracker="on">随时随地 缴费还款</a>
+                      </h2>
+          <ul class="ui-link fn-clear">
+            <li class="ui-link-item ui-link-item-first"><a href="https://shenghuo.alipay.com/payment.htm?agent=lf_wyfk" target="_blank" seed="Product-shenghuo-zhuanzhan">转账付款</a></li>
+            <li class="ui-link-item"><a href="https://shenghuo.alipay.com/jiaofei.htm?_pdType=aecfbbfaaafibhbfcagb" target="_blank" seed="Product-shenghuo-jiaofei">水电煤缴费</a></li>
+            <li class="ui-link-item"><a href="https://ccrprod.alipay.com/credit.htm?_pdType=bbcebbchbjifbibibebd" target="_blank" seed="Product-shenghuo-xinyongka">信用卡还款</a></li>
+            <li class="ui-link-item ui-link-item-last"><a href="http://fun.alipay.com/down/index.htm?_bdType=ajcgbiciahjabbihebfa" target="_blank" seed="Product-shenghuo-more">手机支付</a></li>
+          </ul>
+         <p class="link"><i class="icon-youhui"></i><a href="http://fun.alipay.com/yuebao/index.html?src=zfbsydt" target="_blank" seed="Product-shenghuo-link">赚钱利器余额宝！</a></p>
+        </article>
+
+        <article class="product-item product-item-last" id="pay-anywhere">
+          <h2 class="title">
+                        <a href="https://my.alipay.com/portal/account/safeguard.htm" target="_blank" class="title-link" seed="title-titleLinkT2" smartracker="on">会员保障 让你安心支付</a>
+                      </h2>
+          <ul class="ui-link fn-clear">
+            <li class="ui-link-item ui-link-item-first"><a href="https://my.alipay.com/portal/account/safeguard.htm" target="_blank" seed="Product-mobile-product">了解会员保障</a></li>
+            <li class="ui-link-item"><a href="https://securitycenter.alipay.com/sc/study/index.htm" target="_blank" seed="Product-mobile-intro">安全课堂</a></li>
+             <li class="ui-link-item ui-link-item-last"><a href="https://securitycenter.alipay.com/sc/index.htm" target="_blank" seed="Product-mobile-download">安全体检</a></li>
+          </ul>
+          <p class="link"><i class="icon-youhui"></i><a href="http://abc.alipay.com/carnival/ieanquan.htm" target="_blank" seed="Product-mobile-link">安全必备，使命必达！</a></p>
+          
+        </article>
+      </div>
+      <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->      <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->      <div class="grid-990 about fn-clear" coor="about">
+        <article class="about-item" id="safety">
+          <i class="icon-about icon-about-safety"></i>
+          <h3 class="title icon-title-safety">认识支付宝</h3>
+          <ul class="ui-link">
+            <li class="ui-link-item ui-link-item-first"><a href="http://abc.alipay.com/about/about.html" target="_blank" seed="Other-security-usertest">什么是支付宝</a></li>
+            <li class="ui-link-item ui-link-item-last"><a href="http://weibo.com/alipay" target="_blank" seed="Other-security-zhishi">官方微博</a></li>
+            <li class="follow_wrapper"><a class="follow_btn" href="http://e.weibo.com/alipay" title="关注支付宝" target="_blank" seed="follow_wrapper-follow_btn" smartracker="on"><span><em class="icon">+</em>关注</span></a></li>
+          </ul>
+        </article>
+
+        <article class="about-item" id="vip">
+          <i class="icon-about icon-about-vip"></i>
+          <h3 class="title icon-title-vip">最热专题</h3>
+          <ul class="ui-link">
+            <li class="ui-link-item ui-link-item-first"><a href="http://abc.alipay.com/carnival/haiwaigou.htm" target="_blank" seed="Other-vip-dingyue">海外购攻略</a></li>
+            <li class="ui-link-item ui-link-item-last"><a href="http://abc.alipay.com/carnival/tidetaxi2.htm" target="_blank" seed="Other-vip-tequan">最潮付款方式</a></li>
+          </ul>
+        </article>
+
+        <article class="about-item about-item-last" id="abc">
+          <i class="icon-about icon-about-abc"></i>
+          <h3 class="title icon-title-abc">3分钟学会支付宝</h3>
+          <ul class="ui-link">
+            <li class="ui-link-item ui-link-item-first"><a href="http://abc.alipay.com/cool/taobao.htm" target="_blank" seed="Other-abc-how">如何购物</a></li>
+            <li class="ui-link-item"><a href="http://abc.alipay.com/cool/xsqh.htm" target="_blank" seed="Other-abc-tv">新手须知</a></li>
+            <li class="ui-link-item ui-link-item-last"><a href="http://abc.alipay.com/cool/shopInformation.htm" target="_blank" seed="Other-abc-baike">我要开店</a></li>
+          </ul>
+        </article>
+      </div>
+      <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->    </section>
+    <footer class="footer" coor="footer">
+      <div class="footer-line"><div class="grid-990 cnt"></div></div>
+      <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->      <div class="grid-990 partner fn-clear" coor="partner" role="complementary">
+        
+        <article class="partner-item">
+          <h4 class="title">
+            <span>134 家金融机构</span>
+            <a href="http://ab.alipay.com/i/yinhang.htm" class="more" target="_blank" title="银行合作" seed="title-more" smartracker="on">银行合作<i class="icon-more"></i></a>
+          </h4>
+          <div class="cnt">
+                        <a href="http://ab.alipay.com/i/yinhang.htm" target="_blank" class="icon-partner-bank" seed="cnt-iconPartnerBank" smartracker="on"></a>
+                      </div>
+        </article>
+
+        <article class="partner-item">
+          <h4 class="title">
+            <span>46 万家商户</span>
+            <a href="https://b.alipay.com/newIndex.htm" class="more" target="_blank" title="商家服务" seed="title-moreT1" smartracker="on">商家服务<i class="icon-more"></i></a>
+          </h4>
+          <div class="cnt">
+              <span class="business-pic fn-left"></span>
+              <span class="business-pic-last fn-left" title="合作商家"><i class="c" id="BLogo"></i></span>
+          </div>
+        </article>
+
+        <article class="partner-item">
+          <h4 class="title">
+            <span>安全支付联盟</span>
+            <a href="https://securitycenter.alipay.com/sc/partner/browser.htm" class="more" target="_blank" title="更多" seed="title-moreT2" smartracker="on">更多<i class="icon-more"></i></a>
+          </h4>
+          <div class="cnt">
+                        <a href="https://securitycenter.alipay.com/sc/partner/browser.htm" target="_blank" class="icon-partner-security" seed="cnt-iconPartnerSecurity" smartracker="on"></a>
+                      </div>
+        </article>
+    
+     <article class="partner-item partner-item-last">
+          <h4 class="title">
+            <span>公告</span>
+          </h4>
+          <div class="J-RotateList">
+          <ul id="J-views" class="ui-list">
+                        <li class="ui-list-item"><i class="icon-list"></i><a href="http://club.alipay.com/read-htm-tid-10773819.html" target="_blank" seed="JViews-link" smartracker="on">《支付宝服务协议》变更公告</a></li>
+                        <li class="ui-list-item"><i class="icon-list"></i><a href="http://club.alipay.com/read.php?tid=10769403&amp;page=1&amp;toread=1#tpc" target="_blank" seed="JViews-linkT1" smartracker="on">提醒中国雅虎邮箱用户修改支付宝登录邮箱</a></li>
+                      </ul>
+          </div>
+        </article>   
+      </div>
+      <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->      <div class="grid-990 sitelink fn-clear" coor="sitelink" role="contentinfo">
+        <ul class="ui-link fn-clear">
+          <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->                    <li class="ui-link-item"><a href="http://ab.alipay.com/i/index.htm" target="_blank" title="关于支付宝" seed="grid990-link" smartracker="on">关于支付宝</a></li>
+                    <li class="ui-link-item"><a href="http://blog.alipay.com/" target="_blank" title="官方博客" seed="grid990-linkT1" smartracker="on">官方博客</a></li>
+                    <li class="ui-link-item"><a href="http://job.alipay.com/index.php" target="_blank" title="诚征英才" seed="grid990-linkT2" smartracker="on">诚征英才</a></li>
+                    <li class="ui-link-item"><a href="https://open.alipay.com/index.htm" target="_blank" title="开放平台" seed="grid990-linkT3" smartracker="on">开放平台</a></li>
+                    <li class="ui-link-item"><a href="http://ab.alipay.com/i/lianxi.htm" target="_blank" title="联系我们" seed="grid990-linkT4" smartracker="on">联系我们</a></li>
+                    <li class="ui-link-item"><a href="http://fun.alipay.com/sitemap/index.htm" target="_blank" title="网站地图" seed="grid990-linkT5" smartracker="on">网站地图</a></li>
+                    <li class="ui-link-item"><a href="http://global.alipay.com/ospay/home.htm" target="_blank" title="International Business" seed="grid990-International-Business" smartracker="on">International Business</a></li>
+                    <li class="ui-link-item"><a href="http://ab.alipay.com/i/jieshao.htm#en" target="_blank" title="About Alipay" seed="grid990-About-Alipay" smartracker="on">About Alipay</a></li>
+                              <li class="ui-link-item ui-link-item-last">支付宝版权所有 2004-2013 <a href="http://www.miibeian.gov.cn/" target="_blank" seed="grid990-linkT6" smartracker="on">ICP证: 浙B2-20100257</a></li>
+                    <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->        </ul>
+        <ul class="ui-link ui-link-bottom fn-clear">
+          <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->          <li class="ui-link-item ui-link-item-noborder"><a href="http://page.china.alibaba.com/shtml/about/ali_group1.shtml" target="_blank" title="阿里巴巴集团" seed="grid990-linkT7" smartracker="on">阿里巴巴集团</a>&nbsp;：</li>
+                    <li class="ui-link-item"><a href="http://www.alibaba.com/" target="_blank" title="国际站" seed="grid990-linkT8" smartracker="on">国际站</a></li>
+                    <li class="ui-link-item"><a href="http://china.alibaba.com/" target="_blank" title="中文站" seed="grid990-linkT9" smartracker="on">中文站</a></li>
+                    <li class="ui-link-item"><a href="http://mai.aliexpress.com" target="_blank" title="全球速卖通" seed="grid990-linkT10" smartracker="on">全球速卖通</a></li>
+                    <li class="ui-link-item"><a href="http://www.taobao.com/" target="_blank" title="淘宝网" seed="grid990-linkT11" smartracker="on">淘宝网</a></li>
+                    <li class="ui-link-item"><a href="http://www.tmall.com/" target="_blank" title="天猫" seed="grid990-linkT12" smartracker="on">天猫</a></li>
+                    <li class="ui-link-item"><a href="http://www.etao.com/" target="_blank" title="一淘网" seed="grid990-linkT13" smartracker="on">一淘网</a></li>
+                    <li class="ui-link-item"><a href="http://ju.taobao.com/index.htm" target="_blank" title="聚划算" seed="grid990-linkT14" smartracker="on">聚划算</a></li>
+                    <li class="ui-link-item"><a href="https://www.alipay.com/" target="_blank" title="支付宝" seed="grid990-linkT15" smartracker="on">支付宝</a></li>
+                    <li class="ui-link-item"><a href="http://www.aliyun.com/" target="_blank" title="阿里云" seed="grid990-linkT16" smartracker="on">阿里云</a></li>
+                              <li class="ui-link-item ui-link-item-last"><a href="http://cn.yahoo.com/" target="_blank" title="中国雅虎" seed="grid990-linkT17" smartracker="on">中国雅虎</a></li>
+                    <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->        </ul>
+      </div>
+      <div class="grid-990 auth fn-clear" coor="auth">
+        <ul class="auth-link fn-clear">
+          <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->                    <li class="auth-link-item"> <a href="http://fun.alipay.com/certificate/zfxkz.htm" title="支付业务许可证" target="_blank" class="icon icon-zfywxk" seed="authLinkItem-icon" smartracker="on">支付业务许可证</a></li>
+                    <li class="auth-link-item"> <a href="http://fun.alipay.com/certificate/index.htm" title="支付宝通过PCI认证" target="_blank" class="icon icon-pcirk" seed="authLinkItem-iconT1" smartracker="on">支付宝通过PCI认证</a></li>
+                              <li class="auth-link-item"><span class="icon icon-visayz" title="Visa 验证">Visa 验证</span></li>
+                              <li class="auth-link-item"><a href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=WWW.ALIPAY.COM&amp;lang=zh_cn" title="VerSign加密服务" target="_blank" class="icon icon-vsjmfw" seed="authLinkItem-iconT2" smartracker="on">VerSign加密服务</a></li>
+                    <li class="auth-link-item"><a href="http://zjnet.zjaic.gov.cn/index.action" title="浙江省网盟" target="_blank" class="icon icon-zjwm" seed="authLinkItem-iconT3" smartracker="on">浙江省网盟</a></li>
+                    <li class="auth-link-item"><a href="http://www.idinfo.cn/SignHandle?userID=3301002004003526" title="网络工商" target="_blank" class="icon icon-wlgs" seed="authLinkItem-iconT4" smartracker="on">网络工商</a></li>
+                    <li class="auth-link-item"><a href="http://www.pingpinganan.gov.cn" title="平平安安" target="_blank" class="icon icon-ppaa" seed="authLinkItem-iconT5" smartracker="on">平平安安</a></li>
+                    <li class="auth-link-item"><a href="http://www.pingpinganan.gov.cn" title="杭州动态岗亭" target="_blank" class="icon icon-hzdt" seed="authLinkItem-iconT6" smartracker="on">杭州动态岗亭</a></li>
+                    <li class="auth-link-item"><a href="http://www.365anfang.com/" title="安全防范网" target="_blank" class="icon icon-aqff" seed="authLinkItem-iconT7" smartracker="on">安全防范网</a></li>
+                    <li class="auth-link-item"><a href="https://ss.cnnic.cn/verifyseal.dll?sn=e12051633010021345301459&amp;ct=df&amp;pa=803798" title="电子商务协会认证诚信网" target="_blank" class="icon icon-rzcx" seed="authLinkItem-iconT8" smartracker="on">电子商务协会认证诚信网</a></li>
+                    <!-- XT:支付宝首页/默认频道/支付宝新首页结束:www.alipay.com/i/indexb.vm -->        </ul>
+      </div>
+    </footer>
+    <div id="ServerNum"><p class="grid-990">homeproxy-60-3</p></div>
+
+ 
+
+    <!-- XT:支付宝首页/默认频道/支付宝新首页开始:www.alipay.com/i/indexb.vm -->   
+
+
+  
+</body></html>

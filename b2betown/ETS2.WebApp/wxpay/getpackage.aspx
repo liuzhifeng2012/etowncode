@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="getpackage.aspx.cs" Inherits="ETS2.WebApp.wxpay.getpackage" %>

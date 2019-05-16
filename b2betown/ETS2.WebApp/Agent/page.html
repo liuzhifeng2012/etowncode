@@ -1,0 +1,1073 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>麦客行 日本海淘转运平台！</title>
+    <meta name="keywords" content="麦客行，海淘，海淘转运，船运">
+    <meta name="description" content="">
+
+    <link charset="utf-8" rel="stylesheet" href="/agent/Styles/business.css">
+    <link charset="utf-8" rel="stylesheet" href="/Styles/reg.css" />
+
+    <style type="text/css">
+.modal {
+position: fixed;
+top: 10%;
+left: 50%;
+z-index: 1050;
+width: 560px;
+margin-left: -280px;
+background-color: white;
+border: 1px solid #999;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding-box;
+background-clip: padding-box;
+outline: none;
+}
+.modal-header {
+padding: 5px 15px;
+}
+button.close {
+padding: 0;
+cursor: pointer;
+background: transparent;
+border: 0;
+-webkit-appearance: none;
+float:right;
+}
+.modal-header h3 {
+margin: 0;
+line-height: 30px;
+}
+    </style>
+
+
+<style type="text/css"></style>
+<script src="../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+<script src="../Scripts/common.js" type="text/javascript"></script>
+<link href="../Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+
+<script src="../Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        //取消修改密码
+        $("#t1").click(function () {
+            $("#con4").hide();
+            $("#con2").hide();
+            $("#con3").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor1");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor2");
+
+        })
+        $("#t2").click(function () {
+            $("#con4").hide();
+            $("#con3").hide();
+            $("#con2").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor1");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor2");
+        })
+
+        $("#t3").click(function () {
+            $("#con4").show();
+            $("#con3").hide();
+            $("#con2").hide();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor1");
+        })
+
+        $("#t1").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t1").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+        $("#t2").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t2").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+
+        $("#t3").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t3").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+
+        $("#headkaihu").click(function () {
+            $("html,body").animate({ scrollTop: $("#t2").offset().top }, 500)
+            $("#con3").hide();
+            $("#con2").show();
+            $("#con4").hide();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor1");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor2");
+        });
+
+        $("#agent").click(function () {
+            $("html,body").animate({ scrollTop: $("#t3").offset().top }, 500)
+            $("#con3").hide();
+            $("#con2").hide();
+            $("#con4").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor1");
+        });
+
+
+        //确认发送
+        $("#SubSend").click(function () {
+            var Mobile = $("#Mobile").val();
+            var Name = $("#Name").val();
+            var Company = $("#Company").val();
+            var Address = $("#Address").val();
+
+            if (Name == '' || Name == '姓名') {
+                $.prompt('请填写联系人姓名！');
+                return;
+            }
+            if (Mobile == '' || Mobile == '手机') {
+                $.prompt('请填写联系电话');
+                return;
+            }
+
+
+            if (Company == '' || Company == '公司名称') {
+                $.prompt('请填写公司名称！');
+                return;
+            }
+
+            $.ajax({
+                type: "Get",
+                data: { Mobile: Mobile, Name: Name, Company: Company, Address: Address },
+                url: "/JsonFactory/BusinessCustomersHandler.ashx?oper=contentsend",
+                success: function (data) {
+                    $.prompt("提交成功", {
+                        buttons: [
+                                 { title: '确定', value: true }
+                                ],
+                        opacity: 0.1,
+                        focus: 0,
+                        show: 'slideDown',
+                        submit: function (e, v, m, f) {
+                            if (v == true) {
+                                $("#Mobile").val("");
+                                $("#Name").val("");
+                                $("#Company").val("");
+                                $("#Address").val("");
+
+                                window.location.reload();
+                            }
+                        }
+
+                    });
+                }
+            });
+
+        })
+
+
+
+
+        $("#showGG").click(function () {
+            $("#regi").show();
+        });
+        $("#closeGG").click(function () {
+            $("#regi").hide();
+        });
+
+        $("#closec").click(function () {
+            $("#regic").hide();
+
+        });
+
+
+        //商户行业类型
+        $.post("/JsonFactory/CrmMemberHandler.ashx?oper=GetIndustryList", {}, function (data) {
+            data = eval("(" + data + ")");
+            if (data.type == 100) {
+                $("#sel_hangye").empty();
+                for (var i = 0; i < data.msg.length; i++) {
+                    $("#com_type").append('<option value="' + data.msg[i].Id + '">' + data.msg[i].Industryname + '</option>');
+                }
+
+            }
+        })
+
+        //加载一个通用行行业，已方便注册
+        $("#com_type").append('<option value="0">其他行业</option>');
+
+
+        $("#regisub").click(function () {
+            var Account = $("#Account").trimVal();
+            var passwords = $("#passwords").trimVal();
+            var qpasswords = $("#qpasswords").trimVal();
+
+            var com_name = $("#com_name").trimVal();
+            var Scenic_name = $("#Scenic_name").trimVal();
+            var com_type = $("#com_type").trimVal();
+
+
+            var Contact = $("#Contact").trimVal(); //联系人姓名
+            var tel = $("#tel").trimVal();
+
+            var province = $("#province").trimVal();
+            var city = $("#city").trimVal();
+
+
+
+            if (Account == "") {
+                $.prompt("登录账户不可为空");
+                return;
+            }
+
+            if (passwords == "") {
+                $.prompt("密码不可为空！");
+                return;
+            }
+            if (qpasswords == "") {
+                $.prompt("确认密码不可为空！");
+                return;
+            }
+            if (passwords != qpasswords) {
+                $.prompt("密码和确认密码不符！");
+                return;
+            }
+            if (com_name == "") {
+
+                $.prompt("单位名称不可为空！");
+                return;
+            }
+
+            if (province == "" || province == "省份") {
+                $.prompt("请选择所在省份");
+                return;
+            }
+            if (city == "" || city == "城市") {
+                $.prompt("请选择所属城市");
+                return;
+            }
+            if (com_type == "") {
+                $.prompt("请选择所属行业");
+                return;
+            }
+
+            if (Contact == "") {
+                $.prompt("联系人姓名不可为空！");
+                return;
+            }
+
+            if (tel == "") {
+                $.prompt("联系电话不可为空！");
+                return;
+            }
+
+            //                $('#regi').hide().after('<span id="spLoginLoading" style="margin-left:105px;height:30px;color:#f39800; ">登录中……</span>');
+            $.ajax({
+                type: "POST",
+                url: "/JsonFactory/RegisterUser.ashx?oper=edit",
+                data: { Account: Account, passwords: passwords, com_name: com_name, Scenic_name: Scenic_name, Contact: Contact, tel: tel, province: province, city: city, com_type: com_type },
+                success: function (data) {
+                    data = eval('(' + data + ')');
+                    if (data.type == 1) {
+                        $.prompt("账户注册提示:" + data.msg, { buttons: [{ title: "确定", value: true}], submit: function (e, v, m, f) { if (v == true) { } } });
+                        return;
+                    }
+                    if (data.type == 100) {
+                        $("#regi").hide();
+                        $("#zhegaiceng").hide();
+                        $("#regic").show();
+                    }
+                }
+            });
+        });
+
+
+    })
+
+    function skipregi() {
+        window.open("Regi.aspx", target = "_blank");
+    }
+		
+</script>
+
+	 <script type="text/javascript">
+	     $(function () {
+	         var comid = 0;
+
+	         $("#regia").click(function () {
+	             $("#regiagent").show();
+	         })
+	         $("#closeregiagent").click(function () {
+	             $("#regiagent").hide();
+	         })
+
+	         //账号名
+	         $("#RAgent_Email").blur(function () {
+	             $("#EmailVer").html(""); //离开后先清空备注
+	             var Email = $("#RAgent_Email").val();
+	             //判断邮箱不为空
+	             if (Email != "") {
+	                 $.post("/JsonFactory/AgentHandler.ashx?oper=getEmail", { Email: Email, comid: comid }, function (data) {
+	                     data = eval("(" + data + ")");
+	                     if (data.type == 100) {
+	                         if (data.msg == "OK") {
+	                             //                                 $("#EmailVer").html("√");
+	                             //                                 $("#EmailVer").css("color", "green");
+	                             //                                 $("#VEmail").val(1);
+	                         } else {
+	                             alert(data.msg);
+	                             $("#RAgent_Email").val("");
+	                             return;
+	                         }
+
+	                     }
+	                 })
+	             }
+	         })
+
+	         //账号名
+	         $("#RAgent_Phone").blur(function () {
+	             $("#PhoneVer").html(""); //离开后先清空备注
+	             var Phone = $("#RAgent_Phone").val();
+	             //判断手机不为空
+	             if (Phone != "") {
+	                 $.post("/JsonFactory/AgentHandler.ashx?oper=getPhone", { Phone: Phone, comid: comid }, function (data) {
+	                     data = eval("(" + data + ")");
+	                     if (data.type == 100) {
+	                         if (data.msg == "OK") {
+	                         } else {
+	                             alert(data.msg);
+	                             $("#RAgent_Phone").val("");
+	                             return;
+	                         }
+
+	                     }
+	                 })
+	             }
+	         })
+
+	         //判断密码
+	         $("#RAgent_QPassword1").blur(function () {
+	             $("#QPassword1Ver").html(""); //离开后先清空备注
+	             var QPassword1 = $("#RAgent_QPassword1").val();
+	             var Password1 = $("#RAgent_Password1").val();
+	             if (QPassword1 == "" || QPassword1 != Password1) {
+	                 alert("再次填写密码错误");
+	                 $("#RAgent_QPassword1").val("");
+	                 return false;
+	             }
+	         })
+
+
+	         //提交按钮
+	         $("#RAgent_regisub").click(function () {
+	             var Email = $("#RAgent_Email").val();
+	             var Password1 = $("#RAgent_passwords").val();
+	             var QPassword1 = $("#RAgent_qpasswords").val();
+	             var Name = $("#RAgent_Name").val();
+	             var Phone = $("#RAgent_Phone").val();
+	             var phonecode = $("#RAgent_phonecode").val();
+
+	             var Company = $("#RAgent_Email").val();
+
+	             if (Email == "") {
+	                 alert("请填账户");
+	                 return;
+	             }
+
+	             if (Password1 == "") {
+	                 alert("请填写密码!");
+	                 return;
+	             }
+	             if (QPassword1 == "") {
+	                 alert("请再次确认密码!");
+	                 return;
+	             }
+	             if (QPassword1 != Password1) {
+	                 alert("两次密码输入不符！");
+	                 return;
+	             }
+	             if (Name == "") {
+	                 alert("请填写姓名!");
+	                 return;
+	             };
+
+	             if (Phone == "") {
+	                 alert("请填写手机!");
+	                 return;
+	             };
+
+	             if (phonecode == "") {
+	                 alert("请填写短信验证码!");
+	                 return;
+	             };
+
+	             //判断验证码输入是否正确
+	             $.post("/JsonFactory/AgentHandler.ashx?oper=judgevalidsms", { mobile: $("#RAgent_Phone").val(), smscode: $("#RAgent_phonecode").val(), source: "分销注册验证码" }, function (data) {
+	                 data = eval("(" + data + ")");
+	                 if (data.type == 1) {
+	                     alert("验证码不相符");
+	                     return;
+	                 }
+	                 if (data.type == 100) {
+
+
+	                     $("#loading").html("正在提交注册信息，请稍后...")
+
+	                     //创建订单
+	                     $.post("/JsonFactory/AgentHandler.ashx?oper=Agentregi", { agentsourcesort: 0, Email: Email, Password1: Password1, Name: Name, Tel: Phone, Phone: Phone, Company: Company }, function (data1) {
+	                         data1 = eval("(" + data1 + ")");
+	                         if (data1.type == 1) {
+	                             $.prompt("注册出现错误，请刷新重新提交！");
+	                             return;
+	                         }
+	                         if (data1.type == 100) {
+	                             if (data1.msg == "OK") {
+	                                 alert(" 您已注册成功，请等待商家为您授权！");
+	                                 location.href = "/Agent/Login.aspx?Email=" + Email
+	                                 return;
+	                             }
+	                             else {
+	                                 $.prompt("参数传递出错，请重新操作");
+	                                 return;
+	                             }
+	                         }
+	                     })
+
+	                 }
+	             })
+
+	         })
+
+	         //获取手机验证码
+	         $("#RAgent_getphonecode").click(function () {
+
+	             if ($.trim($("#RAgent_Phone").val()) == "") {
+	                 alert("请输入手机号码!");
+	                 return;
+	             }
+	             if (!checkMobile($("#RAgent_Phone").val())) {
+	                 alert("请正确输入手机号!");
+	                 return;
+	             }
+
+	             if ($.trim($("#RAgent_getphonecode").html()) == "获取短信验证码") {
+	                 $("#RAgent_getphonecode").attr("disabled", "disabled").css("background-color", "#f4f4f4");
+	                 _callSmsApi();
+
+	             }
+	         })
+	     })
+
+	     function checkMobile(tel) {
+	         tel = $.trim(tel);
+	         if (tel.length != 11 || tel.substr(0, 1) != 1) {
+	             return false;
+	         }
+	         return true;
+	     }
+	     function _sendSmsCD() {
+	         var sec = parseInt($("#RAgent_getphonecode").html());
+	         if (sec > 1) {
+	             $("#RAgent_getphonecode").html((sec - 1) + "秒后可再次发送短信");
+	             window.setTimeout(_sendSmsCD, 1000);
+	         } else {
+	             $("#RAgent_getphonecode").html("获取短信验证码");
+	             $("#RAgent_getphonecode").removeAttr("disabled").css("background-color", "#FFFFFF");
+	         }
+	     }
+
+	     function _callSmsApi() {
+	         $.post("/JsonFactory/AgentHandler.ashx?oper=callvalidsms", { mobile: $("#RAgent_Phone").val(), comid: $("#hid_comid").trimVal(), source: "分销注册验证码" }, function (data) {
+	             data = eval("(" + data + ")");
+	             if (data.type == 1) {
+	                 alert(data.msg);
+	             }
+	             if (data.type == 100) {
+	                 $("#RAgent_getphonecode").html("30秒后可再次发送短信");
+	                 window.setTimeout(_sendSmsCD, 1000);
+	             }
+	         })
+
+	     }
+    </script>
+
+
+</head>
+  
+
+
+<body role="document" >    
+  <align="center">
+
+ <div class="header" coor="header">
+     <div class="grid-990 header-wrap fn-clear">
+	 
+            <div id="et-img-logo" class="fn-left">
+               <img src="images/20150420173059.jpg" alt=""  id="imglogo">
+			</div>
+      
+            <div id="nav"> 
+
+             <span class="item1" id="headkaihu"><a href="javascript:;">海淘转运</a></span>
+             <span class="item1" id="agent"><a href="javascript:;">微商微代</a></span>
+             <span class="item1"><a id="regia" href="javascript:;">成为分销商</a></span>
+			 <span class="item1"><a href="javascript:;" id="showGG">成为供应商</a></span>
+             <span class="tel">合作热线：<strong><font color="#FF0000" size="+1">0518-85167099</font></strong></span>        
+            </div> 
+     </div>
+ </div>
+ 
+ 
+ <div id="banner" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+
+         <div id="glume" >
+          <ul class="Limg">
+		  
+              <div id="banner2" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+                <div class="login-box">
+                <iframe class="fn-hide" allowtransparency="true" src="maikexinglogin.html" width="286" height="367" id="loginIframe" frameborder="0" scrolling="no" coor="aside-login" style="display: block;"></iframe>
+                    <div id="loginLoading" style="display: none;"><img width="50" height="50" alt="加载中" src="#" seed="loginLoading-iE2012062qz2UvlUVF" smartracker="on" />
+				    </div>
+                </div>
+              <div id="glume2" >
+                <ul class="Limg">
+                  <li class="bg_1" onClick="javascript:window.open('Regi.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_2" onClick="javascript:window.open('Regi.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_3" onClick="javascript:window.open('Regi.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_4" onClick="javascript:window.open('Regi.aspx');"><a href="javascript:;">&nbsp;</a></li>
+                </ul>
+				    <cite class="Nubbt"> 
+		<span class="on" >1</span> 
+        <span >2</span> 
+		<span >3</span> 
+		<span >4</span> 
+
+
+                    </cite> 
+              </div>
+              <script language="javascript" type="text/javascript">
+                  (function () {
+                      if (!Function.prototype.bind) {
+                          Function.prototype.bind = function (obj) {
+                              var owner = this, args = Array.prototype.slice.call(arguments), callobj = Array.prototype.shift.call(args);
+                              return function (e) { e = e || top.window.event || window.event; owner.apply(callobj, args.concat([e])); };
+                          };
+                      }
+                  })();
+                  var glume = function (id) {
+                      this.ctn = document.getElementById(id);
+                      this.adLis = null;
+                      this.btns = null;
+                      this.animStep = 0.1; //动画速度0.1～0.9
+                      this.switchSpeed = 5; //自动播放间隔(s)
+                      this.defOpacity = 1;
+                      this.tmpOpacity = 1;
+                      this.crtIndex = 0;
+                      this.crtLi = null;
+                      this.adLength = 0;
+                      this.timerAnim = null;
+                      this.timerSwitch = null;
+                      this.init();
+                  };
+                  glume.prototype = {
+                      fnAnim: function (toIndex) {
+                          if (this.timerAnim) { window.clearTimeout(this.timerAnim); }
+                          if (this.tmpOpacity <= 0) {
+                              this.crtLi.style.opacity = this.tmpOpacity = this.defOpacity;
+                              this.crtLi.style.filter = 'Alpha(Opacity=' + this.defOpacity * 100 + ')';
+                              this.crtLi.style.zIndex = 0;
+                              this.crtIndex = toIndex;
+                              return;
+                          }
+                          this.crtLi.style.opacity = this.tmpOpacity = this.tmpOpacity - this.animStep;
+                          this.crtLi.style.filter = 'Alpha(Opacity=' + this.tmpOpacity * 100 + ')';
+                          this.timerAnim = window.setTimeout(this.fnAnim.bind(this, toIndex), 50);
+                      },
+                      fnNextIndex: function () {
+                          return (this.crtIndex >= this.adLength - 1) ? 0 : this.crtIndex + 1;
+                      },
+                      fnSwitch: function (toIndex) {
+                          if (this.crtIndex == toIndex) { return; }
+                          this.crtLi = this.adLis[this.crtIndex];
+                          for (var i = 0; i < this.adLength; i++) {
+                              this.adLis[i].style.zIndex = 0;
+                          }
+                          this.crtLi.style.zIndex = 2;
+                          this.adLis[toIndex].style.zIndex = 1;
+                          for (var i = 0; i < this.adLength; i++) {
+                              this.btns[i].className = '';
+                          }
+                          this.btns[toIndex].className = 'on'
+                          this.fnAnim(toIndex);
+                      },
+                      fnAutoPlay: function () {
+                          this.fnSwitch(this.fnNextIndex());
+                      },
+                      fnPlay: function () {
+                          this.timerSwitch = window.setInterval(this.fnAutoPlay.bind(this), this.switchSpeed * 1000);
+                      },
+                      fnStopPlay: function () {
+                          window.clearTimeout(this.timerSwitch);
+                      },
+                      init: function () {
+                          this.adLis = this.ctn.getElementsByTagName('li');
+                          this.btns = this.ctn.getElementsByTagName('cite')[0].getElementsByTagName('span');
+                          this.adLength = this.adLis.length;
+                          for (var i = 0, l = this.btns.length; i < l; i++) {
+                              with ({ i: i }) {
+                                  this.btns[i].index = i;
+                                  this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                                  this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                              }
+                          }
+                          this.adLis[this.crtIndex].style.zIndex = 2;
+                          this.fnPlay();
+
+                      }
+                  };
+                  var player1 = new glume('glume');
+            </script>
+            </div>
+          </ul>
+        </div>
+ </div>
+             <div class="nm_advertising">
+            <span><img src="images/laba.png"/></span>  <a >公告：麦客行海淘转运平台上线啦！ 3分钟注册分销账户，在线下单更方便！</a>
+        </div>
+			  
+ <div class="main" role="main">
+
+          <div class="con3">
+               <div class="nav1 navcolor1" id="t1"> 推荐产品</div>
+               <div class="nav2 navcolor2" id="t2"> 海淘转运</div> 
+               <div class="nav3 navcolor2" id="t3"> 微商微代</div> 
+               <div class="clear"></div>
+          </div>
+		  
+          <div id="con3" class="con2">
+               <div class="con">
+                  <div class="left1"><img src="images/p1.jpg"/>
+
+                  </div>
+                  <div class="right1"><img src="images/p2.jpg"/>
+
+				  
+				  </div>
+               </div>
+
+            <img style=" width:100%;"  src="images/lingmiddle.png"/>
+			
+          <div class="con">
+                <div class="left2"><img src="images/p3.jpg"/>
+		
+                </div>
+				
+                <div class="right2"><img src="images/p4.jpg"/>
+
+			    </div>
+          </div>
+		  <div class="con" style="height:250px;">
+            </div>
+            </div>
+
+         <div class="con2" id="con2" style=" display:none;">
+			<div class="">
+                   <p class="title2">1.服务流程</p>
+                             <div class="left2"><img src="images/w1.jpg"/>
+		
+                </div>
+            </div>
+             <div class="">
+                   <p class="title2">2.对包裹的要求</p>
+              <div class="text">
+                    <p class="title3">（1）重量在30KGS以内</p>				
+					<p class="title3">（2）长度条件A: 最长边小于1.5M</p>
+                    <p class="title3">（3）长度条件B: 最长边+侧边周长 小于等于3M.</p>
+
+              </div>
+			 </div>
+             <div class="">
+                   <p class="title2">3.收费标准(暂定)
+</p>
+              <div class="text">
+                   <p class="title3">每公斤40元起</p>
+                   <p class="title3">具体请注册登陆麦客行分销商系统或咨询麦客行客服专员。
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">4.到货周期</p>
+              <div class="text">
+                   <p>麦客行转运先期采用的是船运的方式, 从而在保证服务质量的前提下,提供给大家一个特别低廉运费服务. 到货周期一般在15~40天.</p>
+        
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">5.禁止海运的物品</p>
+              <div class="text">
+                   <p>火药类：焰火、西洋爆竹、弹药 
+高压气体：高压喷雾罐、打火机补充瓦斯、潜水用氧气瓶、露营用瓦斯炉罐装瓦斯、灭火器、高压除尘空气罐、携带式氧气罐、氦气瓶、氯氟烃、瓦斯暖炉汽车悬吊系统 
+易燃液体：打火机油、油漆、指甲油、美甲凝胶、酒精、稀释剂、涂料、光漆、香水
+易燃固体：火柴、打火机、炭 
+氧化性物：:漂白剂、过氧化氢、个人用小型氧气制造机、染发剂 
+毒性物质： 农药、氯仿、水蒸式杀虫剂 
+放射性物质：铀、钸、铯、钍、核废料 
+腐蚀性物质：水银、液体电池 
+其他物品:： 磁铁、引擎、干冰、石绵、毒品、麻药、精神药品、猥亵的物品、彩券、空气枪、模造刀(美术刀)、家畜饲料、植物、生鲜食品、活体动物(华盛顿条约)、含有血液的制剂品、宝石、钻石(包含加工品)、伪造货币、邮票或印花、个人文件、有价证券、国宝、重要文化遗产、重要美术品、拷贝光碟、盗版光碟、产地不明物品、信用卡、商品券、票券(演唱会门票等等)、机票等。
+
+</p>
+              </div>
+            </div>
+
+
+
+ 
+ 
+            
+</div>
+
+         <div class="con2" id="con4" style=" display:none;">
+			<div class="">
+                   <p class="title2">1.如何成为分销商</p>
+              <div class="text">
+                   <p class="title3"></p>
+                    <p>（1）请先加入我们的QQ群“花王尿不湿麦客行”进行行业了解（QQ群号：427042956）。有意向加入麦客行分销商者请提供客户姓名及联系方式等相关信息。</p>
+                    <p>（2）客服将根据客户提供的相关信息将其录入分销商</p>
+                    <p>（3）客户成为分销商后，我们将会邀请加入“麦客行连云港分销商” 群（群号：134461899），进入分销商独立讨论群，分销商在操作采购中出现的任何问题都可以在群内得到快速的解答。</p>
+
+              </div>			  
+          </div>
+			<div class="">
+                   <p class="title2">2.分销商后台如何操作</p>
+              <div class="text">
+                   <p class="title3"></p>
+                    <p>（1）根据分销商登录网址http://www.maikexing.com/Agent进入分销商平台。</p>
+                    <p>（2）填写登录信息：帐户名和登录密码，初始密码123456，密码可以自行修改。</p>
+                    <p>（3）进入分销商平台，点击“进入此商户”，可了解相关产品列表。点击“订购”，显示相关订购产品资料，填写数量及姓名、手机、详细地址、邮编。</p>
+                    <p>（4）填写完资料后，点击“提交订单”。</p>
+                    <p>（5）订单结束后，分销商手机号上将显示成功订单的相关信息。</p>
+              </div>			  
+          </div>
+			<div class="">
+                   <p class="title2">3.分销商如何充值</p>
+              <div class="text">
+                   <p class="title3"></p>
+                    <p>（1）自动充值：进入分销商平台，点击“返回授权商户列表”，点击“进入此商户”，点击“在线充值”，填写金额及联系人信息，进行充值，充值后金额立即到帐，可以直接订货付款。
+</p>
+                    <p>（2）人工充值：分销商可以直接付款至麦客行公司账户，由麦客行财务人员手工充值。
+支付宝帐号信息如下：
+支付宝账户名称：连云港麦客行网络科技有限公司
+支付宝账户：55716823@qq.com
+银行付款信息如下：
+公司名称：连云港麦客行网络科技有限公司
+开户行：中国银行股份有限公司连云港连云支行
+帐号：532666169730
+</p>
+
+				
+              </div>			  
+          </div>
+ </div>
+         
+        <div class="con1" style=" height:10px;">
+         <p></p>
+
+</div>
+    
+
+	
+ <div class="footer" coor="footer">
+         <div class="sitelink">
+
+           <p>我们专注为海淘同业提供转运服务。<br /> </p>
+           <div id="apdiv3"><img src="images/map.png"/></div>
+           <div id="apdiv4"><img src="images/tel.png"/></div>
+           <p>中国江苏连云港海滨大道2号阳光国际中心D座30层   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0518-85167099-0518
+</p>
+           <div id="apdiv5"><img src="images/weixin.jpg" width="172" height="172"/></div>
+           <p class="p1"><span class="p2">Copyright Maikexing@2015. All Right Reserved</span> 麦客行 日本海淘转运服务平台</p>
+         </div>
+</div>
+
+
+
+</align>
+
+
+
+<div id="regi" class="modal hide  in"  style="  position: absolute;height: 650px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 901; display: none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeGG" style=" font-size:18px;">
+                    ×</button>
+            </div>
+            <div id="contentinfo" style="padding: 0; line-height: 25px; width: 650px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+            <div id="showli" style="height: 430px; width: 350px; left: 0; top: 30px; z-index: 99999; position: absolute; display: ">
+
+
+
+                <form name="Regi" method="post" action="" target="_parent">
+                <div class="grid-780  fn-clear" style=" padding-top:15px;">
+                    <h3 class="ui-form-title">
+                        <strong>填写登录信息</strong><span class="explain">请填写您的账户登录名和密码</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                登陆账户</label>
+                            <input name="Account" type="text" id="Account" maxlength="250" size="20" value=""
+                                class="ui-input" autocomplete="off">
+                            <label id="lblaccountmsg">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                登录密码</label>
+                            <input name="passwords" type="password" id="passwords" size="12" maxlength="50" class="ui-input"
+                                data-explain="请输入登录密码">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                再次输入密码</label>
+                            <input name="qpasswords" type="password" id="qpasswords" size="12" maxlength="50"
+                                class="ui-input" data-explain="请再次输入登录密码。">
+                        </div>
+                    </div>
+                    <div class="ui-form-dashed">
+                    </div>
+                    <h3 class="ui-form-title">
+                        <strong>填写商家信息</strong><span class="explain">请准确填写商家单位名称和相关信息</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                单位名称</label>
+                            <input name="com_name" type="text" id="com_name" size="40" maxlength="250" class="ui-input2"
+                                autocomplete="off">
+                            <label id="lblcompanyname">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-group" style=" display:none;">
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                景区名称/简称</label>
+                            <input name="Scenic_name" type="text" id="Scenic_name" size="20" maxlength="250"
+                                class="ui-input2" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                             所在城市</label>
+                            <select name="province" id="province" class="ui-input">  
+                                <option value="省份" selected="selected" >省份</option>  
+                            </select>  
+                            <select name="city" id="city"  class="ui-input">  
+                                <option value="城市" selected="selected">市县</option>  
+                            </select>  
+
+                        </div>
+                    </div>
+                   <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                             所属行业</label>
+                            <select name="com_type" id="com_type" class="ui-input">  
+                                <option value="" selected="selected" >请选择所属行业</option>  
+                            </select>  
+                        </div>
+                    </div>
+            
+                    <h3 class="ui-form-title">
+                        <strong>联系人信息</strong><span class="explain"><span class="ft-orange">请准确填写联系人信息</span></span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="realName" class="ui-label">
+                                联系人姓名</label>
+                            <input name="Contact" type="text" id="Contact" maxlength="250" size="20" class="ui-input"
+                                autocomplete="off">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                联系电话</label>
+                            <input name="tel" type="text" id="tel" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170">
+                            <label id="lbltel">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-item">
+                        <div style=" float:left;" id="submitBtn" class="ui-button  ui-button-morange ">
+                            <input id="regisub" type="button" class="ui-button-text" value="确  定" />
+                        </div>
+                        <div style=" float:left;"></div>          
+                                            <br/>
+                                          
+                            <br/>
+                        <span class="ui-form-confirm"><span class="loading-text fn-hide">正在提交信息</span></span>
+                    </div>
+                </div>
+                </form>
+
+
+
+                <div style="padding: 0; line-height: 25px; width: 350px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+                    <dl id="titellist">
+                    </dl>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+<div id="regiagent" class="modal hide  in"  style="position: absolute;height: 650px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 901; display: none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeregiagent" style=" font-size:18px;">
+                    ×</button>
+            </div>
+            <div id="Div2" style="padding: 0; line-height: 25px; width: 650px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+            <div id="Div3" style="height: 430px; width: 350px; left: 0; top: 30px; z-index: 99999; position: absolute; display: ">
+
+                <h3 class="ui-form-title" style="padding-left:430px;">
+                        <strong>分销商注册</strong></h3>
+
+                <form name="Regi" method="post" action="" target="_parent">
+                <div class="grid-780  fn-clear" style=" padding-top:15px;">
+                    <h3 class="ui-form-title">
+                        <strong>填写登录信息</strong><span class="explain">请填写您的账户登录名和密码</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                登陆账户</label>
+                            <input name="RAgent_Email" type="text" id="RAgent_Email" maxlength="250" size="20" value=""
+                                class="ui-input" autocomplete="off">
+                            <label id="EmailVer">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                登录密码</label>
+                            <input name="RAgent_passwords" type="password" id="RAgent_passwords" size="12" maxlength="50" class="ui-input"
+                                data-explain="请输入登录密码">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                再次输入密码</label>
+                            <input name="RAgent_qpasswords" type="password" id="RAgent_qpasswords" size="12" maxlength="50"
+                                class="ui-input" data-explain="请再次输入登录密码。">
+                        </div>
+                    </div>
+                    <div class="ui-form-dashed">
+                    </div>
+                    
+                    <h3 class="ui-form-title">
+                        <strong>联系人信息</strong><span class="explain"><span class="ft-orange">请准确填写联系人信息</span></span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="realName" class="ui-label">
+                                联系人姓名</label>
+                            <input name="RAgent_Name" type="text" id="RAgent_Name" maxlength="250" size="20" class="ui-input"
+                                autocomplete="off">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                联系人手机</label>
+                            <input name="RAgent_Phone" type="text" id="RAgent_Phone" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170"><a  id="RAgent_getphonecode" style="text-decoration:underline; cursor:pointer;">获取短信验证码</a>
+                            <label id="Label5">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                短信验证码</label>
+                            <input name="RAgent_phonecode" type="text" id="RAgent_phonecode" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170">
+                            <label id="Label6">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-item">
+                        <div style=" float:left;" id="Div4" class="ui-button  ui-button-morange ">
+                            <input id="RAgent_regisub" type="button" class="ui-button-text" value="确  定" />
+                        </div>
+        
+                                            <br/>
+                                          
+                            <br/>
+                        <span class="ui-form-confirm"><span class="loading-text fn-hide">正在提交信息</span></span>
+                    </div>
+                </div>
+                </form>
+
+
+
+                <div style="padding: 0; line-height: 25px; width: 350px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+                    <dl id="Dl1">
+                    </dl>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+<div id="regic" class="modal hide  in"  style="  position: absolute;height: 260px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 1999; display:none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closec" style=" font-size:18px;">
+                    ×</button>
+
+            </div>
+
+                <div class="grid-780 fn-clear" style=" height:240px; padding-top:80px;">
+
+                    <h3 class="ui-form-title">
+                        <span style="font-size: 18px;">你已成功提交注册，请等待开通确认通知。</span>
+                        <br/><br/><br/>
+                        <span style="font-size: 18px;">如希望加快开通速度，请电话联系 010-87550229 </span>
+                    </h3>
+                    <div class="ui-form-dashed">
+                    </div>
+                </div>
+
+</div>
+
+</align>
+    <script type="text/javascript">
+        var province = document.getElementById('province');
+        var city = document.getElementById('city');
+    </script>
+    <script src="/Scripts/City.js" type="text/javascript"></script>
+
+</body>
+
+</html>

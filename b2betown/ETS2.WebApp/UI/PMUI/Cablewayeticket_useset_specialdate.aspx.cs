@@ -1,0 +1,275 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using ETS2.PM.Service.PMService.Modle;
+using ETS2.PM.Service.PMService.Data;
+using ETS2.Common.Business;
+using ETS2.CRM.Service.CRMService.Modle;
+using ETS2.CRM.Service.CRMService.Data;
+using ETS2.Permision.Service.PermisionService.Model;
+using ETS2.Permision.Service.PermisionService.Data;
+using ETS.Framework;
+using ETS2.Member.Service.MemberService.Model;
+using ETS2.Member.Service.MemberService.Data;
+using FileUpload.FileUpload.Entities;
+using FileUpload.FileUpload.Data;
+
+namespace ETS2.WebApp.UI.PMUI
+{
+    public partial class Cablewayeticket_useset_specialdate : System.Web.UI.Page
+    {
+        public int userid = 0;//当前登录用户id
+        public string username = "";//当前登录用户名
+
+        public int comid = 0;//当前登录商家id
+        public string comname = "";//公司名称
+        public int groupid = 0;//管理组id
+        public string groupname = "";//所在分组
+
+
+        public string RequestDomin = "";//访问域名
+        public string Requestfile = "";//访问文件
+        public string companydo = "";//商户网址
+
+        public int atypee = 2;//判断登录身份（管理员,验票员)，默认是验票元
+
+        public string comlogo = "/images/defaultThumb.png";//公司logo
+        public string fileUrl = AppSettings.CommonSetting.GetValue("FileUpload/FileUrl").ConvertTo<string>();//文件访问地址
+
+        public int iscanverify = 1;//是否可以验证电子票和验证会员卡
+
+        //public int lineid = 0;//线路id
+
+        //public int ServerType = 0;//产品服务类型（1.电子凭证2.跟团游8.本地游9.酒店客房）
+
+
+        //public decimal adviseprice = 0;//直销价格
+        public int projectid = 0;//项目id
+
+        public string VirtualUrl = "";//虚拟路径
+        public string parastr = "";//参数
+
+        public int proworktimeid = 0;//产品工作时间类型id
+        public string proworktimetile = "";//产品工作时间类型名称
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            #region 模板页代码
+            //获取访问的域名   
+            RequestDomin = Request.ServerVariables["SERVER_NAME"].ToLower();
+            Requestfile = Request.ServerVariables["Url"].ToLower();
+
+
+            proworktimeid = Request["proworktimeid"].ConvertTo<int>(0);
+            proworktimetile = Request["proworktimetitle"].ConvertTo<string>("");
+
+            //如果是微旅行，则直接跳转 当域名为微旅行，访问默认页面则直接跳转会员专区
+            if ((RequestDomin == "v.vctrip.com" || RequestDomin == "www.vctrip.com" || RequestDomin == "v.etown.cn") && Requestfile == "/default.aspx")
+            {
+                //非手机的跳转到V目录下
+                string u = Request.ServerVariables["HTTP_USER_AGENT"];
+                bool phonebool = detectmobilebrowser.HttpUserAgent(u);
+                if (phonebool == false)
+                {
+                    Response.Redirect("/V/");//非手机的跳转到V目录
+                }
+                else
+                {
+                    Response.Redirect("/M/");//非手机的跳转到V目录
+                }
+            }
+
+
+
+
+            //如果是绑定域名跳转到产品页，否则
+            B2b_company_info companyinfo = B2bCompanyData.GetComId(RequestDomin);
+            if (companyinfo != null)
+            {
+                //comid = companyinfo.Com_id;
+                Response.Redirect("/ui/shangjiaui/ProductList.aspx");
+
+            }
+            else
+            {
+                //判定是否为自助域名规则安 shop1.etown.cn
+                if (Domain_def.Domain_yanzheng(RequestDomin))
+                {
+                    //comid = Int32.Parse(Domain_def.Domain_Huoqu(RequestDomin));
+                    if (RequestDomin == "shop1143.etown.cn")
+                    {
+                        Response.Redirect("http://shop.etown.cn/Manage/default.html");
+                    }
+                    else
+                    {
+                        Response.Redirect("/ui/shangjiaui/ProductList.aspx");
+                    }
+
+                }
+                else
+                {
+                    if (UserHelper.ValidateLogin())
+                    {
+                        GetUser();
+                    }
+                    else
+                    {
+                        if (RequestDomin == "admin.vctrip.com")
+                        {
+                            Response.Redirect("/Manage/index1.html");
+                        }
+                        else
+                        {
+                            if (RequestDomin == "shop.etown.cn" || RequestDomin == "admin.etown.cn" || RequestDomin == "test.etown.cn")
+                            {
+
+                                Response.Redirect("/Manage/default.html");
+
+                            }
+
+                            if (RequestDomin == "mm.easytour.cn" || RequestDomin == "weixin.easytour.cn")//跳转渠道
+                            {
+
+                                Response.Redirect("/Channel/easytour.html");
+                            }
+                            else if (RequestDomin == "zhangjiakou.etown.cn" || RequestDomin == "zhangjiakoushop.etown.cn")//跳转渠道
+                            {
+                                Response.Redirect("/Channel/zhangjiakou.html");
+                            }
+                            else
+                            {
+
+                                Response.Redirect("/admin/");
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+            if (!IsPostBack)
+            {
+                VirtualUrl = Request.CurrentExecutionFilePath.ToLower();
+                parastr = HttpContext.Current.Request.Url.Query.ToLower();
+
+                //获得设定的特定日期(0全部；1有效日期及今天以后的日期包括今天；2.失效日期)
+                List<b2b_com_pro_worktime_calendar> list = new RentserverData().GetblackoutdatebyProWorktimeId(proworktimeid, "1");
+                if (list != null && list.Count > 0)
+                {
+                    var date = from r in list
+                               select r.setdate.ToString("yyyy-MM-dd");
+                    hidLeavingDate.Value = string.Join(",", date.ToList());
+                    hidinitLeavingDate.Value = string.Join(",", date.ToList()); 
+                }
+            }
+
+        }
+
+        private void GetUser()
+        {
+            B2b_company_manageuser user = UserHelper.CurrentUser();
+            B2b_company company = UserHelper.CurrentCompany;
+
+            atypee = user.Atype;
+            userid = user.Id;
+            comid = company.ID;
+            comname = company.Com_name;
+
+            //判断页面是否在权限页面链接中：没有，不做处理；有，判断角色是否可以访问此页面
+            bool isactionurl = new Sys_ActionData().Isactionurl(Requestfile);
+            if (isactionurl)
+            {
+                bool iscanvisit = new Sys_ActionData().Iscanvisit(Requestfile, userid);
+                if (iscanvisit == false)
+                {
+                    //Response.Redirect("/manage.aspx");
+                    Response.Write("<script>window.location.href='/manage.aspx'</script>");
+                }
+            }
+
+
+
+            //根据comid得到公司logo信息
+            B2b_company_saleset logoset = B2bCompanySaleSetData.GetDirectSellByComid(comid.ToString());
+            if (logoset != null)
+            {
+                int logo_temp = 0;
+
+                if (logoset.Logo != "")
+                {
+                    logo_temp = int.Parse(logoset.Logo);
+                }
+
+                FileUploadModel identityFileUpload = new FileUploadData().GetFileById(logo_temp);
+                if (identityFileUpload != null)
+                {
+                    comlogo = fileUrl + identityFileUpload.Relativepath;
+                }
+            }
+
+            username = user.Accounts;
+            B2b_company companyinfo = B2bCompanyData.GetAllComMsg(comid);
+
+            if (companyinfo.B2bcompanyinfo.Domainname != "")
+            {
+                companydo = "http://" + companyinfo.B2bcompanyinfo.Domainname;
+            }
+            else
+            {
+                companydo = "http://shop" + company.ID + ".etown.cn";
+            }
+
+            //根据userid得到用户信息，如果用户没有渠道公司的分配，则显示全部门市
+            B2b_company_manageuser muser = B2bCompanyManagerUserData.GetUser(UserHelper.CurrentUserId());
+            if (muser != null)
+            {
+                //控制只有平台总账户才可以进入/ui/permissionui目录
+                if (Requestfile.Contains("/ui/permissionui"))
+                {
+                    if (muser.Id != 1035)
+                    {
+                        Response.Redirect("http://shop.etown.cn");
+                    }
+                }
+
+                Sys_Group gg = new Sys_GroupData().GetGroupByUserId(muser.Id);
+                if (gg == null)
+                {
+                    //Response.Write("<script>alert('用户尚未分配角色，请联系管理员！');location.href='/Manage/index1.html'</script>");
+                }
+                else
+                {
+                    iscanverify = gg.Iscanverify;
+                    groupname = gg.Groupname;
+                    groupid = gg.Groupid;
+                }
+
+            }
+
+
+
+            //根据不同用户显示不同的左侧栏
+            int totalcount = 0;
+            List<Sys_ActionColumn> topList = new Sys_ActionColumnData().GetActionColumnByUser(UserHelper.CurrentUserId(), out totalcount);
+
+
+            rptTopMenuList.DataSource = topList;
+            rptTopMenuList.DataBind();
+
+            foreach (RepeaterItem item in rptTopMenuList.Items)
+            {
+                int funcId = (item.FindControl("HideFuncId") as HiddenField).Value.ConvertTo<int>();
+
+                int totalaction = 0;
+                var menuList = new Sys_ActionData().GetActionsByColumnId(UserHelper.CurrentUserId(), funcId, out totalaction);
+
+                Repeater rptMenuList = item.FindControl("rptMenuList") as Repeater;
+                rptMenuList.DataSource = menuList;
+                rptMenuList.DataBind();
+
+            }
+
+        }
+    }
+}

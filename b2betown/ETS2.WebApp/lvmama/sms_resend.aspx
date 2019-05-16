@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sms_resend.aspx.cs" Inherits="ETS2.WebApp.lvmama.sms_resend" %>

@@ -1,0 +1,302 @@
+﻿.ext_box
+{
+    padding: 20px;
+    background-color: #f4f5f9;
+    margin-top: 10px;
+    border: 1px solid #e7e7eb;
+}
+.goods_standard .show_standard_wrp:first-child
+{
+    padding-top: 0;
+    margin-top: 0;
+    border: 0;
+}
+.goods_standard
+{
+    font-size: 14px;
+}
+.goods_standard .show_standard_wrp
+{
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #e7e7eb;
+}
+.goods_standard strong
+{
+    font-weight: 400;
+    font-style: normal;
+}
+.goods_standard a
+{
+    color: #459ae9;
+    text-decoration: none;
+}
+.checkbox_wrp:last-child
+{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.checkbox_wrp
+{
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.checkbox_wrp .frm_checkbox_label, .checkbox_wrp .edit_checkbox_wrap
+{
+    width: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.frm_radio_label, .frm_checkbox_label
+{
+    display: inline-block;
+    text-align: left;
+    cursor: pointer;
+    margin-right: 1em;
+}
+.icon_checkbox
+{
+    background: url("http://shop.etown.cn/images/base_z27bb72.png") 0 -286px no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.icon_radio, .icon_checkbox
+{
+    margin-right: 3px;
+    margin-top: -2px;
+}
+.add_standard
+{
+    margin-top: 10px;
+}
+.add_standard .frm_control_group
+{
+    margin: 0 0 20px;
+}
+.main_bd .frm_control_group
+{
+    padding: 0;
+    margin: 0 30px 26px;
+}
+.add_standard .frm_label
+{
+    width: 4em;
+}
+.main_bd .frm_label
+{
+    width: 6em;
+    margin-right: 1em;
+}
+.goods_standard .frm_checkbox_label .frm_input_box
+{
+    display: none;
+    width: 80px;
+}
+.checkbox_wrp .frm_input_box
+{
+    width: 50px;
+}
+.main_bd .frm_input_box_mini
+{
+    width: 90px;
+    margin-right: 10px;
+    height: 24px;
+    line-height: 24px;
+}
+
+
+input[type="checkbox"], input[type="radio"]
+{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.frm_label
+{
+    float: left;
+    width: 5em;
+    margin-top: .3em;
+    margin-right: 1em;
+    font-size: 14px;
+}
+.frm_controls
+{
+    display: table-cell;
+    vertical-align: top;
+    float: none;
+    width: auto;
+}
+.frm_radio_label, .frm_checkbox_label
+{
+    text-align: left;
+    cursor: pointer;
+}
+.frm_input_box.limit_append
+{
+    padding-right: 40px;
+}
+.frm_input_box.append
+{
+    padding-right: 30px;
+}
+.frm_input_box
+{
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    width: 278px;
+    font-size: 14px;
+    padding: 0 10px;
+    border: 1px solid #e7e7eb;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background-color: #fff;
+}
+.frm_input
+{
+    height: 22px;
+    margin: 4px 0;
+}
+.frm_input, .frm_textarea
+{
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+.frm_input_box.limit_append .frm_input_append
+{
+    font-size: 14px;
+    color: #8d8d8d;
+    right: .6em;
+}
+.frm_input_box.append .frm_input_append
+{
+    position: absolute;
+    top: 0;
+    right: .8em;
+}
+.frm_msg.fail
+{
+    color: #e15f63;
+}
+.frm_msg
+{
+    display: none;
+    overflow: hidden;
+}
+.goods_standard .add_standard .btn_add_standard
+{
+    margin-left: 10px;
+}
+.goods_standard .btn
+{
+    min-width: 60px;
+}
+.goods_standard .btn_default
+{
+    background-color: #fff;
+    background-image: -moz-linear-gradient(top,#fff 0,#fff 100%);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#fff));
+    background-image: -webkit-linear-gradient(top,#fff 0,#fff 100%);
+    background-image: -o-linear-gradient(top,#fff 0,#fff 100%);
+    background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+    border-color: #e7e7eb;
+    color: #222;
+}
+.goods_standard .btn
+{
+    display: inline-block;
+    overflow: visible;
+    padding: 0 22px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+.custom_standard .custom_standard_item
+{
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    background-color: #e5e7ec;
+}
+.custom_standard .custom_standard_item .standard_item_name
+{
+    padding: 0 10px;
+}
+.custom_standard .custom_standard_item .btn_del
+{
+    margin-left: -5px;
+    margin-right: 5px;
+    line-height: 999px;
+    overflow: hidden;
+    background: url("http://shop.etown.cn/images/shop_create_z218878.png") 0 -464px no-repeat;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: -2px;
+}
+.dn
+{
+    display: none;
+}
+.frm_tips
+{
+    width: auto;
+}
+.frm_tips, .frm_msg
+{
+    padding-top: 4px;
+    width: 300px;
+}
+.frm_tips
+{
+    color: #8d8d8d;
+}
+
+
+/*表格样式*/
+table#process
+{
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+table#process th
+{
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table#process td
+{
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}

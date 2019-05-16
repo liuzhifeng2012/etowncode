@@ -1,0 +1,76 @@
+﻿
+/* 价格日历窗口 */
+.low_calendar {
+    overflow:hidden;
+	margin:10px 10px 0;
+	border:1px solid #c8d2dc;
+}
+.low_calendar h1 {
+	width:100%;
+	background:#95c0eb;
+    font-size:18px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+	color:#fff;
+	font-weight:700;
+}
+.calGrid table {
+	width:100%;
+    border-collapse:collapse;
+	margin:0;
+	padding:0;
+}
+.calGrid table th {
+    background-color:#fff;
+    border-left:1px solid #whiteSmoke;
+    font-size:12px;
+    height:25px;
+    line-height:25px;
+    text-align:center;
+	vertical-align:middle;
+	color:#999;
+	background:whiteSmoke;
+}
+.calGrid table td {
+	width:12%;
+    height:40px;
+	line-height:40px;
+	font-size:16px;
+	font-weight:700;
+	background:#fff;
+	text-align:center;
+	color:#005bb5;
+    border-bottom:1px solid #c8d2dc;
+    border-left:1px solid #c8d2dc;
+}
+.calGrid table td.disable {
+	color:#b9b9b9;
+}
+.calGrid table td:first-child {
+	border-left:none;
+}
+.calGrid table tr:last-child td {
+	border-bottom:none;
+}
+.calGrid table td.holiday {
+	font-size:12px;
+}
+.calGrid table th.week_day, .calGrid table td.week_day {
+    color:#f60;
+}
+.calGrid table td.curr {
+    line-height:25px;
+    font-size:13px;
+    color:#fff;
+	background:#4aa5ff;
+	-moz-box-shadow:2px #7d92a7 inset;
+	-webkit-box-shadow:2px #7d92a7 inset;
+	box-shadow:2px #7d92a7 dcdeeb;
+}
+.calGrid table td.curr span 
+{
+    display:block;
+    font-size:12px;
+    line-height:10px;
+}

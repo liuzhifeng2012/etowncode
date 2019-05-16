@@ -1,0 +1,928 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>易游天下国旅.易游惠，移动营销服务平台！</title>
+    <meta name="keywords" content="易游惠">
+    <meta name="description" content="">
+
+    <link charset="utf-8" rel="stylesheet" href="business.css">
+
+    <style type="text/css">
+
+.modal {
+position: fixed;
+top: 10%;
+left: 50%;
+z-index: 1050;
+width: 560px;
+margin-left: -280px;
+background-color: white;
+border: 1px solid #999;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding-box;
+background-clip: padding-box;
+outline: none;
+}
+.modal-header {
+padding: 5px 15px;
+}
+button.close {
+padding: 0;
+cursor: pointer;
+background: transparent;
+border: 0;
+-webkit-appearance: none;
+float:right;
+}
+.modal-header h3 {
+margin: 0;
+line-height: 30px;
+}
+
+</style>
+
+<style type="text/css"></style>
+<script src="../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+<script src="../Scripts/common.js" type="text/javascript"></script>
+<link href="../Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+<link charset="utf-8" rel="stylesheet" href="/Styles/reg.css" />
+<script src="../Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        //取消修改密码
+        $("#t1").click(function () {
+            $("#con4").hide();
+            $("#con2").hide();
+            $("#con3").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor1");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor2");
+
+        })
+        $("#t2").click(function () {
+            $("#con4").hide();
+            $("#con3").hide();
+            $("#con2").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor1");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor2");
+        })
+
+        $("#t3").click(function () {
+            $("#con4").show();
+            $("#con3").hide();
+            $("#con2").hide();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor1");
+        })
+
+        $("#t1").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t1").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+        $("#t2").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t2").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+
+        $("#t3").mouseover(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: #4dcbf4");
+        });
+        $("#t3").mouseout(function () {
+            $(this).attr("style", "BACKGROUND-COLOR: ");
+        });
+
+        $("#headkaihu").click(function () {
+            $("html,body").animate({ scrollTop: $("#t2").offset().top }, 500)
+            $("#con3").hide();
+            $("#con2").show();
+            $("#con4").hide();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor1");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor2");
+        });
+
+        $("#agent").click(function () {
+            $("html,body").animate({ scrollTop: $("#t3").offset().top }, 500)
+            $("#con3").hide();
+            $("#con2").hide();
+            $("#con4").show();
+            $("#t1").removeClass("navcolor1 navcolor2");
+            $("#t1").addClass("navcolor2");
+            $("#t2").removeClass("navcolor1 navcolor2");
+            $("#t2").addClass("navcolor2");
+            $("#t3").removeClass("navcolor1 navcolor2");
+            $("#t3").addClass("navcolor1");
+        });
+
+
+        //确认发送
+        $("#SubSend").click(function () {
+            var Mobile = $("#Mobile").val();
+            var Name = $("#Name").val();
+            var Company = $("#Company").val();
+            var Address = $("#Address").val();
+
+            if (Name == '' || Name == '姓名') {
+                $.prompt('请填写联系人姓名！');
+                return;
+            }
+            if (Mobile == '' || Mobile == '手机') {
+                $.prompt('请填写联系电话');
+                return;
+            }
+
+
+            if (Company == '' || Company == '公司名称') {
+                $.prompt('请填写公司名称！');
+                return;
+            }
+
+            $.ajax({
+                type: "Get",
+                data: { Mobile: Mobile, Name: Name, Company: Company, Address: Address },
+                url: "/JsonFactory/BusinessCustomersHandler.ashx?oper=contentsend",
+                success: function (data) {
+                    $.prompt("提交成功", {
+                        buttons: [
+                                 { title: '确定', value: true }
+                                ],
+                        opacity: 0.1,
+                        focus: 0,
+                        show: 'slideDown',
+                        submit: function (e, v, m, f) {
+                            if (v == true) {
+                                $("#Mobile").val("");
+                                $("#Name").val("");
+                                $("#Company").val("");
+                                $("#Address").val("");
+
+                                window.location.reload();
+                            }
+                        }
+
+                    });
+                }
+            });
+
+        })
+
+
+        $("#showGG").click(function () {
+            $("#regi").show();
+            $("#zhegaiceng").show();
+
+        });
+
+        $("#glume2").click(function () {
+            $("#regi").show();
+            $("#zhegaiceng").show();
+
+        });
+
+        $("#Button1").click(function () {
+            $("#regi").hide();
+            $("#zhegaiceng").hide();
+
+        });
+
+        $("#closec").click(function () {
+            $("#regic").hide();
+
+        });
+
+
+        //商户行业类型
+        $.post("/JsonFactory/CrmMemberHandler.ashx?oper=GetIndustryList", {}, function (data) {
+            data = eval("(" + data + ")");
+            if (data.type == 100) {
+                $("#sel_hangye").empty();
+                for (var i = 0; i < data.msg.length; i++) {
+                    $("#com_type").append('<option value="' + data.msg[i].Id + '">' + data.msg[i].Industryname + '</option>');
+                }
+
+            }
+        })
+
+        //加载一个通用行行业，已方便注册
+        $("#com_type").append('<option value="0">其他行业</option>');
+
+
+        $("#regisub").click(function () {
+            var Account = $("#Account").trimVal();
+            var passwords = $("#passwords").trimVal();
+            var qpasswords = $("#qpasswords").trimVal();
+
+            var com_name = $("#com_name").trimVal();
+            var Scenic_name = $("#Scenic_name").trimVal();
+            var com_type = $("#com_type").trimVal();
+
+
+            var Contact = $("#Contact").trimVal(); //联系人姓名
+            var tel = $("#tel").trimVal();
+
+            var province = $("#province").trimVal();
+            var city = $("#city").trimVal();
+
+
+
+            if (Account == "") {
+                $.prompt("登录账户不可为空");
+                return;
+            }
+
+            if (passwords == "") {
+                $.prompt("密码不可为空！");
+                return;
+            }
+            if (qpasswords == "") {
+                $.prompt("确认密码不可为空！");
+                return;
+            }
+            if (passwords != qpasswords) {
+                $.prompt("密码和确认密码不符！");
+                return;
+            }
+            if (com_name == "") {
+
+                $.prompt("单位名称不可为空！");
+                return;
+            }
+
+            if (province == "" || province == "省份") {
+                $.prompt("请选择所在省份");
+                return;
+            }
+            if (city == "" || city == "城市") {
+                $.prompt("请选择所属城市");
+                return;
+            }
+            if (com_type == "") {
+                $.prompt("请选择所属行业");
+                return;
+            }
+
+            if (Contact == "") {
+                $.prompt("联系人姓名不可为空！");
+                return;
+            }
+
+            if (tel == "") {
+                $.prompt("联系电话不可为空！");
+                return;
+            }
+
+            //                $('#regi').hide().after('<span id="spLoginLoading" style="margin-left:105px;height:30px;color:#f39800; ">登录中……</span>');
+            $.ajax({
+                type: "POST",
+                url: "/JsonFactory/RegisterUser.ashx?oper=edit",
+                data: { Account: Account, passwords: passwords, com_name: com_name, Scenic_name: Scenic_name, Contact: Contact, tel: tel, province: province, city: city, com_type: com_type },
+                success: function (data) {
+                    data = eval('(' + data + ')');
+                    if (data.type == 1) {
+                        $.prompt("账户注册提示:" + data.msg, { buttons: [{ title: "确定", value: true}], submit: function (e, v, m, f) { if (v == true) { } } });
+                        return;
+                    }
+                    if (data.type == 100) {
+                        $("#regi").hide();
+                        $("#zhegaiceng").hide();
+                        $("#regic").show();
+
+
+//                        $.prompt("账户信息注册成功，请等待管理员处理", {
+//                            buttons: [
+//                                 { title: '确定', value: true }
+//                                ],
+//                            opacity: 0.1,
+//                            focus: 0,
+//                            show: 'slideDown',
+//                            submit: function (e, v, m, f) {
+//                                if (v == true)
+//                                    $("#regi").hide();
+//                                $("#zhegaiceng").hide();
+//                                $("#regic").show();
+//                            }
+//                        });
+                    }
+                }
+            });
+        });
+
+    })
+
+
+
+
+
+    function skipregi() {
+        window.open("/account/Register.aspx", target = "_blank");
+    }
+		
+</script></head>
+  
+
+
+<body role="document" >    
+  <align="center">
+
+ <div class="header" coor="header">
+     <div class="grid-990 header-wrap fn-clear">
+	 
+            <div id="et-img-logo" class="fn-left">
+               <img src="/images/easytour_logo.png" alt=""  id="imglogo" style="max-height:92px;" />
+			</div>
+      
+            <div id="nav"> 
+             <span class="item1"><a id="showGG" style="cursor: pointer">我要注册</a></span>
+             <span class="item1" id="headkaihu"><a href="javascript:;">开户帮助</a></span>
+             <span class="item1" id="agent"><a href="javascript:;">渠道代理</a></span>
+             <span class="tel">商家合作热线：<strong><font color="#FF0000" size="+2">010-87550229</font></strong></span>        
+            </div> 
+     </div>
+ </div>
+ 
+ 
+ <div id="banner" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+
+         <div id="glume" >
+          <ul class="Limg">
+		  
+              <div id="banner2" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+                <div class="login-box">
+                <iframe class="fn-hide" allowtransparency="true" src="/account/Login.aspx" width="286" height="367" id="loginIframe" frameborder="0" scrolling="no" coor="aside-login" style="display: block;"></iframe>
+                    <div id="loginLoading" style="display: none;"><img width="50" height="50" alt="加载中" src="#" seed="loginLoading-iE2012062qz2UvlUVF" smartracker="on" />
+				    </div>
+                </div>
+              <div id="glume2" >
+                <ul class="Limg">
+
+                  <li class="bg_2" onClick="javascript:;"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_3" onClick="javascript:;"><a href="javascript:;">&nbsp;</a></li>
+                  <li class="bg_4" onClick="javascript:;"><a href="javascript:;">&nbsp;</a></li>
+                </ul>
+				    <cite class="Nubbt"> 
+		<span class="on" >2</span> 
+		<span >3</span> 
+		<span >4</span> 
+
+
+                    </cite> 
+              </div>
+              <script language=javascript type="text/javascript">
+                  (function () {
+                      if (!Function.prototype.bind) {
+                          Function.prototype.bind = function (obj) {
+                              var owner = this, args = Array.prototype.slice.call(arguments), callobj = Array.prototype.shift.call(args);
+                              return function (e) { e = e || top.window.event || window.event; owner.apply(callobj, args.concat([e])); };
+                          };
+                      }
+                  })();
+                  var glume = function (id) {
+                      this.ctn = document.getElementById(id);
+                      this.adLis = null;
+                      this.btns = null;
+                      this.animStep = 0.1; //动画速度0.1～0.9
+                      this.switchSpeed = 5; //自动播放间隔(s)
+                      this.defOpacity = 1;
+                      this.tmpOpacity = 1;
+                      this.crtIndex = 0;
+                      this.crtLi = null;
+                      this.adLength = 0;
+                      this.timerAnim = null;
+                      this.timerSwitch = null;
+                      this.init();
+                  };
+                  glume.prototype = {
+                      fnAnim: function (toIndex) {
+                          if (this.timerAnim) { window.clearTimeout(this.timerAnim); }
+                          if (this.tmpOpacity <= 0) {
+                              this.crtLi.style.opacity = this.tmpOpacity = this.defOpacity;
+                              this.crtLi.style.filter = 'Alpha(Opacity=' + this.defOpacity * 100 + ')';
+                              this.crtLi.style.zIndex = 0;
+                              this.crtIndex = toIndex;
+                              return;
+                          }
+                          this.crtLi.style.opacity = this.tmpOpacity = this.tmpOpacity - this.animStep;
+                          this.crtLi.style.filter = 'Alpha(Opacity=' + this.tmpOpacity * 100 + ')';
+                          this.timerAnim = window.setTimeout(this.fnAnim.bind(this, toIndex), 50);
+                      },
+                      fnNextIndex: function () {
+                          return (this.crtIndex >= this.adLength - 1) ? 0 : this.crtIndex + 1;
+                      },
+                      fnSwitch: function (toIndex) {
+                          if (this.crtIndex == toIndex) { return; }
+                          this.crtLi = this.adLis[this.crtIndex];
+                          for (var i = 0; i < this.adLength; i++) {
+                              this.adLis[i].style.zIndex = 0;
+                          }
+                          this.crtLi.style.zIndex = 2;
+                          this.adLis[toIndex].style.zIndex = 1;
+                          for (var i = 0; i < this.adLength; i++) {
+                              this.btns[i].className = '';
+                          }
+                          this.btns[toIndex].className = 'on'
+                          this.fnAnim(toIndex);
+                      },
+                      fnAutoPlay: function () {
+                          this.fnSwitch(this.fnNextIndex());
+                      },
+                      fnPlay: function () {
+                          this.timerSwitch = window.setInterval(this.fnAutoPlay.bind(this), this.switchSpeed * 1000);
+                      },
+                      fnStopPlay: function () {
+                          window.clearTimeout(this.timerSwitch);
+                      },
+                      init: function () {
+                          this.adLis = this.ctn.getElementsByTagName('li');
+                          this.btns = this.ctn.getElementsByTagName('cite')[0].getElementsByTagName('span');
+                          this.adLength = this.adLis.length;
+                          for (var i = 0, l = this.btns.length; i < l; i++) {
+                              with ({ i: i }) {
+                                  this.btns[i].index = i;
+                                  this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                                  this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                              }
+                          }
+                          this.adLis[this.crtIndex].style.zIndex = 2;
+                          this.fnPlay();
+
+                      }
+                  };
+                  var player1 = new glume('glume');
+            </script>
+            </div>
+          </ul>
+        </div>
+ </div>
+             <div class="nm_advertising">
+            <span><img src="images/laba.png"/></span>  <a >公告：微信会员定向群发功能上线  微信支付接口开发上线</a>
+        </div>
+			  
+ <div class="main" role="main">
+
+          <div class="con3">
+               <div class="nav1 navcolor1" id="t1"> 服务介绍</div>
+               <div class="nav2 navcolor2" id="t2"> 开户帮助</div> 
+               <div class="nav3 navcolor2" id="t3"> 渠道代理</div> 
+               <div class="clear"></div>
+          </div>
+		  
+          <div id="con3">
+               <div class="con">
+                  <div class="left1"><img src="images/title1.gif"/>
+                     <div class="title">
+                <p style=" padding-top:10px;">商户微网站 微会员 优惠券 微预付</p>
+                <p>快速开户 人工指导上线 </p>
+                <p>让你看得见效果的移动营销服务平台</p>
+                     </div>
+                  </div>
+                  <div class="right1"><img src="images/title2.gif"/>
+                <div class="title">
+                <p style=" padding-top:10px;">帮助酒店度假村客栈等</p>
+                <p>快速上线微信/官网订房，酒店交通导航</p>
+                <p>发布优惠券/积分预存 提升会员服务体验</p>
+                </div>
+				  
+				  </div>
+
+               </div>
+
+            <img style=" width:100%;"  src="images/lingmiddle.png"/>
+			
+          <div class="con">
+                <div class="left2"><img src="images/title3.gif"/>
+                  <div class="title">
+                <p style=" padding-top:10px;">加盟门店独立二维码扫码关注</p>
+                <p>发放旅游券 发布特价线路与活动报名 <br /></p>
+                <p>门店按会员出游兴趣发送微信推荐信息</p>
+                <p>关键词或语音留言 旅游咨询更轻松</p>
+                  </div>			
+                </div>
+				
+                <div class="right2"><img src="images/title4.gif"/>
+                  <div class="title">
+                <p style=" padding-top:10px;">结合微信会员卡的智能电子凭证系统</p>
+                <p>在线售票与验证</p>
+                <p>每卖出一张门票就等于发展一个微信会员</p>
+                <p>团购分销 电子门票POS验证与统计</p>	   
+                 </div>
+			    </div>
+          </div>
+		  
+            <img style=" width:100%;"  src="images/lingmiddle.png"/>
+			
+          <div class="con">
+                <div class="left3"><img src="images/title5.JPG"/>
+                  <div class="title">
+                <p style=" padding-top:10px;">旅行社总部与门店微营销管理</p>
+                <p>为每个门店生成独立二维码及扫码统计 <br /></p>
+                <p>门店领奖与专属优惠券发放与核销管理</p>
+                <p>门店会员管理、微信客服、定向群发</p>
+                  </div>			
+                </div>
+				
+                <div class="right3"><img src="images/title6.JPG"/>
+                  <div class="title">
+                <p style=" padding-top:10px;">发布旅游产品和在线预定管理</p>
+                <p>微信产品发布与价格管理</p>
+                <p>订单管理、收支明细与财务管理</p>
+                <p>整合团购接口/分销渠道,让别人帮你挣钱</p>	   
+                 </div>
+			    </div>
+          </div>
+
+       </div>
+
+         <div class="con2" id="con2" style=" display:none;">
+			<div class="">
+                   <p class="title2">1.易游惠服务平台是做什么的？</p>
+              <div class="text">
+                   <p class="title3">易游惠创业团队由垂直电商行业人士组建和开发运营，专注提供各行业商户微信+微官网的自营销服务。易游惠是建立在微信会员营销基础上的商户微信电子预订与消费验证闭环系统。我们为企业实现：</p>
+                    <p>（1）快速开展微官网+微信直销</p>
+                    <p>（2）电商渠道整合与分销管理</p>
+                    <p>（3）在线支付与电子凭证验证闭环服务</p>
+                    <p>（4）微信会员营销
+                  </p>
+              </div>
+            </div>
+             <div class="">
+                   <p class="title2">2.哪些企业可以注册和使用易游惠系统？</p>
+              <div class="text">
+
+                     <p class="title3">（1）微信电子会员卡</p>
+                    <p>适用单位：所有服务单位及商户，如：旅行社、酒店、景区、休闲娱乐及各类生活服务单位</p>
+					
+					<p class="title3">（2）旅行社实体门店及连锁机构开展微网站+微信营销</p>
+                    <p>旅行社总部及各实体门店、地接社、租车、连锁酒店、旅游购物店、旅游演出剧院等……</p>
+					
+                     <p class="title3">（3）微景区</p>
+                    <p>景区度假村、滑雪场、温泉、游乐园、主题乐园、旅游演出、采摘烧烤、短途旅游地接社、旅游租车、旅游购物店等</p>
+              </div>
+			 </div>
+             <div class="">
+                   <p class="title2">3.如何注册？
+</p>
+              <div class="text">
+                   <p class="title3">提交开户注册申请只需3分钟！</p>
+                   <p class="title3">注册网址：mm.easytour.cn 或 咨询各地代理商开户。
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">4.可以通过微信在线预订和付款吗？</p>
+              <div class="text">
+                   <p>可以。入驻易游惠系统后即可进行微信接口设置及产品发布，快速实现官网及微信公众帐号上的产品提单、支付、发码、验证确认、商户后台订单管理与提现对账等。</p>
+        
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">5.电子门票如何网上购票？如何验证？</p>
+              <div class="text">
+                   <p>易游惠系统可帮助景区官网和官方微信公号上快速搭建在线购票、电子票发码与验证等。无需二次开发、快速上线、电脑和pos终端验证统计及时准确。具体请咨询我们 010-59022350
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">6.二维码如何使用？</p>
+              <div class="text">
+                   <p class="title3">易游惠系统上出现的二维码有两种：
+</p>
+                    <p><strong>（1）用于微信营销的带参数二维码。</strong>用户扫描后即可关注或进入您的微信公号，后台可统计二维码扫描来路，方便商家统计各类推广效果。该类二维码可在易游惠后台自助设置获取并查看效果统计数据。</p>
+                     <p> <strong>（2）电子凭证二维码。</strong>通过易游惠后台发布的产品及优惠券都可以产生一个加密二维码。用户在线预订后可到微信上查看和使用该二维码到商家验证消费。商户电子凭证（二维码）还具有查看使用状态、商家地址与服务信息等智能服务，对比短信数字码和彩信二维码方式，商户二维码的应用进一步优化了用户在线体验和满足会员互动需求。
+                   
+                </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">7.如何通过微信发放会员卡与优惠券？</p>
+              <div class="text">
+                   <p>易游惠系统提供了商家会员服务功能。用户关注商家微信公号后自动获得电子会员卡、会员特权、会员积分查询、优惠券查看与使用。商家可在易游惠后台设置会员优惠活动并发放电子优惠券。
+</p>
+                    
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">8.我可以为会员设置积分和抽奖互动活动吗？</p>
+              <div class="text">
+                   <p>可以，易游惠商家后台可为每个会员设置积分、预付款充值和扣减操作。商家还可以在发布产品时设置每个产品购买后客人能够获得的积分数，当客人完成在线购买后系统自动充值积分到该会员账户。
+</p>
+                   <p>为增强会员与商家互动，商家在后台为会员设置抽奖活动，只需设置奖品等级数量及抽奖基数等几项即可发布微信大转盘抽奖活动。
+
+                    
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">9.度假村如何实现微信订房？</p>
+              <div class="text">
+                   <p>周边度假村客人主要来自周末自驾人群。在商家后台上发布房型和预订价格后用户即可在该商家微信公号上进行预订。微信客服及定位功能更可方便的为预订客人提供房态查询、预付房款及确认、地图导航等服务。
+</p>
+                    
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">10.易游惠平台对入住商户收费吗？</p>
+              <div class="text">
+                   <p>为降低商家入驻门槛和快速见效，商家可通过各地分销商开户易游惠系统，包括微网站、微信高级接口功能、微信会员营销、在线产品发布与在线预定支付及核销统计等。实行全国统一开户服务费+线上交易佣金政策，具体请与当地分销商咨询或电询易游惠服务电话。针对旅游景区合作易游惠免费提供前期营销规划、免费上线培训和更低交易佣金的扶持政策。 
+</p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">11.如何通过易游惠开展微信营销？这项工作一般需要几个人？</p>
+              <div class="text">
+                   
+                    <p>（1）首先要向腾讯申请注册贵企业的微信公众账号。在线申请很方便：mp.weixin.qq.com ，这个申请过程一般需要2-7天。（申请服务号并认证后可获得带参数二维码、微信客服等高级接口功能，如申请订阅号需经认证才能开通微信菜单功能。）</p>
+                   <p>（2）申请开通易游惠系统。申请地址：mm.easytour.cn 或分销商代理网站。 申请通过后可接收到邮件通知，获得账户使用权限。登录系统》微信管理》微信菜单管理》微信接口设置。将该页面提供的两段链接复制到微信公号后台的"成为开发者页面"。这个过程可向易游惠客服咨询帮助。</p>
+                    <p>（3）登录易游惠系统后台》填写商家信息/产品发布；在微信菜单页面设置微信菜单及子菜单，并设置相应回复方式或页面链接；微信文章管理页面 发布商家服务介绍、服务帮助和促销信息等；通过手机打开您的企业微信公号，查看微信发布情况；再登录易游惠商家系统后台查看会员注册情况和进一步设置会员优惠券、抽奖、积分等互动活动。</p>
+                   <p>（4）微信营销工作初期设置1-2人即可，而后期可根据发展情况与企业市场部、电商部做整合。
+                  </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">12.什么是电子验证与分销管理系统，如何使用？</p>
+              <div class="text">
+                   
+                    <p>自2014年3月开始，我们已经将《电子预订与分销管理系统》整合到新的易游惠服务平台。使团购渠道分销与商家直销电子凭证分发、验证、统计和退票管理一体化。该系统在新平台也会免费开放给需要的商户单位，并只按实际验证和收款金额收取佣金费用。</p>
+                    <p>更多请咨询我们 电话：4006361919
+</p>
+
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">13.必须安装使用pos验证设备吗？使用pos机如何费用？
+</p>
+              <div class="text">
+                   
+<p>根据商家实际情况选择是否安装验证终端设备（pos机等）。对客流量大并分销渠道多的商家，采用pos验证终端可以保证前台验证工作简便有效。易游惠验证终端月租费只需150元每台（部分行业商家可根据情况免费提供）。对于客流量不高的商家也可以采用电脑验证，而不具备条件的商家可采用更简便的手机页面/客户端验证方式。</p><p>
+针对景区或客流量较大的商户单位需要，易游惠移动服务平台还可提供自动取票机及二维码/磁卡验证闸机安装服务。
+
+                  </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">14.易游惠系统能发送短信吗？如何收费？</p>
+              <div class="text">
+                   
+                    <p>易游惠后台已经提供了短信发送功能，一般在登录验证、积分充值、购买支付确认时系统自动发放通知短信。如果商家客人使用非智能手机而看不到二维码电子凭证时会同时通过短信发送数字码。 另外，商家工作人员还可以使用后台在线客服功能时通过短信将商家官方微信号、网址及地址电话等信息发放到会员手机上。</p><p>
+
+通过易游惠商家后台发送短信按每条0.05元收费，发送电子凭证短信按0.1元每条（一般包含两条短信）。
+
+                  </p>
+              </div>
+            </div>
+            <div class="">
+                   <p class="title2">15.网上有很多提供微网站、微酒店、微订单、微店等微营销工具服务，易游惠服务平台与这些有什么区别？</p>
+              <div class="text">
+                   <p class="title3">我们与其他微网站（微店、微信营销等）服务商的区别在于：
+</p>
+                    <p>（1）易游惠服务平台旨在帮助商家快速实现移动营销和商务电子化。我们暂不提供在线预订之外的网站设计开发和移动建站定制服务。这些需求商家可以找上述微网站建设公司来实现，并很方便与易游惠系统对接应用。</p>
+                    <p>（2）易游惠团队具有多年电商相关经验与经历，我们提供各行业电商深层应用方案，重点提供电子凭证发码与验证闭环体系、电商平台与分销渠道接口整合、深度会员营销等系统服务。而其他微网站服务商一般是提供企业形象与通用产品的手机展示和轻电商应用。</p><p>
+（3）易游惠服务平台开户服务费更低，后续按实际产生的线上交易收取佣金，效果更可控。易游惠第二年200元年费并长年提供本地化人工支持和系统运营支持与升级。易游惠平台是商家自己的微营销平台，无需担保押金。更多服务只有你用了才知道！
+
+              </div>
+            </div>
+            
+</div>
+
+         <div class="con2" id="con4" style=" display:none;">
+			<div class="">
+                   <p class="title2">1.为什么要通过渠道代理开户？</p>
+              <div class="text">
+                   <p class="title3">易游惠运营团队更多的肩负平台开发与运营工作，而大量的商户签约培训和上线指导工作可由本地代理商来帮助您完成。各地易游惠代理商本地服务包括：</p>
+                    <p>（1）易游惠微营销系统功能与案例演示</p>
+                    <p>（2）开户签约与系统上线培训</p>
+                    <p>（3）协助商户搭建微官网及微信公众帐号申请与接入</p>
+                    <p>（4）易游惠产品发布、会员营销策略分享等</p>
+                    <p>（5）商户运营中遇到的各类问题协调与处理</p>
+                    <p>（6）商户续约管理等</p>
+              </div>			  
+          </div>
+			<div class="">
+                   <p class="title2">2.什么是地区渠道运营商？</p>
+              <div class="text">
+                   <p class="title3">为更好的发展全国各地商户及代理渠道，易游惠以按城市为单位设置区域代理运营商，服务包括：</p>
+                    <p>（1）按易游惠代理商体系要求发展本地区下级代理商</p>
+                    <p>（2）对代理商实施培训与服务质量监管</p>
+                    <p>（3）处理本地区所有商户开户与使用中问题并反馈易游惠运营总部</p>
+                    <p>（4）组织本地区内易游惠产品发布会与招商洽谈活动等</p>
+
+              </div>			  
+          </div>
+			<div class="">
+                   <p class="title2">3.如何成为地区渠道运营商？</p>
+              <div class="text">
+                   <p class="title3">向易游惠运营总部提出申请，并符合下面条件：</p>
+                    <p>（1）熟悉所在地区商户需求并具有一定人脉基础</p>
+                    <p>（2）建立线下推广签约团队并有效实施管理</p>
+                    <p>（3）认同易游惠服务理念和发展方向，有能力承担合同权利义务</p>
+                    <p>（4）负责人没有违法记录、守法经营、诚实进取</p>
+					<p> 如果这就是你，请加盟易游惠，与我们一起努力开创未来！
+				
+              </div>			  
+          </div>
+ </div>
+         <img style=" width:100%;"  src="images/mailine.jpg"/>
+        <div class="con1">
+         <p>请留下你的联系方式，我们将尽快与您沟通！</p>
+         <input name="Name" id="Name"  type="text"  onfocus="if (value =='姓名'){value =''}" onblur="if (value ==''){value='姓名'}" value="姓名"  placeholder="姓名" style=" padding:5px; margin:5px 10px 10px 5px;  width:200px; height: 30px;color:#666666;"/>
+         <input name="Mobile" id="Mobile" type="text"  onfocus="if (value =='手机'){value =''}" onblur="if (value ==''){value='手机'}" value="手机"   placeholder="手机" style=" padding:5px; margin:5px 10px 10px 5px; width:200px; height: 30px;color:#666666;" /><br />
+
+         <input name="Company" id="Company" type="text"  onfocus="if (value =='公司名称'){value =''}" onblur="if (value ==''){value='公司名称'}" value="公司名称"  placeholder="公司名称" style=" padding:5px; margin:5px 10px 10px 5px;  width:200px; height: 30px;color:#666666;" />
+         <input name="Address" id="Address" type="text"  onfocus="if (value =='地址'){value =''}" onblur="if (value ==''){value='地址'}" value="地址" placeholder="地址"  style=" padding:5px; margin:5px 10px 10px 5px; width:200px; height: 30px; color:#666666;"/><br />
+               <div id="SubSend" style=" cursor:pointer"><img src="images/button.png" style=" width:50%;" />
+		       </div>
+</div>
+    
+
+	
+ <div class="footer" coor="footer">
+         <div class="sitelink">
+
+           <p>我们专注为旅游同业提供移动营销系统服务。<br /> </p>
+           <div id="apdiv3"><img src="images/map.png"/></div>
+           <div id="apdiv4"><img src="images/tel.png"/></div>
+           <p>北京市东城区珠市口东大街16号3层   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;010-87550229
+</p>
+           <div id="apdiv5"><img src="images/erweima.png" width="172" height="172"/></div>
+           <p class="p1"><span class="p2">Copyright EasyTour@2014. All Right Reserved</span> 易游天下国旅 易游惠移动营销服务平台</p>
+         </div>
+</div>
+</align>
+
+
+<div id="regi" class="modal hide  in"  style="  position: absolute;height: 650px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 901; display: none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="Button1" style=" font-size:18px;">
+                    ×</button>
+            </div>
+            <div id="contentinfo" style="padding: 0; line-height: 25px; width: 650px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+            <div id="showli" style="height: 430px; width: 350px; left: 0; top: 30px; z-index: 99999; position: absolute; display: ">
+
+
+
+                <form name="Regi" method="post" action="" target="_parent">
+                <div class="grid-780  fn-clear" style=" padding-top:15px;">
+                    <h3 class="ui-form-title">
+                        <strong>填写登录信息</strong><span class="explain">请填写您的账户登录名和密码</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                登陆账户</label>
+                            <input name="Account" type="text" id="Account" maxlength="250" size="20" value=""
+                                class="ui-input" autocomplete="off">
+                            <label id="lblaccountmsg">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                登录密码</label>
+                            <input name="passwords" type="password" id="passwords" size="12" maxlength="50" class="ui-input"
+                                data-explain="请输入登录密码">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                再次输入密码</label>
+                            <input name="qpasswords" type="password" id="qpasswords" size="12" maxlength="50"
+                                class="ui-input" data-explain="请再次输入登录密码。">
+                        </div>
+                    </div>
+                    <div class="ui-form-dashed">
+                    </div>
+                    <h3 class="ui-form-title">
+                        <strong>填写商家信息</strong><span class="explain">请准确填写商家单位名称和相关信息</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                单位名称</label>
+                            <input name="com_name" type="text" id="com_name" size="40" maxlength="250" class="ui-input2"
+                                autocomplete="off">
+                            <label id="lblcompanyname">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-group" style=" display:none;">
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                景区名称/简称</label>
+                            <input name="Scenic_name" type="text" id="Scenic_name" size="20" maxlength="250"
+                                class="ui-input2" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                             所在城市</label>
+                            <select name="province" id="province" class="ui-input">  
+                                <option value="省份" selected="selected" >省份</option>  
+                            </select>  
+                            <select name="city" id="city"  class="ui-input">  
+                                <option value="城市" selected="selected">市县</option>  
+                            </select>  
+
+                        </div>
+                    </div>
+                   <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                             所属行业</label>
+                            <select name="com_type" id="com_type" class="ui-input">  
+                                <option value="" selected="selected" >请选择所属行业</option>  
+                            </select>  
+                        </div>
+                    </div>
+            
+                    <h3 class="ui-form-title">
+                        <strong>联系人信息</strong><span class="explain"><span class="ft-orange">请准确填写联系人信息</span></span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="realName" class="ui-label">
+                                联系人姓名</label>
+                            <input name="Contact" type="text" id="Contact" maxlength="250" size="20" class="ui-input"
+                                autocomplete="off">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                联系电话</label>
+                            <input name="tel" type="text" id="tel" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170">
+                            <label id="lbltel">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-item">
+                        <div style=" float:left;" id="submitBtn" class="ui-button  ui-button-morange ">
+                            <input id="regisub" type="button" class="ui-button-text" value="确  定" />
+                        </div>
+                        <div style=" float:left;"><a href="http://shop1143.etown.cn/v/about.aspx?id=2668">《易城商户注册协议》</a></div>          
+                                            <br/>
+                                          
+                            <br/>
+                        <span class="ui-form-confirm"><span class="loading-text fn-hide">正在提交信息</span></span>
+                    </div>
+                </div>
+                </form>
+
+
+
+                <div style="padding: 0; line-height: 25px; width: 350px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+                    <dl id="titellist">
+                    </dl>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div id="regic" class="modal hide  in"  style="  position: absolute;height: 260px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 1999; display:none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closec" style=" font-size:18px;">
+                    ×</button>
+
+            </div>
+
+                <div class="grid-780 fn-clear" style=" height:240px; padding-top:80px;">
+
+                    <h3 class="ui-form-title">
+                        <span style="font-size: 18px;">你已成功提交注册，请等待开通确认通知。</span>
+                        <br/><br/><br/>
+                        <span style="font-size: 18px;">如希望加快开通速度，请电话联系 010-87550229 </span>
+                    </h3>
+                    <div class="ui-form-dashed">
+                    </div>
+                </div>
+
+</div>
+
+</align>
+    <script type="text/javascript">
+        var province = document.getElementById('province');
+        var city = document.getElementById('city');
+    </script>
+    <script src="/Scripts/City.js" type="text/javascript"></script>
+</body>
+</html>

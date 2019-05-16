@@ -1,0 +1,15 @@
+D:\site\b2betown\ETS.Framework\bin\Debug\ETS.Framework.dll
+D:\site\b2betown\ETS.Framework\bin\Debug\ETS.Framework.pdb
+D:\site\b2betown\ETS.Framework\bin\Debug\Ionic.Zip.dll
+D:\site\b2betown\ETS.Framework\bin\Debug\Newtonsoft.Json.dll
+D:\site\b2betown\ETS.Framework\bin\Debug\NPOI.dll
+D:\site\b2betown\ETS.Framework\obj\Debug\ETS.Framework.dll
+D:\site\b2betown\ETS.Framework\obj\Debug\ETS.Framework.pdb
+E:\EtownCode\b2betown\ETS.Framework\bin\Debug\ETS.Framework.dll
+E:\EtownCode\b2betown\ETS.Framework\bin\Debug\ETS.Framework.pdb
+E:\EtownCode\b2betown\ETS.Framework\bin\Debug\Ionic.Zip.dll
+E:\EtownCode\b2betown\ETS.Framework\bin\Debug\Newtonsoft.Json.dll
+E:\EtownCode\b2betown\ETS.Framework\bin\Debug\NPOI.dll
+E:\EtownCode\b2betown\ETS.Framework\obj\Debug\ETS.Framework.csprojResolveAssemblyReference.cache
+E:\EtownCode\b2betown\ETS.Framework\obj\Debug\ETS.Framework.dll
+E:\EtownCode\b2betown\ETS.Framework\obj\Debug\ETS.Framework.pdb

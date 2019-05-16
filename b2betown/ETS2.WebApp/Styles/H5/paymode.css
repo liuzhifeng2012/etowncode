@@ -1,0 +1,12 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.banklist-wrap .bankhot { border-bottom: 1px solid #c8c8c5; border-top: 1px solid white; text-indent: 10px; height: 20px; line-height: 20px; border: 0; background: #d4d4d4; font-size: 12px; }
+.banklist-wrap .banklist-title { color: #434D59; position: relative; padding: 0 10px; background-color: #eee; font-size: 15px; color: #434d59; min-height: 40px; line-height: 40px; border-bottom: 1px solid #BBB7B7; }
+.banklist-wrap .banklist-title:after { content: ""; width: 9px; height: 13px; overflow: hidden; position: absolute; right: 10px; top: 14px; background: url(../../Images/arrow3.png) no-repeat; background-size: 9px 13px; -moz-transition: -moz-transform .1s ease-in; -webkit-transition: -webkit-transform .1s ease-in; -o-transition: -o-transform .1s ease-in; transition: transform .1s ease-in; }
+
+.banklist-wrap .banklist-content a { color: #434D59; height: 40px; line-height: 40px; font-size: 15px; text-indent: 10px; display: block; border-bottom: 1px solid #BBB7B7; background:#fff }
+.banklist-wrap .banklist-content:last-child a { border-bottom: none; }
+
+.return:after { -moz-transform: rotate(90deg); -moz-transform-origin: 50% 50%; -webkit-transform: rotate(90deg); -webkit-transform-origin: 50% 50%; -o-transform: rotate(90deg); -o-transform-origin: 50% 50%; transform: rotate(90deg); transform-origin: 50% 50%; }
+
+footer { margin-top: 0; }

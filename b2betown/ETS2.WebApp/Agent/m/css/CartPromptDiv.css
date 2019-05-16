@@ -1,0 +1,171 @@
+﻿.m-dialog
+{
+    position: fixed;
+    z-index: 99999;
+    width: 84%;
+    margin: 0 8%;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #333;
+ 
+}
+.m-dialog .container
+{
+    display: none;
+    background: rgba(0,0,0,0.2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#30000000,endColorstr=#30000000)\9;
+    padding: 6px;
+}
+.m-dialog .title
+{
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+}
+.m-dialog .title h3
+{
+    padding: 5px 0;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.m-dialog .btn
+{
+    display: block;
+    position: absolute;
+    color: #999;
+    text-decoration: none;
+    font-family: simsun;
+    right: 12px;
+    top: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.m-dialog .gt
+{
+}
+.m-dialog .lt
+{
+    margin-left: -4px;
+}
+.m-dialog .btn:hover
+{
+    color: #666;
+    text-decoration: none;
+}
+.m-dialog .content1
+{
+    background: #fff;
+}
+.m-dialog-overlay .lay
+{
+    display: none;
+}
+.m-dialog-overlay .close
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    filter: Alpha(opacity=30)\9;
+    cursor: pointer;
+}
+.m-dialog-overlay .overlay
+{
+    background: black;
+    z-index: 1000001;
+}
+.m-dialog-overlay .frame
+{
+    z-index: 1000002;
+}
+.pop-car-win .pop-content .pop-success h4
+{
+    margin: 0 0 10px 10px;
+}
+.pop-car-win .pop-content h4
+{
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin: 3px 0 5px 10px;
+    width: 200px;
+}
+.pop-car-win
+{
+    padding: 15px;
+}
+.pop-car-win .pop-content .no-products
+{
+    border-bottom: 0 none;
+    margin: 5px 0 6px 50px;
+}
+.pop-car-win .pop-content .pop-success, .pop-car-win .pop-content .pop-error
+{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+.pop-car-win .pop-content .pop-success b
+{
+    background: url("/images/tipsBg.png") no-repeat scroll -120px 0 rgba(0, 0, 0, 0);
+}
+.pop-car-win .pop-content b
+{
+    background: url("/images/tipsBg.png") no-repeat scroll -120px -139px rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 33px;
+    margin-right: 10px;
+    vertical-align: -10px;
+    width: 33px;
+}
+.clearfix::after
+{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix::after
+{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.pop-car-win .pop-content .car-btn
+{
+    background: url("/images/productBtn.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    height: 28px;
+    overflow: hidden;
+}
+.l
+{
+    float: left;
+}
+.pop-car-win .pop-content .shopping-btn span
+{
+    background: url("/images/pop_win_btn.png") no-repeat scroll right -90px #fff;
+    cursor: pointer;
+    display: inline-block;
+    height: 14px;
+    margin-left: 10px;
+    padding: 4px 10px 10px 0;
+}
+.pop-car-win .pop-content .shopping-btn
+{
+    background: url("/images/pop_win_btn.png") no-repeat scroll 0 -60px #fff;
+    color: #000;
+    display: inline-block;
+    margin: 0 5px 0 5px;
+}
+.pop-car-win .pop-content .account-btn
+{
+    background-position: 0 -196px;
+    display: inline-block;
+}

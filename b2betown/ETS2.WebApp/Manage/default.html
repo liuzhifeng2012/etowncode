@@ -1,0 +1,1328 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>易城商户 移动营销服务平台！</title>
+    <meta name="keywords" content="微旅行">
+    <meta name="description" content="">
+
+    <link charset="utf-8" rel="stylesheet" href="css/style-1.css">
+<link charset="utf-8" rel="stylesheet" href="/Styles/reg.css" />
+<link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="/Scripts/common.js" type="text/javascript"></script>
+<link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+<link charset="utf-8" rel="stylesheet" href="/Styles/reg.css" />
+<script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+
+	<style type="text/css">
+      .header { height:80px;padding-bottom: 6px; }
+        .txt-1 {
+              height: 129px;
+              -webkit-transition: none;
+              -moz-transition: none;
+              -ms-transition: none;
+              -o-transition: none;
+              transition: none;
+        }
+      .slide-number { margin-left: -45px; }
+      .about-item .ui-link-item a { color: #666; }
+    </style>
+	 <style type="text/css">
+
+.modal {
+position: fixed;
+top: 10%;
+left: 50%;
+z-index: 1050;
+width: 560px;
+margin-left: -280px;
+background-color: white;
+border: 1px solid #999;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding-box;
+background-clip: padding-box;
+outline: none;
+}
+.modal-header {
+padding: 5px 15px;
+}
+button.close {
+padding: 0;
+cursor: pointer;
+background: transparent;
+border: 0;
+-webkit-appearance: none;
+float:right;
+}
+.modal-header h3 {
+margin: 0;
+line-height: 30px;
+}
+
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        //图形验证码
+        $("#rvalidateCodetext").click(function () {
+            $("#rvalidateCode").attr("src", "/Account/GetValidateCode.ashx?tick=" + (new Date()).getTime());
+        })
+        $("#rvalidateCode").click(function () {
+            this.src = '/Account/GetValidateCode.ashx?tick=' + (new Date()).getTime();
+        })
+
+
+
+//        $("#glume").click(function () {
+//            $("#showGG").click();
+//        });
+        $("#showGG").click(function () {
+            $("#regi").show();
+            $("#zhegaiceng").show();
+
+        });
+
+//        $("#glume2").click(function () {
+//            $("#regi").show();
+//            $("#zhegaiceng").show();
+
+//        });
+
+        $("#Button1").click(function () {
+            $("#regi").hide();
+            $("#zhegaiceng").hide();
+
+        });
+
+        $("#closec").click(function () {
+            $("#regic").hide();
+
+        });
+
+        $("#opengonggao").click(function () {
+            $("#gonggao").show();
+
+        });
+
+        $("#closegonggao").click(function () {
+            $("#gonggao").hide();
+
+        });
+        
+
+
+        //商户行业类型
+        $.post("/JsonFactory/CrmMemberHandler.ashx?oper=GetIndustryList", {}, function (data) {
+            data = eval("(" + data + ")");
+            if (data.type == 100) {
+                $("#sel_hangye").empty();
+                for (var i = 0; i < data.msg.length; i++) {
+                    $("#com_type").append('<option value="' + data.msg[i].Id + '">' + data.msg[i].Industryname + '</option>');
+                }
+
+            }
+        })
+
+        //加载一个通用行行业，已方便注册
+        $("#com_type").append('<option value="0">其他行业</option>');
+
+
+        $("#regisub").click(function () {
+            var Account = $("#Account").trimVal();
+            var passwords = $("#passwords").trimVal();
+            var qpasswords = $("#qpasswords").trimVal();
+
+            var com_name = $("#com_name").trimVal();
+            var Scenic_name = $("#Scenic_name").trimVal();
+            var com_type = $("#com_type").trimVal();
+
+
+            var Contact = $("#Contact").trimVal(); //联系人姓名
+            var tel = $("#tel").trimVal();
+
+            var province = $("#province").trimVal();
+            var city = $("#city").trimVal();
+
+
+
+            if (Account == "") {
+                $.prompt("登录账户不可为空");
+                return;
+            }
+
+            if (passwords == "") {
+                $.prompt("密码不可为空！");
+                return;
+            }
+            if (qpasswords == "") {
+                $.prompt("确认密码不可为空！");
+                return;
+            }
+            if (passwords != qpasswords) {
+                $.prompt("密码和确认密码不符！");
+                return;
+            }
+            if (com_name == "") {
+
+                $.prompt("单位名称不可为空！");
+                return;
+            }
+
+            if (province == "" || province == "省份") {
+                $.prompt("请选择所在省份");
+                return;
+            }
+            if (city == "" || city == "城市") {
+                $.prompt("请选择所属城市");
+                return;
+            }
+            if (com_type == "") {
+                $.prompt("请选择所属行业");
+                return;
+            }
+
+            if (Contact == "") {
+                $.prompt("联系人姓名不可为空！");
+                return;
+            }
+
+            if (tel == "") {
+                $.prompt("联系电话不可为空！");
+                return;
+            }
+
+            //                $('#regi').hide().after('<span id="spLoginLoading" style="margin-left:105px;height:30px;color:#f39800; ">登录中……</span>');
+            $.ajax({
+                type: "POST",
+                url: "/JsonFactory/RegisterUser.ashx?oper=edit",
+                data: { Account: Account, passwords: passwords, com_name: com_name, Scenic_name: Scenic_name, Contact: Contact, tel: tel, province: province, city: city, com_type: com_type },
+                success: function (data) {
+                    data = eval('(' + data + ')');
+                    if (data.type == 1) {
+                        $.prompt("账户注册提示:" + data.msg, { buttons: [{ title: "确定", value: true}], submit: function (e, v, m, f) { if (v == true) { } } });
+                        return;
+                    }
+                    if (data.type == 100) {
+                        $("#regi").hide();
+                        $("#zhegaiceng").hide();
+                        $("#regic").show();
+                        $("#hid_regiid").val(data.result);
+
+
+                    }
+                }
+            });
+        });
+
+
+
+        $("#upregi").click(function () {
+
+            var scenic_intro = $("#scenic_intro").trimVal();
+            var domainname = $("#domainname").trimVal();
+            var comextid = $("#hid_regiid").trimVal();
+            var com_code = $("#com_code").trimVal();
+            var weixinname = $("#weixinname").trimVal();
+
+
+
+            if (comextid == "" ) {
+                $.prompt("商家信息不可为空");
+                return;
+            }
+
+            $.post("/JsonFactory/AccountInfo.ashx?oper=editcomzizhi", { comextid: comextid, scenic_intro: scenic_intro, domainname: domainname, com_code: com_code, weixinname: weixinname }, function (data) {
+                data = eval("(" + data + ")");
+                if (data.type == 1) {
+                    alert("提交出错");
+                    return;
+                }
+                if (data.type == 100) {
+                    alert("提交成功");
+                    $("#regic").hide();
+                    return;
+                }
+            })
+
+        })
+
+    })
+
+		
+</script>
+
+	 <script type="text/javascript">
+	     $(function () {
+	         var comid = 0;
+
+	         $("#regia").click(function () {
+	             $("#regiagent").show();
+	         })
+	         $("#closeregiagent").click(function () {
+	             $("#regiagent").hide();
+	         })
+
+	         //账号名
+	         $("#RAgent_Email").blur(function () {
+	             $("#EmailVer").html(""); //离开后先清空备注
+	             var Email = $("#RAgent_Email").val();
+	             //判断邮箱不为空
+	             if (Email != "") {
+	                 $.post("/JsonFactory/AgentHandler.ashx?oper=getEmail", { Email: Email, comid: comid }, function (data) {
+	                     data = eval("(" + data + ")");
+	                     if (data.type == 100) {
+	                         if (data.msg == "OK") {
+	                             //                                 $("#EmailVer").html("√");
+	                             //                                 $("#EmailVer").css("color", "green");
+	                             //                                 $("#VEmail").val(1);
+	                         } else {
+	                             alert(data.msg);
+	                             $("#RAgent_Email").val("");
+	                             return;
+	                         }
+
+	                     }
+	                 })
+	             }
+	         })
+
+//	         //账号名
+//	         $("#RAgent_Phone").blur(function () {
+//	             $("#PhoneVer").html(""); //离开后先清空备注
+//	             var Phone = $("#RAgent_Phone").val();
+//	             //判断手机不为空
+//	             if (Phone != "") {
+//	                 $.post("/JsonFactory/AgentHandler.ashx?oper=getPhone", { Phone: Phone, comid: comid }, function (data) {
+//	                     data = eval("(" + data + ")");
+//	                     if (data.type == 100) {
+//	                         if (data.msg == "OK") {
+//	                         } else {
+//	                             alert(data.msg);
+//	                             $("#RAgent_Phone").val("");
+//	                             return;
+//	                         }
+
+//	                     }
+//	                 })
+//	             }
+//	         })
+
+	         //判断密码
+	         $("#RAgent_QPassword1").blur(function () {
+	             $("#QPassword1Ver").html(""); //离开后先清空备注
+	             var QPassword1 = $("#RAgent_QPassword1").val();
+	             var Password1 = $("#RAgent_Password1").val();
+	             if (QPassword1 == "" || QPassword1 != Password1) {
+	                 alert("再次填写密码错误");
+	                 $("#RAgent_QPassword1").val("");
+	                 return false;
+	             }
+	         })
+
+
+	         //提交按钮
+	         $("#RAgent_regisub").click(function () {
+	             var Email = $("#RAgent_Email").val();
+	             var Password1 = $("#RAgent_passwords").val();
+	             var QPassword1 = $("#RAgent_qpasswords").val();
+	             var Name = $("#RAgent_Name").val();
+	             var Phone = $("#RAgent_Phone").val();
+	             var phonecode = $("#RAgent_phonecode").val();
+
+	             var Company = $("#RAgent_Email").val();
+
+	             if (Email == "") {
+	                 alert("请填账户");
+	                 return;
+	             }
+
+	             if (Password1 == "") {
+	                 alert("请填写密码!");
+	                 return;
+	             }
+	             if (QPassword1 == "") {
+	                 alert("请再次确认密码!");
+	                 return;
+	             }
+	             if (QPassword1 != Password1) {
+	                 alert("两次密码输入不符！");
+	                 return;
+	             }
+	             if (Name == "") {
+	                 alert("请填写姓名!");
+	                 return;
+	             };
+
+	             if (Phone == "") {
+	                 alert("请填写手机!");
+	                 return;
+	             };
+
+	             if (phonecode == "") {
+	                 alert("请填写短信验证码!");
+	                 return;
+	             };
+
+	             //判断验证码输入是否正确
+	             $.post("/JsonFactory/AgentHandler.ashx?oper=judgevalidsms", { mobile: $("#RAgent_Phone").val(), smscode: $("#RAgent_phonecode").val(), source: "分销注册验证码" }, function (data) {
+	                 data = eval("(" + data + ")");
+	                 if (data.type == 1) {
+	                     alert("短信验证码不相符");
+	                     return;
+	                 }
+	                 if (data.type == 100) {
+
+
+	                     $("#loading").html("正在提交注册信息，请稍后...")
+
+	                     //创建订单
+	                     $.post("/JsonFactory/AgentHandler.ashx?oper=Agentregi", { agentsourcesort: 0, Email: Email, Password1: Password1, Name: Name, Tel: Phone, Phone: Phone, Company: Company }, function (data1) {
+	                         data1 = eval("(" + data1 + ")");
+	                         if (data1.type == 1) {
+	                             $.prompt("注册出现错误，请刷新重新提交！");
+	                             return;
+	                         }
+	                         if (data1.type == 100) {
+	                             if (data1.msg == "OK") {
+	                                 alert(" 您已注册成功，请等待商家为您授权！");
+	                                 location.href = "/Agent/Login.aspx?Email=" + Email
+	                                 return;
+	                             }
+	                             else {
+	                                 $.prompt("参数传递出错，请重新操作");
+	                                 return;
+	                             }
+	                         }
+	                     })
+
+	                 }
+	             })
+
+	         })
+
+	         //获取手机验证码
+	         $("#RAgent_getphonecode").click(function () {
+//	             var rimgcode = $("#rgetcode").trimVal();
+//	             if (rimgcode == "") {
+//	                 alert("请输入图形验证码!"); 
+//	                 return;
+//	             }
+//                  //判断图形验证码是否正确
+//             $.post("/JsonFactory/RegisterUser.ashx?oper=verifyimgcode",{imgcode:rimgcode},function(dd){
+//                dd=eval("("+dd+")");
+//                if(dd.type==1){
+//                    alert("图形验证码输入不正确");
+//                  
+//                    $("#rvalidateCode").attr("src", "/Account/GetValidateCode.ashx?tick=" + (new Date()).getTime());
+//                   return;
+//               } else {
+                   if ($.trim($("#RAgent_Phone").val()) == "") {
+                       alert("请输入手机号码!");
+                       return;
+                   }
+                   if (!checkMobile($("#RAgent_Phone").val())) {
+                       alert("请正确输入手机号!");
+                       return;
+                   }
+
+                   if ($.trim($("#RAgent_getphonecode").html()) == "获取短信验证码") {
+                       $("#RAgent_getphonecode").attr("disabled", "disabled").css("background-color", "#f4f4f4");
+                       _callSmsApi();
+
+                   }
+//                }
+//                })
+
+
+	            
+	         })
+	     })
+
+	     function checkMobile(tel) {
+	         tel = $.trim(tel);
+	         if (tel.length != 11 || tel.substr(0, 1) != 1) {
+	             return false;
+	         }
+	         return true;
+	     }
+	     function _sendSmsCD() {
+	         var sec = parseInt($("#RAgent_getphonecode").html());
+	         if (sec > 1) {
+	             $("#RAgent_getphonecode").html((sec - 1) + "秒后可再次发送短信");
+	             window.setTimeout(_sendSmsCD, 1000);
+	         } else {
+	             $("#RAgent_getphonecode").html("获取短信验证码");
+	             $("#RAgent_getphonecode").removeAttr("disabled").css("background-color", "#FFFFFF");
+	         }
+	     }
+
+	     function _callSmsApi() {
+	         var imgcode = $("#rgetcode").trimVal();
+	         if (imgcode == "") {
+	             alert("请输入图形验证码!");
+	             $("#RAgent_getphonecode").removeAttr("disabled").css("background-color", "#FFFFFF");
+	             $("#rvalidateCode").attr("src", "/Account/GetValidateCode.ashx?tick=" + (new Date()).getTime());
+	             return;
+	         }
+	         $.post("/JsonFactory/AgentHandler.ashx?oper=callvalidsms", { imgcode: imgcode, mobile: $("#RAgent_Phone").val(), comid: $("#hid_comid").trimVal(), source: "分销注册验证码" }, function (data) {
+	             data = eval("(" + data + ")");
+	             if (data.type == 1) {
+	                 alert(data.msg);
+	                 $("#RAgent_getphonecode").removeAttr("disabled").css("background-color", "#FFFFFF");
+	                 $("#rvalidateCode").attr("src", "/Account/GetValidateCode.ashx?tick=" + (new Date()).getTime());
+	                 return;
+	             }
+	             if (data.type == 100) {
+	                 $("#RAgent_getphonecode").html("30秒后可再次发送短信");
+	                 window.setTimeout(_sendSmsCD, 1000);
+	             }
+	         })
+
+	     }
+    </script>
+
+
+</head>
+   
+
+
+
+<body role="document" >    
+   <align="center">
+<!--[if IE 6]>
+
+  <style>
+      .kie-bar {
+          height: 24px;
+          line-height: 1.8;
+          font-weight:normal;
+          text-align: center;
+          border-bottom:1px solid #fce4b5;
+          background-color:#FFFF9B;
+          color:#e27839;
+          position: relative;
+          font-size: 14px;
+          text-shadow: 0px 0px 1px #efefef;
+          padding: 5px 0;
+      }
+      .kie-bar a {
+          color:#08c;
+          text-decoration: none;
+      }
+  </style>
+  <![endif]-->
+  
+   <div class="topbar">
+      <div class="grid-990 topbar-wrap fn-clear">
+
+        <ul class="topmenu">
+		 <li class="topmenu-item "><a href="/" title="首页" seed="topmenuItem-link" smartracker="on">首页</a> </li>
+         <li class="topmenu-item "><a href="http://shop1143.etown.cn/ui/shangjiaui/News.aspx" target="_blank" title="帮助" seed="topmenuItem-link" smartracker="on">帮助</a> </li>
+         <li class="topmenu-item"><a id="showGG" title="注册"  style="cursor: pointer" seed="topmenuItem-linkT1" smartracker="on">商户注册</a> </li>
+         <li class="topmenu-item"><a id="regia" title="注册"  style="cursor: pointer" seed="topmenuItem-linkT1" smartracker="on">分销注册</a> </li>
+        </ul>
+      </div>
+  </div>
+
+	
+     <div class="header" coor="header">
+          <div class="grid-990 header-wrap fn-clear">
+            <div id="et-img-logo" class="fn-left">
+               <img src="images2/logo-s.png" alt="" height="70" id="imglogo">
+			</div>
+      <nav id="J-nav" role="navigation"> 
+          <ul class="nav" coor="nav"> 
+            <li class="nav-item" id="home"> 
+              <a class="nav-item-link"></a> 
+            </li> 
+            
+				<li class="nav-item" id="personal"> 
+			<a href="#" seed="Nav-personal" class="nav-item-link"></a>
+            <div class="nav-item-sub sl-shadow"> 
+              <table class="nav-item-table"> 
+                <thead> 
+                  <tr> 
+                    <th>独家分析</th> 
+                    <th>系统功能</th> 
+				    <th class="last">行业应用</th> 
+
+                  </tr> 
+                </thead> 
+                <tbody> 
+                  <tr> 
+                                     <td><a href="http://shop1143.etown.cn/v/about.aspx?id=1432" target="_blank">旅行社如何应用微信（一）</a></td>                              	     <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2699" target="_blank">产品发布与交易管理</a></td>
+                                     <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2697" target="_blank">景区电子门票系统</a></td>
+									 
+						
+
+			
+                  </tr> 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=1433" target="_blank">旅行社如何利用微信（二）</a></td>                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2699" target="_blank">会员营销</a></td>                     
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2698" target="_blank">酒店移动营销</a></td>                              
+                              
+
+	
+                  </tr> 
+                
+ 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2702" target="_blank">电子凭证与O2O</a></td>                              
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2665" target="_blank">微信高级接口</a></td>                                                           
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2699" target="_blank">旅行社连锁门市O2O</a></td> 
+		
+                  </tr> 
+ 				   
+                </tbody> 
+              </table> 
+            </div> 
+            <div class="angle sl-angle"></div> 
+            </li> 
+			
+
+
+	
+
+			     	     <li class="nav-item" id="security"> 
+            <a href="" seed="Nav-safe" class="nav-item-link"></a> 
+            <div class="nav-item-sub sl-shadow"> 
+              <table class="nav-item-table"> 
+                <thead> 
+                  <tr> 
+                    <th>实体会员卡</th> 
+				    <th>微信公众账号</th> 
+                    <th class="last">微信会员卡</th> 
+
+                  </tr> 
+                </thead> 
+                <tbody> 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2629" target="_blank">卡号生成</a></td>                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2659" target="_blank">如何申请微信服务号</a></td>                           
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2622" target="_blank">会员信息管理</a></td>       
+
+                  </tr> 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2630" target="_blank">发卡渠道</a></td> 
+	                                    <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2660" target="_blank">服务号与订阅号</a></td>
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2624" target="_blank">会员积分</a></td>
+
+                  </tr> 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2631" target="_blank">实体卡开卡与登陆</a></td> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2661" target="_blank">如何申请认证</a></td>
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2625" target="_blank">预付款充值</a></td>                              
+
+                  </tr> 
+				  
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2632" target="_blank">实体卡与电子卡关联</a></td> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2662" target="_blank">如何开通微信支付</a></td> 
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2626" target="_blank">微信优惠券</a></td> 
+
+                  </tr> 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2634" target="_blank">实体卡消费验证</a></td> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2662" target="_blank"></a></td> 										
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2627" target="_blank">微信抽奖</a></td> 
+
+                  </tr> 
+				  <tr> 
+                                        <td><a href="" target="_blank"></a></td> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2662" target="_blank"></a></td> 
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2628" target="_blank">会员消费验证</a></td> 
+
+                  </tr> 
+
+                </tbody> 
+              </table> 
+            </div> 
+            <div class="angle sl-angle"></div> 
+            </li> 
+
+    <li class="nav-item" id="business"> 
+            <a href="" seed="Nav-bussiness" class="nav-item-link"></a> 
+            <div class="nav-item-sub sl-shadow"> 
+              <table class="nav-item-table"> 
+                <thead> 
+                  <tr> 
+
+
+                    <th>渠道代理</th> 
+				    <th class="last">易城商户服务平台</th> 
+
+                  </tr> 
+                </thead> 
+                <tbody> 
+                  <tr> 
+                                  
+ 
+									 
+									 <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2602" target="_blank">什么是渠道代理</a></td>
+									 
+                                     <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2686" target="_blank"><font color="#FF0000">易城商户是做什么的？</font></a></td>
+			
+                  </tr> 
+                  <tr> 
+                                
+                              
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2603" target="_blank">渠道服务内容</a></td>                              
+                                     <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2696" target="_blank">为什么选择我们</a></td>
+	
+                  </tr> 
+                  <tr> 
+                                        <td><a href="http://shop1143.etown.cn/v/about.aspx?id=2604" target="_blank">成为渠道代理商</a></td>                              
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2699" target="_blank">如何注册开通</a></td> 
+		
+                  </tr> 
+ 
+                  <tr> 
+
+                                        <td><a href="" target="_blank"></a></td> 
+ 
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2600" target="_blank">如何收费</a></td> 
+	
+                  </tr> 
+ 
+                  <tr> 
+
+                                        <td><a href="" target="_blank"></a></td> 
+ 
+                                        <td class="last"><a href="http://shop1143.etown.cn/v/about.aspx?id=2601" target="_blank">微信接口设置</a></td> 
+	
+                  </tr> 
+
+				   
+                </tbody> 
+              </table> 
+            </div> 
+            <div class="angle sl-angle"></div> 
+            </li> 
+       </ul>
+        </nav> 
+          </div>
+		  </div>
+
+	
+      <div id="banner" class="slide-1" coor-rate="0.1" coor="default-banner" role="banner" data-banner="false">
+      <div style="float:left;margin:325px 0px 0px 380px;z-index: 101;position: absolute;"><ul class="ui-link fn-clear">
+            <li class="ui-link-item"><span><img src="images2/laba.png"></span>  </li>
+			<li class="ui-link-item"><a href="javascript:;" id="opengonggao" style="color:#ffffff">公告：易城商户系统开发公告 </a></li>
+			</ul></div>
+          <div class="login-box">
+	    	<iframe class="fn-hide" allowtransparency="true" src="/Account/Login.aspx" width="286" height="367" id="loginIframe" frameborder="0" scrolling="no" coor="aside-login" style="display: block;"></iframe>
+               <div id="loginLoading" style="display: none;"><img width="50" height="50" alt="加载中" src="#" seed="loginLoading-iE2012062qz2UvlUVF" smartracker="on"></div>
+               </div>
+	  
+  <div id="glume" > 
+	<ul class="Limg"> 
+		<li class="bg_2"><a href="javascript:;">&nbsp;</a></li> 
+		<li class="bg_3"><a href="javascript:;">&nbsp;</a></li> 
+		<li class="bg_4"><a href="javascript:;">&nbsp;</a></li> 
+
+    </ul> 
+    <cite class="Nubbt"> 
+		<span class="on">2</span> 
+		<span >3</span> 
+		<span >4</span> 
+
+    </cite> 
+  </div> 
+<script language="javascript" type="text/javascript">
+    (function () {
+        if (!Function.prototype.bind) {
+            Function.prototype.bind = function (obj) {
+                var owner = this, args = Array.prototype.slice.call(arguments), callobj = Array.prototype.shift.call(args);
+                return function (e) { e = e || top.window.event || window.event; owner.apply(callobj, args.concat([e])); };
+            };
+        }
+    })();
+    var glume = function (id) {
+        this.ctn = document.getElementById(id);
+        this.adLis = null;
+        this.btns = null;
+        this.animStep = 0.1; //动画速度0.1～0.9
+        this.switchSpeed = 5; //自动播放间隔(s)
+        this.defOpacity = 1;
+        this.tmpOpacity = 1;
+        this.crtIndex = 0;
+        this.crtLi = null;
+        this.adLength = 0;
+        this.timerAnim = null;
+        this.timerSwitch = null;
+        this.init();
+    };
+    glume.prototype = {
+        fnAnim: function (toIndex) {
+            if (this.timerAnim) { window.clearTimeout(this.timerAnim); }
+            if (this.tmpOpacity <= 0) {
+                this.crtLi.style.opacity = this.tmpOpacity = this.defOpacity;
+                this.crtLi.style.filter = 'Alpha(Opacity=' + this.defOpacity * 100 + ')';
+                this.crtLi.style.zIndex = 0;
+                this.crtIndex = toIndex;
+                return;
+            }
+            this.crtLi.style.opacity = this.tmpOpacity = this.tmpOpacity - this.animStep;
+            this.crtLi.style.filter = 'Alpha(Opacity=' + this.tmpOpacity * 100 + ')';
+            this.timerAnim = window.setTimeout(this.fnAnim.bind(this, toIndex), 50);
+        },
+        fnNextIndex: function () {
+            return (this.crtIndex >= this.adLength - 1) ? 0 : this.crtIndex + 1;
+        },
+        fnSwitch: function (toIndex) {
+            if (this.crtIndex == toIndex) { return; }
+            this.crtLi = this.adLis[this.crtIndex];
+            for (var i = 0; i < this.adLength; i++) {
+                this.adLis[i].style.zIndex = 0;
+            }
+            this.crtLi.style.zIndex = 2;
+            this.adLis[toIndex].style.zIndex = 1;
+            for (var i = 0; i < this.adLength; i++) {
+                this.btns[i].className = '';
+            }
+            this.btns[toIndex].className = 'on'
+            this.fnAnim(toIndex);
+        },
+        fnAutoPlay: function () {
+            this.fnSwitch(this.fnNextIndex());
+        },
+        fnPlay: function () {
+            this.timerSwitch = window.setInterval(this.fnAutoPlay.bind(this), this.switchSpeed * 1000);
+        },
+        fnStopPlay: function () {
+            window.clearTimeout(this.timerSwitch);
+        },
+        init: function () {
+            this.adLis = this.ctn.getElementsByTagName('li');
+            this.btns = this.ctn.getElementsByTagName('cite')[0].getElementsByTagName('span');
+            this.adLength = this.adLis.length;
+            for (var i = 0, l = this.btns.length; i < l; i++) {
+                with ({ i: i }) {
+                    this.btns[i].index = i;
+                    this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                    this.btns[i].onclick = this.fnSwitch.bind(this, i);
+                }
+            }
+            this.adLis[this.crtIndex].style.zIndex = 2;
+            this.fnPlay();
+
+        }
+    };
+    var player1 = new glume('glume');
+</script> 
+
+	  
+	 <div id="server-link">
+        <ul class="ui-link">
+          <li class="ui-link-item"></li>
+          <li class="ui-link-item"></li>
+          <li class="ui-link-item ui-link-item-last"></li>
+        </ul>
+      </div>  
+		   
+          </div>
+
+    <div class="main" role="main">
+        <div class="grid-990 product fn-clear" coor="product">
+		
+         <div class="product-item" id="pay-quickly">
+             <h2 class="title">
+                <span class="title-link">微信会员营销</span>
+             </h2>
+             <ul class="ui-link fn-clear">
+               <li class="ui-link-item ui-link-item-first"><a href="http://shop1143.etown.cn/v/about.aspx?id=2686" target="_blank"><font color="#FF0000">为什么选择我们？</font></a></li>
+               <li class="ui-link-item"><a href="http://shop1143.etown.cn/v/about.aspx?id=2622" target="_blank">微信会员卡</a> </li>
+               <li class="ui-link-item"><a href="http://shop1143.etown.cn/v/about.aspx?id=2626" target="_blank">优惠券与抽奖</a></li><br>
+             </ul>
+             <ul class="ui-link fn-clear">
+		       <li class="ui-link-item ui-link-item-first">快速免费 建立自营销平台</li></ul>
+         </div>
+         <div class="product-item" id="pay-life">
+             <h2 class="title">
+                <span class="title-link">商务电子化与O2O</span>
+             </h2>
+             <ul class="ui-link fn-clear">
+          <li class="ui-link-item ui-link-item-first">景区电子门票营销系统（.ppt文件）</li>
+               <li class="ui-link-item"><a href="http://shop1143.etown.cn/v/about.aspx?id=2614" target="_blank">订单</a></li>
+               <li class="ui-link-item"><a href="http://shop1143.etown.cn/v/about.aspx?id=2619" target="_blank">分销</a></li><br>
+		     </ul>
+             <ul class="ui-link fn-clear">
+		       <li class="ui-link-item ui-link-item-first">实现O2O闭环营销！</li></ul>		 
+        </div>
+        <div class="product-item product-item-last" id="pay-anywhere">
+             <h2 class="title">
+                 <span class="title-link">连锁机构深度会员营销</span>
+             </h2>
+             <ul class="ui-link fn-clear">
+               <li class="ui-link-item ui-link-item-first"><a href="http://shop1143.etown.cn/v/about.aspx?id=2658" target="_blank">连锁门店设置</a></li>
+               <li class="ui-link-item"><a href="http://shop1143.etown.cn/v/about.aspx?id=2625" target="_blank">积分预付款</a></li>
+               <li class="ui-link-item "><a href="http://shop1143.etown.cn/v/about.aspx?id=2632" target="_blank">实体卡关联</a></li><br>
+             </ul>
+		     <ul class="ui-link fn-clear">
+		       <li class="ui-link-item ui-link-item-first">实体店扫码与线上营销融合！</li>
+			 </ul>
+        </div>
+
+      </div>
+
+    </div>
+	
+    <div class="footer" coor="footer">
+
+			
+         <div class="grid-990 sitelink fn-clear" coor="sitelink" role="contentinfo" >
+		 
+			<br>
+             <ul class="ui-link fn-clear" >
+			   <li class="ui-link-item"><a href="http://shop.etown.cn" target="_blank" > 易城商户 北京卫斯理投资咨询有限公司</a> </li>	
+         	   <li class="ui-link-item"> 开卡咨询：13511097178  微信公号：easyshop-cn  电子邮箱：service@etown.cn</li>		
+             </ul>	
+             <ul class="ui-link fn-clear" >		   
+			   <li class="ui-link-item">北京市东城区珠市口东大街16号3层</li></ul>
+         </div>
+    </div>
+
+
+<div id="regi" class="modal hide  in"  style="  position: absolute;height: 650px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 901; display: none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="Button1" style=" font-size:18px;">
+                    ×</button>
+            </div>
+            <div id="contentinfo" style="padding: 0; line-height: 25px; width: 650px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+            <div id="showli" style="height: 430px; width: 350px; left: 0; top: 30px; z-index: 99999; position: absolute; display: ">
+
+                        <h3 class="ui-form-title" style="padding-left:430px;">
+                        <strong>商户注册</strong></h3>
+
+                <form name="Regi" method="post" action="" target="_parent">
+                <div class="grid-780  fn-clear" style=" padding-top:15px;">
+                    <h3 class="ui-form-title">
+                        <strong>填写登录信息</strong><span class="explain">请填写您的账户登录名和密码</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                登陆账户</label>
+                            <input name="Account" type="text" id="Account" maxlength="250" size="20" value=""
+                                class="ui-input" autocomplete="off">
+                            <label id="lblaccountmsg">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                登录密码</label>
+                            <input name="passwords" type="password" id="passwords" size="12" maxlength="50" class="ui-input"
+                                data-explain="请输入登录密码">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                再次输入密码</label>
+                            <input name="qpasswords" type="password" id="qpasswords" size="12" maxlength="50"
+                                class="ui-input" data-explain="请再次输入登录密码。">
+                        </div>
+                    </div>
+                    <div class="ui-form-dashed">
+                    </div>
+                    <h3 class="ui-form-title">
+                        <strong>填写商家信息</strong><span class="explain">请准确填写商家单位名称和相关信息</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                单位名称</label>
+                            <input name="com_name" type="text" id="com_name" size="40" maxlength="250" class="ui-input2"
+                                autocomplete="off">
+                            <label id="lblcompanyname">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-group" style=" display:none;">
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                景区名称/简称</label>
+                            <input name="Scenic_name" type="text" id="Scenic_name" size="20" maxlength="250"
+                                class="ui-input2" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                             所在城市</label>
+                            <select name="province" id="province" class="ui-input">  
+                                <option value="省份" selected="selected" >省份</option>  
+                            </select>  
+                            <select name="city" id="city"  class="ui-input">  
+                                <option value="城市" selected="selected">市县</option>  
+                            </select>  
+
+                        </div>
+                    </div>
+                   <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                             所属行业</label>
+                            <select name="com_type" id="com_type" class="ui-input">  
+                                <option value="" selected="selected" >请选择所属行业</option>  
+                            </select>  
+                        </div>
+                    </div>
+            
+                    <h3 class="ui-form-title">
+                        <strong>联系人信息</strong><span class="explain"><span class="ft-orange">请准确填写联系人信息</span></span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="realName" class="ui-label">
+                                联系人姓名</label>
+                            <input name="Contact" type="text" id="Contact" maxlength="250" size="20" class="ui-input"
+                                autocomplete="off">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                联系电话</label>
+                            <input name="tel" type="text" id="tel" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170">
+                            <label id="lbltel">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-item">
+                        <div style=" float:left;" id="submitBtn" class="ui-button  ui-button-morange ">
+                            <input id="regisub" type="button" class="ui-button-text" value="确  定" />
+                        </div>
+                        <div style=" float:left;"><a href="http://shop1143.etown.cn/v/about.aspx?id=2668">《易城商户注册协议》</a></div>          
+                                            <br/>
+                                          
+                            <br/>
+                        <span class="ui-form-confirm"><span class="loading-text fn-hide">正在提交信息</span></span>
+                    </div>
+                </div>
+                </form>
+
+
+
+                <div style="padding: 0; line-height: 25px; width: 350px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+                    <dl id="titellist">
+                    </dl>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div id="regic" class="modal hide  in"  style="  position: absolute;height: 560px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 1999; display:none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closec" style=" font-size:18px;">
+                    ×</button>
+
+            </div>
+
+                <div class="grid-780 fn-clear" style=" height:240px; padding-top:80px;">
+
+                    <h3 class="ui-form-title">
+                        <span style="font-size: 18px;line-height: 18px;">你已成功提交商户注册信息，请等待开通确认通知。 <br>
+继续填写以下信息将帮助我们加快审核。</span>
+                    </h3>
+<div class="ui-form-dashed">
+                    </div>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                企业服务介绍</label>
+                                <textarea name="scenic_intro" cols="50" rows="5" class="mi-input" id="scenic_intro" ></textarea>
+                            <label id="Label1">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                官网网址</label>
+                            <input name="domainname" type="text" id="domainname" size="40" maxlength="250" class="ui-input2" autocomplete="off">
+                            <label id="Label2">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                企业营业执照注册号</label>
+                          <input name="com_code" type="text" id="com_code" size="20" maxlength="250" class="ui-input2" autocomplete="off">
+                            <label id="Label3">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                微信公众账号</label>
+                          <input name="weixinname" type="text" id="weixinname" size="20" maxlength="250" class="ui-input2" autocomplete="off">
+                            <label id="Label4">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ui-form-item">
+                    <div style=" float:left;" id="Div1" class="ui-button  ui-button-morange ">
+                            <input id="upregi" type="button" class="ui-button-text" value="完善注册信息" />
+                        </div>
+</div>
+                    <div class="ui-form-dashed">
+                    </div>
+                </div>
+
+</div>
+
+
+
+<div id="regiagent" class="modal hide  in"  style="position: absolute;height: 650px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 901; display: none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeregiagent" style=" font-size:18px;">
+                    ×</button>
+            </div>
+            <div id="Div2" style="padding: 0; line-height: 25px; width: 650px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+            <div id="Div3" style="height: 430px; width: 350px; left: 0; top: 30px; z-index: 99999; position: absolute; display: ">
+
+                <h3 class="ui-form-title" style="padding-left:430px;">
+                        <strong>分销商注册</strong></h3>
+
+                <form name="Regi" method="post" action="" target="_parent">
+                <div class="grid-780  fn-clear" style=" padding-top:15px;">
+                    <h3 class="ui-form-title">
+                        <strong>填写登录信息</strong><span class="explain">请填写您的账户登录名和密码</span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="payPwd" class="ui-label">
+                                登陆账户</label>
+                            <input name="RAgent_Email" type="text" id="RAgent_Email" maxlength="250" size="20" value=""
+                                class="ui-input" autocomplete="off">
+                            <label id="EmailVer">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                登录密码</label>
+                            <input name="RAgent_passwords" type="password" id="RAgent_passwords" size="12" maxlength="50" class="ui-input"
+                                data-explain="请输入登录密码">
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="payPwdConfirm" class="ui-label">
+                                再次输入密码</label>
+                            <input name="RAgent_qpasswords" type="password" id="RAgent_qpasswords" size="12" maxlength="50"
+                                class="ui-input" data-explain="请再次输入登录密码。">
+                        </div>
+                    </div>
+                    <div class="ui-form-dashed">
+                    </div>
+                    
+                    <h3 class="ui-form-title">
+                        <strong>联系人信息</strong><span class="explain"><span class="ft-orange">请准确填写联系人信息</span></span></h3>
+                    <div class="ui-form-group">
+                        <div class="ui-form-item">
+                            <label for="realName" class="ui-label">
+                                联系人姓名</label>
+                            <input name="RAgent_Name" type="text" id="RAgent_Name" maxlength="250" size="20" class="ui-input"
+                                autocomplete="off">
+                        </div>
+                          <div class="ui-form-item">
+                <label class="ui-label">
+                    图形验证码
+                </label>
+                <input name="rgetcode" type="text" placeholder="图形验证码" id="rgetcode" size="10" class="i-text i-text-authcode ui-input sl-checkcode-input" />
+                <img id="rvalidateCode" src="/Account/GetValidateCode.ashx" alt="rValidateCode" title="点击图片刷新验证码" />
+                <a href="javascript:;" id="rvalidateCodetext">更换</a>
+            </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                联系人手机</label>
+                            <input name="RAgent_Phone" type="text" id="RAgent_Phone" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170"><a  id="RAgent_getphonecode" style="text-decoration:underline; cursor:pointer;">获取短信验证码</a>
+                            <label id="Label5">
+                            </label>
+                        </div>
+                        <div class="ui-form-item">
+                            <label for="IDCardNo" class="ui-label">
+                                短信验证码</label>
+                            <input name="RAgent_phonecode" type="text" id="RAgent_phonecode" maxlength="50" size="20" autocomplete="off"
+                                class="ui-input ui-input-170">
+                            <label id="Label6">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ui-form-item">
+                        <div style=" float:left;" id="Div4" class="ui-button  ui-button-morange ">
+                            <input id="RAgent_regisub" type="button" class="ui-button-text" value="确  定" />
+                        </div>
+        
+                                            <br/>
+                                          
+                            <br/>
+                        <span class="ui-form-confirm"><span class="loading-text fn-hide">正在提交信息</span></span>
+                    </div>
+                </div>
+                </form>
+
+
+
+                <div style="padding: 0; line-height: 25px; width: 350px; height: 355px; overflow-y: auto; margin: 10px auto 0 auto;">
+                    <dl id="Dl1">
+                    </dl>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+<div id="gonggao" class="modal hide  in"  style="  position: absolute;height: 560px; width: 782px; left: 45%; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; z-index: 1999; display:none; " >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closegonggao" style=" font-size:18px;">
+                    ×</button>
+
+            </div>
+
+                <div class="grid-780 fn-clear" style=" height:450px; padding-top:20px; OVERFLOW:auto;        scrollbar-face-color: #FFFFFF;        scrollbar-shadow-color: #D2E5F4;
+        scrollbar-highlight-color: #D2E5F4;        scrollbar-3dlight-color: #FFFFFF;        scrollbar-darkshadow-color: #FFFFFF;
+        scrollbar-track-color: #FFFFFF;      scrollbar-arrow-color: #D2E5F4";">
+                 <h3 class="ui-form-title"  style="padding-left:430px;">
+                        <strong>系统开发公告</strong><span class="explain"></span></h3>
+                    <div class="ui-form-group">
+                     <div  style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm">
+                                                <strong>2014年12月</strong>
+
+<br />1、	易城商户平台与张家口旅游集团合作，配合张家口崇礼申奥的惠民滑雪活动，开发旅游大巴管理模块。 实现一日游旅游班车产品发布、每日车位预订、预订结团操作、派车管理、领队游客信息管理等。
+<br />2、	易城商户系统完成了一项重要的系统开放升级:不同商户产品的分销与直销实现打通。即A商户产品可授权给B分销商账户进行分销，并由B分销商申请开通易城商户账户后导入到微信直销。由此，易城商户由移动营销系统服务开始转型为移动营销及在线交易平台服务！
+
+ </label>
+                        </div>
+ <div  style=" padding:5px 10px 5px ">
+
+                            <label for="payPwdConfirm">
+                              <strong>2014年11月</strong>  
+
+<br />1、开发《自助验票取票一体机》系统。通过易城商户系统对接实现对各级分销商接口售票及雪场直销一体化系统管理。在北京万龙八易滑雪场应用《景区自助验票取票一体机》极大简化了雪场电子票验证手续，同时提高雪友们在雪场的消费体验。《景区自助售票验票取票一体机》方案与报价请来电索取（13511097178）
+
+<br />2、针对易城商户在线产品交易模块进行升级开发。 增加和完善了不同景区项目产品的独立验证终端管理与消费统计、分销商统计、直销订单统计、分销商分类与地区设置、分销商通知等功能模块。通过本次升级使易城商户系统已经可以作为独立的《在线票务分销系统》来运行使用。如果有需要运营票务分销的朋友请来电咨询合作。
+  </label>
+                        </div>
+ <div  style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm">
+                              <strong>2014年10月</strong>  
+
+<br />开发完成多行业服务顾问个人页面。 可在商户后台为员工设置个人头像、从业介绍、电话、办公位置、推荐产品、个人空间等。 创新开发了利用微信语音客服通道接口开发了 服务顾问与微信粉丝/会员通过微信即时咨询功能（包括文字和语音咨询）。 微信服务顾问个人页面已在多家旅行社微信上线应用。
+ </label>
+                        </div>
+
+
+                    <div  style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm">
+
+                               <strong>2014年9月</strong>
+<br />1、更改员工绑定功能更流程，建立员工更方便。 
+<br />2、页面使用伪静态，方便商户使用。
+<br />3、新增微信消息接口，不用短信也可以获取电子码，使用积分预付款都有提醒了。
+<br />4、增加微信客服功能，可以更方便与客户在微信上交流。
+<br />5、新增个人微店，更有效的提供与客户之间的 一对一服务。也可以更好的推荐自己。
+<br />6、增加抢购功能，更方便商家进行营销。
+<br />7、商户后台新增 图文群发。
+<br />8、微信公众平台新接口开发：a扫码推事件   b弹出拍照或者相册发图   c弹出地理位置选择器
+
+
+
+ </label>
+                        </div>
+                        <div  style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm">
+                               <strong>2014年8月</strong>
+<br />1、	实现微信多客服功能与易城商户渠道管理结合，针对有B2C类网站推广和销售业务的商户提供官网二维码扫码咨询，开通微信多客服后自动转到不同会员渠道的客服接单咨询。
+<br />2、	升级了酒店预订功能，在原前台付款方式外新增预付房款、电子房券两种新预订方式，实现预订日期选择、支付、电子确认码发布验证、订单管理等操作功能，为酒店行业商户微信营销和创收提供强大系统支持。
+<br />3、	针对《微信消息通知》接口开发，实现易城商户系统产品订单管理、支付确认、会员充值能操作的自动微信消息通知，大大提升了商户会员的微信预订体验。
+ </label>
+                        </div>
+                        <div  style=" padding:5px 10px 5px ">
+                            <label for="payPwd" >
+                             <strong>2014年7月</strong>
+<br />1、	升级了微信群发功能，可以按微信会员不同属性进行定向群发。分选择：所在省市地区、性别、自定义分组、来路渠道（门市会员）、用户兴趣 等属性来分别群发，大大提高了微信服务号每月4次的群发效率和收入转化率。
+
+<br />2、	微信支付（JsAPI）接口开发完成，凡开通了微信支付只需在易城商户后台设置几段参数即可实现各类产品的微信收款。
+ </label>
+                        </div>
+
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm" >
+                              <strong>2014年6月</strong>
+易城商户系统增加旅游线路产品（跟团游、当地游）发布预订功能上线。同月，易城商户系统服务网站shop.etown.cn 上线，开始为更多商户提供微信会员营销系统服务。
+ </label>
+                        </div>
+
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm" >
+                             <strong>2014年5月</strong>
+微信自营销功能上线，利用微信高级接口带参数二维码，实现渠道管理与多二维码管理结合统计线下扫码效果。实现门店员工（或合作渠道）转发微信文章到朋友圈吸引新用户关注微信后成为渠道自有会员(渠道可管理自有会员及微信客服)。
+ </label>
+                        </div>
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwd" >
+                             <strong>2014年4月</strong>
+增加了微网站栏目，第一期发布5套标准模板，商户在通过选择系统背景图片或自己上传图片，自主添加和修改微网站栏目后免费快速生成适合手机访问的微网站。
+  </label>
+                        </div>
+
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm" >
+                             <strong>2014年3月</strong> 
+易城商户电子门票系统升级版上线，增加了分销管理系统，商户可以添加分销商、从系统选择已有分销商(团购、票务代理、OTA)。实现产品分销授权、电子码导出、分销出票与退票管理、验票统计、分销商预付款/授信管理等。
+  </label>
+                        </div>
+
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm" >
+                             <strong>2014年1月</strong>
+易城商户系统支持运行的第一家微信公众账号: 微旅行（微信号：weilvcheng） 上线。同月，酒店房型产品发布与预订功能上线。
+ </label>
+                        </div>
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwd" >
+                            <strong>2013年12月</strong>
+易城商户实体会员卡管理功能上线。 实体会员卡的制作、卡号管理、发行渠道管理、会员活动管理、实体卡在线开卡与充值、实体卡与微信会员卡绑定等。
+   </label>
+                        </div>
+
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm" >
+                              <strong>2013年11月</strong>
+易城商户系统微信会员营销功能上线。实现官网会员注册登陆、微信关注发送电子会员卡、会员信息管理、预付款充值与积分管理、优惠券发行、抽奖、会员卡消费验证等，通过开发微信公众账号高级接口帮助商户实现深度会员营销。
+ </label>
+                        </div>
+
+                        <div style=" padding:5px 10px 5px ">
+                            <label for="payPwdConfirm" >
+                            <strong>2013年8月</strong> 
+易城商户系统正式上线。实现景区门票产品的在官网预订、支付、自动发码、POS终端验证、验证与收支统计。 易城商户景区电子门票系统同时支持景区商户自主实施分销商管理、导码/后台出票、验证统计、预付款结算管理等。 2013-2014冬季系统在云顶滑雪场、长城岭滑雪场、万龙八易滑雪场上线运行。
+   </label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+</div>
+    <script type="text/javascript">
+        var province = document.getElementById('province');
+        var city = document.getElementById('city');
+    </script>
+    <script src="/Scripts/City.js" type="text/javascript"></script>
+
+</align>
+
+<input name="hid_regiid" type="hidden" id="hid_regiid" value="0" />
+<input name="hid_yingyezhizhao" type="hidden" id="hid_yingyezhizhao" value="0" />
+</body>
+
+</html>

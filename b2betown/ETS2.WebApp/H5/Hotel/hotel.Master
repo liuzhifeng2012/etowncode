@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="hotel.master.cs" Inherits="ETS2.WebApp.H5.Hotel.hotel" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 公共样式 -->
+    <script src="/Scripts/Hotel/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var _tcopentime = new Date().getTime();
+        var _hmt = _hmt || [];
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer class="" style="margin-top:0;">
+        <div class="footer_link c_right" style=" margin:0px 0 0 0; text-align:center">
+                 <span style="display:block; padding-bottom:5px;  line-height:20px;">服务热线：<a href="tel:<%=phone %>"><%=phone %></a></span>
+          </div>
+    </footer>
+    
+    <script src="/Scripts/Hotel/mCal.js" type="text/javascript"></script>
+    <link href="../../Styles/Hotel2/mCal.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+            //隐藏地址栏
+            addEventListener("load", function () { setTimeout(function () { scrollTo(0, 1); }, 100); }, false);
+    </script>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+.tn-calendar {
+width: 100%;
+overflow: hidden;
+}
+.tn-c-header {
+text-align: center;
+height: 75px;
+line-height: 75px;
+font-size: 1.4rem;
+color: #333;
+}
+.tn-c-header .icon-arrow-left {
+float: left;
+padding: 24px;
+color: #FF6000;
+}
+.tn-c-header .icon-arrow-right {
+float: right;
+padding: 24px;
+color: #FF6000;
+}
+.tn-c-body {
+clear: both;
+}
+.tn-c-body table, .tn-c-body tbody {
+width: 100%;
+}
+.tn-c-body table th {
+text-align: center;
+height: 48px;
+vertical-align: middle;
+background: #DFDFDF;
+font-size: 1.2rem;
+color: #666;
+}
+.tn-c-body table tr:nth-child(2) td {
+border-top: none;
+}
+.tn-c-body table td {
+text-align: center;
+height: 80px;
+vertical-align: middle;
+border: 2px solid #D0D0D0;
+font-size: 1.5rem;
+color: #FF6000;
+width: 14.3%;
+font-family: "Arial";
+}
+.tn-c-body table tr td:first-child {
+border-left: none;
+}
+.tn-c-body table td.disabled {
+color: #999;
+}
+.tn-c-body table td span.price {
+font-size: 1.2rem;
+}
+.tn-c-body table td span.rmb {
+font-family: "微软雅黑";
+}
+.rmb {
+font-family: "微软雅黑";
+}

@@ -1,0 +1,314 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    color: #333;
+    font-size: 75%;
+    font-family: Microsoft YaHei,Helvetica,Verdana,tahoma,Arial,sans-serif;
+}
+li {
+    list-style: none outside none;
+}
+img {
+    border: medium none;
+    max-width: 100%;
+}
+.main {
+    width: 100%;
+    max-width: 720px;
+    margin: 0px auto 0;
+}
+.slider {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+}
+.slider-pic {
+    overflow: hidden;
+}
+.slider-pic li {http://shop106.etown.cn/h5/Default2.aspx#
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+.slider-pic li a {
+    display: block;
+}
+.slider-pic li img {
+    display: block;
+    width: 100%;
+}
+
+.slider-bg {
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.3);
+    height: 35px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+.slider-tit {
+    width: 62.5%;
+    height: 35px;
+    margin-left: 1.38889%;
+    line-height: 35px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 2;
+    overflow: hidden;
+}
+.slider-tit li {
+    line-height: 35px;
+}
+
+.slider-tit li a {
+    display: block;
+    color: #FFF;
+    font-size: 1.33333em;
+    text-decoration: none;
+}
+.slider-btn {
+    float: right;
+    margin-right: 1.38889%;
+    padding: 1.52778% 0px;
+    position: absolute;
+    z-index: 3;
+    right: 0px;
+    bottom: 0px;
+}
+
+.slider-btn li {
+    float: left;
+    width: 13px;
+    height: 13px;
+    text-indent: -9999px;
+    border-radius: 50%;
+    background: none repeat scroll 0% 0% #E8E8E8;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.slider-btn li.on {
+    background: none repeat scroll 0% 0% #FFF;
+}
+.menu-wrap {
+    width: 100%;
+    background: none repeat scroll 0% 0%;
+    padding: 10px 0px 0px;
+    overflow: hidden;
+}
+.col-box {
+    float: left;
+    width: 48.6111%;
+    padding: 0px 0.694444%;
+}
+.col-box a {
+    display: block;
+    margin-bottom: 5px;
+}
+.tags0{background-color:#f1c40f}
+.tags1{background-color:#00DCDC}
+.tags2{background-color:#F48221}
+.tags3{background-color:#FF6B6B}
+.tags4{background-color:#1BC266}
+.tags5{background-color:#23BBEA}
+.tags6{background-color:#1BC266}
+.tags7{background-color:#DD455A}
+.tags8{background-color:#0066FF}
+.tags9{background-color:#CC6633}
+
+.daohangbig{
+width:350px;
+height:350px;
+text-align:center;
+}
+.daohangsm{
+width:350px;
+height:172px;
+text-align:center;
+}
+
+/* 以下model2导航样式 */
+
+.box {
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.box > * {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+}
+li {
+    list-style: none outside none;
+}
+.list_ul dl:nth-of-type(1) {
+}
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.231;
+    position: relative;
+}
+.list_ul dl {
+    text-align: center;
+    line-height: 20px;
+    border-right: 1px solid #DADADA;
+    border-bottom: 1px solid #DADADA;
+    margin: 5px;
+    background: none repeat scroll 0% 0% #35AAE7;
+}
+.box > * {
+    -moz-box-flex: 1;
+}
+.list_ul dl a {
+    display: block;
+    height: 100%;
+    color: #FFF;
+    position: relative;
+}
+
+
+.list_ul dt {
+        display: table;
+    margin: auto;
+	height:70px;
+	line-height:70px;
+	font-size:18px;
+}
+.list_ul div {
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 40px;
+}
+a [class^="icon-"], a [class*=" icon-"] {
+    display: inline;
+}
+[class^="icon-"], [class*=" icon-"] {
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    background-image: none;
+    background-position: 0px 0px;
+    background-repeat: repeat;
+    margin-top: 0px;
+}
+.list_ul li:nth-of-type(3n+2) dl:nth-of-type(1) {
+    background-color: #84D018;
+   
+}
+.list_ul li:nth-of-type(3n+1) dl:nth-of-type(2) {
+    background-color: #678CE1;
+}
+.list_ul li:nth-of-type(3n+1) dl:nth-of-type(3) {
+    background-color: #8C67DF;
+}
+.list_ul li:nth-of-type(3n+2) dl:nth-of-type(1) {
+    background-color: #84D018;
+
+}
+.list_ul li:nth-of-type(3n+2) dl:nth-of-type(2) {
+    background-color: #14C760;
+
+}
+.list_ul li:nth-of-type(3n) dl:nth-of-type(1) {
+    background-color: #F3B613;
+}.list_ul li:nth-of-type(3n) dl:nth-of-type(2) {
+    background-color: #FF8A4A;
+}
+.list_ul li:nth-of-type(3n) dl:nth-of-type(3) {
+    background-color: #FC5366;
+}
+.list_ul dl:nth-of-type(1) {
+}
+
+footer {
+    text-align: center;
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+
+    position: relative;
+    z-index: 10;
+}
+footer .weimob-copyright {
+    color: #000;
+}
+footer a {
+    color: rgb(0, 0, 0) !important;
+    font-size: 12px;
+}
+
+
+/* 新手滑动banner*/
+.box_swipe {
+    overflow: hidden;
+    position: relative;
+}
+.box_swipe {
+    overflow: hidden;
+    position: relative;
+}
+
+.box_swipe > ol {
+    height: 20px;
+    position: relative;
+    z-index: 10;
+    margin-top: -25px;
+    text-align: right;
+    padding-right: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.box_swipe > ol {
+    height: 20px;
+    position: relative;
+    z-index: 10;
+    margin-top: -25px;
+    text-align: right;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.box_swipe > ol > li {
+    display: inline-block;
+    margin: 5px 0px;
+    width: 8px;
+    height: 8px;
+    background-color: #757575;
+    border-radius: 8px;
+}
+.box_swipe > ol > li {
+    display: inline-block;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #757575;
+    border-radius: 10px;
+}
+
+.box_swipe>ol>li.on{
+	background-color:#ffffff;
+}

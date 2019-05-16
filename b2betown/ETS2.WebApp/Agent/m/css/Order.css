@@ -1,0 +1,138 @@
+﻿@charset "utf-8";
+body{background-color:rgb(245, 244, 242)}
+#orderFome{position:relative;z-index:5}
+.clear{clear:both}
+.font12{font-size:12px}
+.fontorange{color:#f60}
+.fl{float:left}
+.order-form{-webkit-transition-duration:300ms;-webkit-transform:translate3d(0,0,0);-moz-transition-duration:300ms;-moz-transform:translate3d(0,0,0)}
+.translate3d{-webkit-transition-duration:300ms;-webkit-transform:translate3d(-100%,0,0);-moz-transition-duration:300ms;-moz-transform:translate3d(-100%,0,0)}
+a:hover{text-decoration:none}
+.w-item{padding:0 10px;background:#fff;margin-bottom:10px;line-height:1.5em;border-radius:4px;box-shadow:0 1px 1px #cbcdcd;color:#6d6d6d}
+.t-head{border-top:0;border-bottom:0;background-image:url();background-size:7px 7px;padding-top:5px;margin:0 10px}
+.order-price{padding-bottom:5px;text-align:center;font-size:15px;line-height:35px;
+             background-image:url();background-size:9.5px 4px;
+             background-position:left bottom;background-repeat:repeat-x}
+#priceTotal{color:#f60}
+.container .w-item #sDes .ico-right{width:9px;height:13px;overflow:hidden;position:absolute;bottom:0;right:2px;background:url(/Images/icon_you_com.png) 50% 50% no-repeat;background-size:9px 13px;-moz-transition:-moz-transform .1s ease-in;-webkit-transition:-webkit-transform .1s ease-in;-o-transition:-o-transform .1s ease-in;transition:transform .1s ease-in;-moz-transform:rotate(90deg);-moz-transform-origin:50% 50%;-webkit-transform:rotate(90deg);-webkit-transform-origin:50% 50%;-o-transform:rotate(90deg);-o-transform-origin:50% 50%;transform:rotate(90deg);transform-origin:50% 50%}
+.container .w-item #sDes .return{-moz-transform:rotate(270deg);-moz-transform-origin:50% 50%;-webkit-transform:rotate(270deg);-webkit-transform-origin:50% 50%;-o-transform:rotate(270deg);-o-transform-origin:50% 50%;transform:rotate(270deg);transform-origin:50% 50%}
+.conlist{padding:10px}
+.conlist dt{float:left}
+.conlist dd{position:relative;overflow:hidden}
+.in-item{line-height:44px}
+.in-item dt{float:left;width:56px}
+.in-item dd{position:relative;overflow:hidden;padding:0 15px 0 5px}
+.in-item dd span{display:block;text-align:right;color:#9ea5ac}
+.in-item dd span.writeok{color:#1a9ed9}
+.icon-right{width:9px;height:13px;overflow:hidden;position:absolute;right:2px;top:15px;background:url(/Images/icon_you_com.png) no-repeat;background-size:9px 13px}
+.in-item dd input{ width:100%;margin-right:-15px;height:44px;border:0;background:0;color:#1a9ed9;outline:0;-webkit-box-shadow:none;border-radius:0;}
+.writeok,.in-item dd input.writeok{color:#1a9ed9}
+.in-item dd .opa{-webkit-appearance:button;opacity:.01;width:100%;height:100%;position:absolute;top:0;left:0}
+.in-item-number dt{line-height:44px;float:left;width:25%}
+.in-item-number dd{text-align:right}
+.in-item-number dd span.btn{background:url(/Images/icon_anniu_com.png) no-repeat;background-size:50px 75px;display:inline-block;width:25px;height:25px;margin:10px 0 0}
+.in-item-number dd span.btn[class="btn"]:active{background-position:0 -25px}
+.in-item-number dd span.mousedown{background-position:0 -25px}
+.in-item-number dd span.enabled{background-position:0 -50px}
+#reduceP{background-position:-25px 0}
+#reduceP.btn[class="btn"]:active{background-position:-25px -25px}
+#reduceP.mousedown{background-position:-25px -25px}
+#reduceP.enabled{background-position:-25px -50.5px}
+.in-item-number dd input.ipt-numbers{width:50px;height:28px;text-align:center;background-color:White;color:#1a9ed9;outline:0;border:1px solid #a6a6a6;margin:7px 5px 0;position:relative;vertical-align:top;background:no-repeat 33px center;background-size:1px 14px}
+.in-item-number dd input.notice{background-image:url(/Images/cursor.gif)}
+.in-item-number dd input.active{box-shadow:1px 1px 1px #ccc inset;background-color:White}
+.p-tips{color:#fe8435;font-size:12px;margin:10px 0 10px 0;line-height:20px;padding-left:10px}
+.qfan{position:absolute;left:8px;top:1px;background:#f60;color:#fff;border-radius:5px;display:inline-block;padding:0 2px;font-size:10px;line-height:16px}
+.qminu{position:absolute;left:8px;top:1px;background:#7eafc7;color:#fff;border-radius:5px;display:inline-block;padding:0 2px;font-size:10px;line-height:16px}
+.qtips_div{position:absolute;margin:0 10px;padding:10px;border-radius:5px;background:#4d5762;color:#fff;line-height:1.5em;z-index:1000;opacity:.9;display:none}
+.qtips_div .attr{position:absolute;border-bottom:transparent 6px solid;border-left:transparent 6px dashed;border-top:#4d5762 6px dashed;border-right:transparent 6px dashed;bottom:0;left:10px;margin-bottom:-12px}
+.order-btn{height:44px;line-height:44px;margin:10px 10px 20px;font-size:18px;text-align:center;color:#fff;background:#fe932b;box-shadow:0 1px 1px #b5b3b2;border-radius:4px;border:1px solid #f3773d;border-bottom:0}
+.order-btn input{width:100%;height:40px;border:0;background:0;color:#fff}
+
+.order_un
+{
+    color: #eeeeee !important; 
+background: none repeat scroll 0% 0% #cccccc !important;
+border-color: #666666 !important;
+}
+
+
+.disabled{background-image:-webkit-gradient(linear,left top,left bottom,from(#d6d6d6),to(#cbcbcb));background-image:-webkit-linear-gradient(#d6d6d6,#cbcbcb);background-image:-moz-linear-gradient(#d6d6d6,#cbcbcb);background-image:-ms-linear-gradient(#d6d6d6,#cbcbcb);background-image:-o-linear-gradient(#d6d6d6,#cbcbcb);background-image:linear-gradient(#d6d6d6,#cbcbcb)}
+#calDiv{display:none;position:absolute;width:100%;top:43px;z-index:1;
+        width-max: 620px;
+position: absolute;
+z-index: 41;
+background-color: #EBEBEB;
+
+        
+        }
+.sel-tip{font-size:12px;padding:0 10px 10px}
+.sel-tip h6{font-weight:700;line-height:2em}
+.order-state{padding:10px}
+.state{width:55px;height:50px;display:block;margin:5px auto 10px auto;background:url(/Images/success.png) no-repeat;background-size:41px 50px}
+.fail{background-image:url(/Images/error.png);background-size:55px 43px}
+.order-state .success{font-size:15px}
+.order-state p{line-height:1.5em;color:#434d59}
+.order-state p.split{margin-top:5px;padding-top:5px;border-top:1px dotted #ccc}
+.order-state p.split font{color:#F60}
+.order-state p.f60{color:#fe8435}
+.order-state p.f60 a{color:#fe8435}
+.order-info{padding:0 10px 0 0}
+.order-info a{display:block;padding:10px;color:#333;background:url(/Images/icon_you.png) no-repeat right center;background-size:9px 13px}
+.order-info a:hover{text-decoration:none}
+.reHotelList{overflow:hidden}
+.reHotelList .title{width:155px;height:25px;line-height:25px;background-color:#ff8d43;margin:0 0 5px 0;color:White;font-size:12px;text-indent:10px;position:relative}
+.reHotelList .title:after{content:"";display:block;position:absolute;right:0;top:0;width:0;height:0;border-bottom:12.5px solid transparent;border-top:12.5px solid transparent;border-right:12.5px solid white;font-size:0;line-height:0}
+.reHotelList .hotelist{width:100%;overflow:hidden;margin-bottom:10px}
+.reHotelList .hotelist .hotel{width:32%;float:left;-border:1px solid #c7d2dc;margin-right:2%}
+.reHotelList .hotelist .hotel:last-child{margin-right:0}
+.reHotelList .hotelist .hotel .hotelpic{width:100%;height:75px;position:relative}
+.reHotelList .hotelist .hotel .hotelpic img{width:100%;height:100%}
+.reHotelList .hotelist .hotel .hotelpic .info{position:absolute;top:0;left:0;width:85%;height:20px;line-height:20px;color:White;font-size:10px;text-indent:5px;z-index:3;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.reHotelList .hotelist .hotel .hotelpic .info-bg{position:absolute;top:0;left:0;width:85%;height:20px;background-color:black;opacity:.5;z-index:2}
+.reHotelList .hotelist .hotel .hoteldetail{border:1px solid #c7d2dc;border-style:none solid solid;padding-bottom:5px}
+.reHotelList .hotelist .hotel .hoteldetail .name{line-height:17px;height:34px;font-size:12px;color:#434e5a;padding:5px 5px 0;overflow:hidden;text-overflow:ellipsis}
+.reHotelList .hotelist .hotel .hoteldetail .price{font-size:18px;font-weight:bold;text-align:center}
+.reHotelList .hotelist .hotel .hoteldetail .price .font12{color:#9ea5ac}
+.reHotelList .hotelist .hotel .hoteldetail .maxCashMoney,.reHotelList .hotelist .hotel .hoteldetail .distance{font-size:10px;color:#434d59;text-align:center}
+.reHotelList .hotelist .hotel .hoteldetail .maxCashMoney font{color:#ff6500}
+.reHotelList .hotelist .hotel .hoteldetail .distance font{color:#0065cc}
+.price{font-size:16px;color:#f60}
+.show-btn{width:100%;height:41px;display:block;text-align:center;color:#fff;line-height:41px;font-size:18px;border:1px solid #4ba5ff;border-radius:5px;background-color:#4fa3f7;background-image:-webkit-gradient(linear,left top,left bottom,from(#76bbff),to(#28e));background-image:-webkit-linear-gradient(#76bbff,#28e);background-image:-moz-linear-gradient(#76bbff,#28e);background-image:-ms-linear-gradient(#76bbff,#28e);background-image:-o-linear-gradient(#76bbff,#28e);background-image:linear-gradient(#76bbff,#28e)}
+.down-ad{padding:10px;font-size:12px}
+.down-ad dl{padding:10px 0}
+.down-ad dt{float:left;width:40px;height:40px;margin:3px 5px 0 0}
+.down-ad dd{position:relative;overflow:hidden;color:gray}
+.app-down-ad{height:70px;background:#efefef url("/Images/appDown_ad.jpg") no-repeat left bottom;background-size:111px 69.5px;margin:-10px 10px 10px;padding-left:60px}
+.app-down-ad dl{position:relative}
+.app-down-ad dt{text-align:center;padding:10px 70px 10px 0}
+.app-down-ad dt h5{font-size:14px;line-height:30px}
+.app-down-ad dt span{color:#fe7801}
+.app-down-ad dt p{color:#434e5a;font-size:10px}
+.app-down-ad dd{position:absolute;right:10px;top:23px}
+.app-down-ad dd .down-btn{height:24px;border-radius:3px;color:#fff;font-size:12px;line-height:24px;padding:0 5px;display:inline-block;background:#ff8533}
+.marginTop{margin-top:-15px;height:45px}
+.borderTop{border-top:1px dashed #ccc}
+img {
+max-width: 100%;
+border: none;
+margin-bottom: 8px;
+}
+
+
+.loading {
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    left: 50%;
+    margin-left: -70px;
+    bottom: 50px;
+    width: 140px;
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-size: 13px;
+    color: #FFF;
+    border-radius: 5px;
+    z-index: 99;
+    display:none;
+}

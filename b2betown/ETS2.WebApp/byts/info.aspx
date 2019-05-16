@@ -1,0 +1,173 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="info.aspx.cs" Inherits="ETS2.WebApp.byts.info" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="all" />
+    <title>会员中心 - 北京青年旅行社股份有限公司 - 总社 BYTS.cn</title>
+    <meta name="description" content="介绍" />
+    <meta name="keywords" content="关键词" />
+    <link href="style/byts2013.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="/Styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+    <style type="text/css">
+        .byts_menu_1000 a
+        {
+            color: #FFFDFE;
+            display: block;
+            font-size: 14px;
+            height: 30px;
+            padding: 0 17px 0 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="byts_top_1000">
+        <div class="byts_top_nr_1000">
+            <div class="logo">
+                <a href="#">
+                    <img src="i/logo.gif" alt="" /></a>
+            </div>
+            <div class="top1">
+                嗨，欢迎来到北青旅总社！ <a href="#">请登录</a> <span><a href="#">免费注册</a></span> <span><a href="#">
+                    青旅动态</a></span> <span><a href="#">北青品牌</a></span> <span class="shoucang"><a href="#">
+                        收藏网站</a></span> <a href="#">网站导航</a>
+            </div>
+            <div class="mall_top_so_1000">
+                <div class="mall_top_so1" onmouseout="this.className='mall_top_so2_1000'" onmouseover="this.className='mall_top_so2_1000'">
+                    <label for="mq" style="visibility: visible;">
+                        搜索 产品名称/品牌</label>
+                    <input value="" type="text" maxlength="40" tabindex="9" id="mq" name="searchName">
+                    <button type="submit" id="J_MallSearchBtn">
+                        搜索<s></s></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="byts_menu_1000">
+        <div class="byts_menu_1000_nr">
+            <ul>
+                <li><a target="_blank" href="http://www.byts.cn/">首页</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/byts_project.jsp">青旅成团</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/channel.jsp?aspect_type=0">国内旅游</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/channel.jsp?aspect_type=1">出境旅游</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/channel.jsp?aspect_type=2">周边旅游</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/ziyouxing/">自由行</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/zhuanti/youlun/">邮轮游</a></li>
+                <li><a target="_blank" href="http://www.byts.cn/zhuanti/gongsi">公司旅游</a></li>
+            </ul>
+            <p class="fenbu">
+                <a target="_blank" href="http://www.byts.cn/store_all_list.jsp">北青门市分布</a></p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="inner">
+            <div style="margin-bottom: 6px">
+                <h1>
+                    ￥<%=price%>起 --
+                    <%=titile%></h1>
+            </div>
+            <p>
+                <strong><span style="color: #ff0000;">
+                    <img title="u6.jpg" src="<%=imgurl %>"></span> </strong>
+            </p>
+            <%-- <div class="row semiLargeBottomMargin">
+                <small class="darkgray">vcTrip.com微旅行<sup>®</sup> 精选推荐</small>
+            </div>--%>
+            <br>
+            <p>
+                <strong><span style="font-size: medium;">￥<%=price%>起 --
+                    <%=titile%></span> </strong>
+            </p>
+            <p>
+                <%=contxt%></p>
+            <p>
+                <strong>咨询电话：</strong><span style="font-size: medium; font-family: 'arial black', 'avant garde';"><%=phone %>
+                    &nbsp;</span></p>
+            <br>
+        </div>
+    </div>
+    <div class="foot_1000">
+        <div class="foot_1000_nr">
+            <div class="txtnr">
+                <h1>
+                    旅游常见问题</h1>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=1">青旅独立成团产品的优势</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=2">纯玩是什么意思？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=3">单房差是什么意思？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=4">双飞、双卧都是什么意思？</a></p>
+            </div>
+            <div class="txtnr">
+                <h1>
+                    付款和发票</h1>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=5 ">签约可以刷卡吗？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=6 ">付款方式有哪些？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=7 ">怎么网上支付？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=8 ">如何获取发票？</a></p>
+            </div>
+            <div class="txtnr">
+                <h1>
+                    签署旅游合同</h1>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=9">有旅游合同范本下载吗？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=10">门市地址在哪里？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=11">能传真签合同吗？</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=12">可以不签合同吗？</a></p>
+            </div>
+            <div class="txtnr">
+                <h1>
+                    会员功能</h1>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=13">会员独享权利</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=14">如何成为会员</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=15">会员积分兑换</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=16">会员如何获取积分</a></p>
+            </div>
+            <div style="border-right: 0;" class="txtnr">
+                <h1>
+                    旅游其他事项</h1>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=17">签证相关问题解答</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=18">旅游保险相关问题</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=19">退款问题</a></p>
+                <p>
+                    <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=20">旅途中紧急状况处理</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="foot_1000_a">
+        <p>
+            <a target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=25">关于青旅</a><span>|</span><a
+                target="_blank" href="http://www.byts.cn/article_show.jsp?article_act_id=26">青旅招聘</a><span>|</span><a
+                    target="_blank" href="http://nt3.uedoc.com/T3_work/login.jsp">进入T3系统</a><span>|</span><a
+                        target="_blank" href="http://www.byts.cn/store_all_list.jsp">营业网点分布</a></p>
+        <p>
+            中国旅游协会理事单位<span>|</span>北京市旅游协会理事单位<span>|</span>中国国家旅游局特许经营中国公民出境旅游组团社</p>
+        <p>
+            版权所有 &copy; 1997-2013 北京青年旅行社股份有限公司总社 www.byts.cn 经营许可证 L-BJ-GJ00060 京ICP证041363号
+            声明：本站内容未经许可不得转载!</p>
+        <div class="foot_1000_a_img">
+            <img alt="" src="http://www.byts.cn/i/index_foot.gif">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>百度导航</title>
+
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+<script type="text/javascript" src="/Scripts/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+    (function ($) {
+        $(function () {
+
+        });
+    })(jQuery);
+
+    function transitsend() {
+        var starstion = $("#starstion").val();
+        var endstion = $("#endstion").val();
+
+        transit.search(starstion, endstion);
+        //driving.clearResults();
+
+        //输出结果方案
+        var options = {
+            onSearchComplete: function (results) {
+                if (driving.getStatus() == BMAP_STATUS_SUCCESS) {
+                    // 获取第一条方案
+                    var plan = results.getPlan(0);
+
+                    // 获取方案的驾车线路
+                    var route = plan.getRoute(0);
+
+                    // 获取每个关键步骤,并输出到页面
+                    var s = [];
+                    for (var i = 0; i < route.getNumSteps(); i++) {
+                        var step = route.getStep(i);
+                        s.push((i + 1) + ". " + step.getDescription());
+                    }
+                    document.getElementById("results").innerHTML = s.join("<br/>");
+                } else {
+                    document.getElementById("results").innerHTML = "";
+                    document.getElementById("results").innerHTML = "对不起，没有查询到对应线路！";
+                }
+            }
+        };
+        var driving = new BMap.DrivingRoute(map, options);
+        transit.search(starstion, endstion);
+
+
+
+
+
+    }
+
+    function drivingsend() {
+        var starstion = $("#starstion").val();
+        var endstion = $("#endstion").val();
+
+        driving.search(starstion, endstion);
+        //transit.clearResults();
+
+        //输出结果方案
+        var options = {
+            onSearchComplete: function (results) {
+                if (driving.getStatus() == BMAP_STATUS_SUCCESS) {
+                    // 获取第一条方案
+                    var plan = results.getPlan(0);
+
+                    // 获取方案的驾车线路
+                    var route = plan.getRoute(0);
+
+                    // 获取每个关键步骤,并输出到页面
+                    var s = [];
+                    for (var i = 0; i < route.getNumSteps(); i++) {
+                        var step = route.getStep(i);
+                        s.push((i + 1) + ". " + step.getDescription());
+                    }
+                    document.getElementById("results").innerHTML = s.join("<br/>");
+                } else {
+                    document.getElementById("results").innerHTML = "";
+                    document.getElementById("results").innerHTML = "对不起，没有查询到对应线路！";
+                }
+            }
+        };
+        var driving = new BMap.DrivingRoute(map, options);
+        driving.search(starstion, endstion);
+    }
+
+
+
+
+    function confirm() {
+        var name = document.getElementById("info").innerHTML;
+        //window.close();
+        window.opener.document.getElementById("coordinate").value = name;
+        if (window.opener != undefined) {
+            //for chrome  
+            window.opener.returnValue = name;
+        }
+        else {
+            window.returnValue = name;
+        }  
+        window.close();
+    }
+
+</script>
+
+
+</head>
+<body style="font-size:12px;"><br>
+<div style="width:1000px;">
+
+<div style="width:220px;height:470px;float:left; background-color:#efefef; padding-left:10px;"><br>
+      查询：(请输入写字楼或附近标志性地名)<br>
+      <br>
+      目的地
+      <input name="starstion" type="text" id="starstion" size="15">
+	   <br>
+<br>
+坐标:<div id="results" style="font-size:13px;margin-top:10px;float:left; width:100%;"></div>
+ <div id="info" style="width:100%;"></div>
+ <div id="sub" style="width:100%; display:none;" >
+ 	<label>
+ 	<input type="submit" name="bottom" onClick="confirm()" value="   确认使用此坐标  ">
+ 	</label>
+ </div>
+ <br>
+<br>
+获取位置流程：<br><br>
+第一步：目的地 输入或者拖动地图查找位置<br>
+第二步：当确定位置后，鼠标点击位置获取坐标<br>
+第三部：复制此坐标或，点击确认使用此坐标
+
+
+    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none"></div>
+
+    <br>
+    <!--   <br>
+      <input name="endstion" type="hidden" id="endstion" value="" size="15" >
+    <br>
+    <br>
+    <input type="button" name="button" id="button" value="  公  交  " onClick="transitsend()">
+    <input type="button" name="button" id="button" value="  自  驾  " onClick="drivingsend()">
+    <br>
+    <br>
+   (提交后请稍等几秒，如果未显示出线路可能是未找到出发地)-->
+    
+</div>
+
+
+    <div style="width:750px;height:470px;border:1px solid gray;float:left; margin-left:5px;" id="container">
+    </div>  
+   
+    <br>
+    <br>
+   
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var map = new BMap.Map("container");
+    map.centerAndZoom(new BMap.Point(116.403839, 39.915182), 14);
+    map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
+    map.addControl(new BMap.ScaleControl());                    // 添加比例尺控件
+    map.addControl(new BMap.OverviewMapControl());              //添加缩略地图控件
+    map.addControl(new BMap.MapTypeControl({ anchor: BMAP_ANCHOR_TOP_RIGHT })); //增加 卫星，地图标示
+
+    var marker = new BMap.Marker(new BMap.Point(116.403839, 39.915182));  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+
+    var opts = {		//信息窗口
+        width: 250,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title: "天安门"  // 信息窗口标题
+    }
+    var infoWindow = new BMap.InfoWindow("天安门", opts);  // 创建信息窗口对象
+    // map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+
+    marker.addEventListener("click", function () {         // 点击打开信息窗口
+        this.openInfoWindow(infoWindow);
+    });
+
+
+    var transit = new BMap.TransitRoute(map, {		//公交显示坐车详情
+        renderOptions: { map: map, panel: "results" }
+    });
+
+
+    map.addEventListener("click", function (e) {					//显示坐标
+        document.getElementById("info").innerHTML = e.point.lng + ", " + e.point.lat;
+        document.getElementById("sub").style.display = 'block';
+    });
+
+    var driving = new BMap.DrivingRoute(map, { renderOptions: { map: map, panel: "results", autoViewport: true} }); //驾车
+
+
+
+    //起始输入建议框
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+    {"input": "starstion"
+    , "location": map
+});
+
+ac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
+    var str = "";
+    var _value = e.fromitem.value;
+    var value = "";
+    if (e.fromitem.index > -1) {
+        value = _value.province + _value.city + _value.district + _value.street + _value.business;
+    }
+    str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+    value = "";
+    if (e.toitem.index > -1) {
+        _value = e.toitem.value;
+        value = _value.province + _value.city + _value.district + _value.street + _value.business;
+    }
+    str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+    G("searchResultPanel").innerHTML = str;
+
+
+
+});
+
+var myValue;
+ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+
+    var _value = e.item.value;
+    myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+    G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+    setPlace();
+
+});
+
+function setPlace() {
+    map.clearOverlays();    //清除地图上所有覆盖物
+    function myFun() {
+        var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+        map.centerAndZoom(pp, 18);
+        map.addOverlay(new BMap.Marker(pp));    //添加标注
+
+    }
+    var local = new BMap.LocalSearch(map, { //智能搜索
+        onSearchComplete: myFun
+    });
+    local.search(myValue);
+}
+
+</script>

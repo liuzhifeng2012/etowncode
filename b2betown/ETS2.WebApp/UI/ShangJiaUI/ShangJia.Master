@@ -1,0 +1,118 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ShangJia.master.cs" Inherits="ETS2.WebApp.UI.ShangJiaUI.ShangJia" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <%=Scenic_name%></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <link href="/Styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/Styles/common.css" />
+    <script src="/Scripts/common.js" type="text/javascript"></script>
+    <link href="/Scripts/Impromptu.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-impromptu.4.0.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        $(function () {
+
+            //根据商家id得到商家提交订单设置信息
+            $.post("/JsonFactory/DirectSellHandler.ashx?oper=getdirectsellset", { comid: $("#hid_comid").trimVal() }, function (data) {
+                data = eval("(" + data + ")");
+                if (data.type == 1) {
+                    $.prompt("获取直销信息出错");
+                    return;
+                }
+                if (data.type == 100) {
+                    if (data.msg != null) {
+
+//                        $.post("/JsonFactory/DirectSellHandler.ashx?oper=getfileupload", { id: data.msg.Logo }, function (dataa) {
+//                            dataa = eval("(" + dataa + ")");
+//                            if (dataa.type == 1) {
+
+//                            }
+//                            if (dataa.type == 100) {
+//                                $("#imglogo").attr("src", $("#hid_fileUrl").trimVal() + dataa.msg.Relativepath);
+
+//                            }
+//                        })
+
+                        $(".header .logo").css("background-image", "url(" + data.msg.Logo + ")");
+                        //$(".header .des").html(data.msg.Title);
+                        //$(".header .num li a").eq(0).html(data.msg.Title + "官方授权");
+                        if (data.msg.Service_Phone != "") {
+                            $(".header .num li a").eq(1).html("|客服电话" + data.msg.Service_Phone);
+                        }
+                        $(".copyright-address").html(data.msg.Copyright);
+                    }
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <div class="topbar">
+      <div class="grid-990 topbar-wrap fn-clear">
+ 
+        <ul class="topmenu">
+        <%if (AccountId == "")
+            { %>
+		 <li class="topmenu-item topmenu-item-first"><a href="/ui/shangjiaui/ProductList.aspx" title="预订" seed="topmenuItem-link" smartracker="on">在线预订</a> </li>
+          <li class="topmenu-item" >
+          <a href="/V/login.aspx"  title="登录" seed="topmenuItem-link" smartracker="on">会员登录</a><b class="split"> - </b> <a href="/V/reg.aspx"  title="注册" seed="topmenuItem-linkT1" smartracker="on">会员注册</a></li>
+           <%--<li class="topmenu-item"><a href="/V/card.aspx"  title="开卡" seed="topmenuItem-linkT1" smartracker="on">开卡</a>--%>
+           <%--</li>
+           <li class="topmenu-item">
+              <a href="/V/RechargeWeb.aspx"  title="充值" seed="topmenuItem-linkT1" smartracker="on">充值</a>
+           </li>--%>
+          <% }
+            else
+            {%>
+            <li class="topmenu-item topmenu-item-first"><a href="/ui/shangjiaui/ProductList.aspx" title="预订" seed="topmenuItem-link" smartracker="on">在线预订</a> </li>
+            <li class="topmenu-item" > 尊敬的会员：<%=AccountName %> 您好，今天是：<%=Today %> </li>
+             <%--<li class="topmenu-item" id="J-topmenu-dropdown" ><a href="/V/"  seed="JTopmenuDropdown-link" smartracker="on">我的账户</a> </li>--%>
+             <li class="topmenu-item" ><a href="/V/Out.aspx"  seed="topmenuItem-linkT1k" smartracker="on">退出</a> </li>
+          <%} %>
+		  
+        </ul>
+      </div>
+    </div>
+        <div id="site-nav">
+        </div>
+        <div class="header">
+            <div class="wrap header-top cl">
+                <div class="title fl">
+                    <% =Logourl%>
+                </div>
+                <ul class="num fr" style="display: block;">
+                                            <%=Com_name%> |
+                        <%=Service_Phone%></li>
+                </ul> 
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="copyright">
+            <div class="wrap copyright-top cl">
+                <div class="copyright-address">
+                <%=Copyright%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="hid_comid" value="<%=comid %>" />
+    <input type="hidden" id="hid_Scenic_name" value="<%=Scenic_name%>" />
+    <input type="hidden" id="hid_Scenic_intro" value="<%=Scenic_intro%>" />
+    <input type="hidden" id="hid_proid" value="<%=proid %>" />
+    <input type="hidden" id="hid_ordertype" value="<%=ordertype %>" />
+    <input type="hidden" id="hid_proname" value="<%=proname %>" />
+    <input type="hidden" id="hid_fileUrl" value="<%=fileUrl %>" />
+    <input type="hidden" id="hid_uid" value="<%=AccountId %>" />
+    
+    </form>
+</body>
+</html>

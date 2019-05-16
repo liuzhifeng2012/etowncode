@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    color: #333;
+    font-size: 75%;
+    font-family: Microsoft YaHei,Helvetica,Verdana,tahoma,Arial,sans-serif;
+}
+li {
+    list-style: none outside none;
+}
+img {
+    border: medium none;
+    max-width: 100%;
+}
+.main {
+    width: 100%;
+    max-width: 720px;
+    margin: 0px auto 0;
+}
+.slider {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+.slider-pic {
+    overflow: hidden;
+}
+.slider-pic li {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+.slider-pic li a {
+    display: block;
+}
+.slider-pic li img {
+    display: block;
+    width: 100%;
+    height: 150px;
+}
+
+.slider-bg {
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.3);
+    height: 35px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+.slider-tit {
+    width: 62.5%;
+    height: 35px;
+    margin-left: 1.38889%;
+    line-height: 35px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 2;
+    overflow: hidden;
+}
+.slider-tit li {
+    line-height: 35px;
+}
+
+.slider-tit li a {
+    display: block;
+    color: #FFF;
+    font-size: 1.33333em;
+    text-decoration: none;
+}
+.slider-btn {
+    float: right;
+    margin-right: 1.38889%;
+    padding: 1.52778% 0px;
+    position: absolute;
+    z-index: 3;
+    right: 0px;
+    bottom: 0px;
+}
+
+.slider-btn li {
+    float: left;
+    width: 13px;
+    height: 13px;
+    text-indent: -9999px;
+    border-radius: 50%;
+    background: none repeat scroll 0% 0% #E8E8E8;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.slider-btn li.on {
+    background: none repeat scroll 0% 0% #FFF;
+}
+.menu-wrap {
+    width: 100%;
+    background: none repeat scroll 0% 0% #000;
+    padding: 10px 0px 0px;
+    overflow: hidden;
+}
+.col-box {
+    float: left;
+    width: 48.6111%;
+    padding: 0px 0.694444%;
+}
+.col-box a {
+    display: block;
+    margin-bottom: 5px;
+}
+.tags0{background-color:#f1c40f}
+.tags1{background-color:#00DCDC}
+.tags2{background-color:#F48221}
+.tags3{background-color:#FF6B6B}
+.tags4{background-color:#1BC266}
+.tags5{background-color:#23BBEA}
+.tags6{background-color:#1BC266}
+.tags7{background-color:#DD455A}
+.tags8{background-color:#0066FF}
+.tags9{background-color:#CC6633}
+
+.daohangbig{
+width:350px;
+height:350px;
+text-align:center;
+}
+.daohangsm{
+width:350px;
+height:172px;
+text-align:center;
+}
+
+/* ÐÂÊÖ»¬¶¯banner*/
+.box_swipe {
+    overflow: hidden;
+    position: relative;
+}
+.box_swipe {
+    overflow: hidden;
+    position: relative;
+}
+
+.box_swipe > ol {
+    height: 20px;
+    position: relative;
+    z-index: 10;
+    margin-top: -25px;
+    text-align: right;
+    padding-right: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.box_swipe > ol {
+    height: 20px;
+    position: relative;
+    z-index: 10;
+    margin-top: -25px;
+    text-align: right;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.box_swipe > ol > li {
+    display: inline-block;
+    margin: 5px 0px;
+    width: 8px;
+    height: 8px;
+    background-color: #757575;
+    border-radius: 8px;
+}
+.box_swipe > ol > li {
+    display: inline-block;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #757575;
+    border-radius: 10px;
+}
+
+.box_swipe>ol>li.on{
+	background-color:#ffffff;
+}
